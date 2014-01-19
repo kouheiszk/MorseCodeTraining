@@ -26,6 +26,9 @@
 		48A5CD09188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */; };
 		48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */; };
 		48A5CD10188BC297000D5841 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CD0F188BC297000D5841 /* AVFoundation.framework */; };
+		48A5CD17188C2B96000D5841 /* MCTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTViewController.m */; };
+		48A5CD1A188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
+		48A5CD1B188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,8 @@
 		48A5CD06188A828B000D5841 /* MCTMorseCodePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTMorseCodePlayer.h; sourceTree = "<group>"; };
 		48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTMorseCodePlayer.m; sourceTree = "<group>"; };
 		48A5CD0F188BC297000D5841 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		48A5CD18188C2F54000D5841 /* MCTSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTSettingViewController.h; sourceTree = "<group>"; };
+		48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTSettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +133,6 @@
 				48A5CCD41882CEE3000D5841 /* MCTAppDelegate.h */,
 				48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */,
 				48A5CCD71882CEE3000D5841 /* Main.storyboard */,
-				48A5CCDA1882CEE3000D5841 /* MCTViewController.h */,
-				48A5CCDB1882CEE3000D5841 /* MCTViewController.m */,
 				48A5CCDD1882CEE3000D5841 /* Images.xcassets */,
 				48A5CCCC1882CEE3000D5841 /* Supporting Files */,
 			);
@@ -168,6 +171,7 @@
 		48A5CCFA188433AD000D5841 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				48A5CD11188C2B4C000D5841 /* ViewController */,
 				48A5CD05188A8256000D5841 /* Player */,
 				48A5CCFB188433BC000D5841 /* Extensions */,
 			);
@@ -190,6 +194,17 @@
 				48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */,
 			);
 			name = Player;
+			sourceTree = "<group>";
+		};
+		48A5CD11188C2B4C000D5841 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48A5CCDA1882CEE3000D5841 /* MCTViewController.h */,
+				48A5CCDB1882CEE3000D5841 /* MCTViewController.m */,
+				48A5CD18188C2F54000D5841 /* MCTSettingViewController.h */,
+				48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A5CD1A188C2F54000D5841 /* MCTSettingViewController.m in Sources */,
 				48A5CCD21882CEE3000D5841 /* main.m in Sources */,
 				48A5CCDC1882CEE3000D5841 /* MCTViewController.m in Sources */,
 				48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */,
@@ -302,7 +318,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A5CD1B188C2F54000D5841 /* MCTSettingViewController.m in Sources */,
 				48A5CCF11882CEE4000D5841 /* MorseCodeTrainingTests.m in Sources */,
+				48A5CD17188C2B96000D5841 /* MCTViewController.m in Sources */,
 				48A5CD09188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */,
 				48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */,
 			);
