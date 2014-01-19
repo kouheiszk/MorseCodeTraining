@@ -22,6 +22,10 @@
 		48A5CCEF1882CEE4000D5841 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCED1882CEE4000D5841 /* InfoPlist.strings */; };
 		48A5CCF11882CEE4000D5841 /* MorseCodeTrainingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCF01882CEE4000D5841 /* MorseCodeTrainingTests.m */; };
 		48A5CCFE188434F7000D5841 /* NSString+MorseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */; };
+		48A5CD08188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */; };
+		48A5CD09188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */; };
+		48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */; };
+		48A5CD10188BC297000D5841 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CD0F188BC297000D5841 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +60,9 @@
 		48A5CCF01882CEE4000D5841 /* MorseCodeTrainingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MorseCodeTrainingTests.m; sourceTree = "<group>"; };
 		48A5CCFC188434F7000D5841 /* NSString+MorseCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MorseCode.h"; sourceTree = "<group>"; };
 		48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MorseCode.m"; sourceTree = "<group>"; };
-		48A5CD0318843E20000D5841 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		48A5CD06188A828B000D5841 /* MCTMorseCodePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTMorseCodePlayer.h; sourceTree = "<group>"; };
+		48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTMorseCodePlayer.m; sourceTree = "<group>"; };
+		48A5CD0F188BC297000D5841 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A5CD10188BC297000D5841 /* AVFoundation.framework in Frameworks */,
 				48A5CCC81882CEE3000D5841 /* CoreGraphics.framework in Frameworks */,
 				48A5CCCA1882CEE3000D5841 /* UIKit.framework in Frameworks */,
 				48A5CCC61882CEE3000D5841 /* Foundation.framework in Frameworks */,
@@ -105,7 +112,7 @@
 		48A5CCC41882CEE3000D5841 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				48A5CD0318843E20000D5841 /* AudioUnit.framework */,
+				48A5CD0F188BC297000D5841 /* AVFoundation.framework */,
 				48A5CCC51882CEE3000D5841 /* Foundation.framework */,
 				48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */,
 				48A5CCC91882CEE3000D5841 /* UIKit.framework */,
@@ -161,6 +168,7 @@
 		48A5CCFA188433AD000D5841 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				48A5CD05188A8256000D5841 /* Player */,
 				48A5CCFB188433BC000D5841 /* Extensions */,
 			);
 			name = Classes;
@@ -173,6 +181,15 @@
 				48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		48A5CD05188A8256000D5841 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				48A5CD06188A828B000D5841 /* MCTMorseCodePlayer.h */,
+				48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */,
+			);
+			name = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +293,7 @@
 				48A5CCD21882CEE3000D5841 /* main.m in Sources */,
 				48A5CCDC1882CEE3000D5841 /* MCTViewController.m in Sources */,
 				48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */,
+				48A5CD08188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */,
 				48A5CCFE188434F7000D5841 /* NSString+MorseCode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +303,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				48A5CCF11882CEE4000D5841 /* MorseCodeTrainingTests.m in Sources */,
+				48A5CD09188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */,
+				48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

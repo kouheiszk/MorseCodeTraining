@@ -8,8 +8,11 @@
 
 #import "MCTViewController.h"
 
-@interface MCTViewController ()
+#import "NSString+MorseCode.h"
+#import "MCTMorseCodePlayer.h"
 
+@interface MCTViewController ()
+@property (nonatomic) MCTMorseCodePlayer *player;
 @end
 
 @implementation MCTViewController
@@ -17,13 +20,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    _player = [MCTMorseCodePlayer new];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)play:(id)sender {
+    [self.player reset];
+    NSString *morseString = @"OSO OSO OSO CQ CQ DE JA2UIE";
+    [self.player playMorse:[morseString morseStringWithString]];
 }
 
 @end

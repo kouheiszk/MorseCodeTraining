@@ -15,31 +15,65 @@
 
 #pragma mark - public
 
-+ (NSString *)stringFromMorseCodeArray:(NSArray *)morseArray
++ (NSString *)morseStringWithString:(NSString *)morseString
 {
-    NSMutableString *morseString = [NSMutableString new];
-    for (NSString *code in morseArray) {
-        NSAssert([[[NSString codeMap] allKeysForObject:code] count], @"Code not found, did you make a typo?");
-        NSString *character = [[NSString codeMap] allKeysForObject:code][0];
-        [morseString appendString:character];
+    NSLog(@"Incoming message: %@", morseString);
+    NSMutableString *morseStrings = [NSMutableString new];
+
+    NSRange range;
+    range.length = 1;
+    range.location = 0;
+    for (int i = 0; i < morseString.length; ++i) {
+        range.location = i;
+        NSString *character = [morseString substringWithRange:range];
+        NSString *morseString = [NSString morseCodeForCharacter:character];
+        if (i != 0 && ![character isEqualToString:@" "]) [morseStrings appendString:@" "];
+        [morseStrings appendString:morseString];
+        NSLog(@"Converting Character %@ to Code %@", character, morseString);
     }
 
-    return morseString;
+    return morseStrings;
 }
 
-+ (NSArray *)morseArrayFromString:(NSString *)morseString
++ (NSArray *)morseArrayWithString:(NSString *)morseString
 {
     NSLog(@"Incoming message: %@", morseString);
     NSMutableArray *morseArray = [NSMutableArray new];
 
-    for (int i = 0; i < morseString.length; i++) {
-        NSString *character = [NSString stringWithFormat:@"%c", [morseString characterAtIndex:i]];
+    NSRange range;
+    range.length = 1;
+    range.location = 0;
+    for (int i = 0; i < morseString.length; ++i) {
+        range.location = i;
+        NSString *character = [morseString substringWithRange:range];
         NSString *morseString = [NSString morseCodeForCharacter:character];
         NSLog(@"Converting Character %@ to Code %@", character, morseString);
         [morseArray addObject:morseString];
     }
 
     return morseArray;
+}
+
++ (NSString *)stringWithMorseArray:(NSArray *)morseArray
+{
+    NSMutableString *string = [NSMutableString new];
+    for (NSString *code in morseArray) {
+        NSAssert([[[NSString codeMap] allKeysForObject:code] count], @"Code not found, did you make a typo?");
+        NSString *character = [[NSString codeMap] allKeysForObject:code][0];
+        [string appendString:character];
+    }
+
+    return string;
+}
+
+- (NSString *)morseStringWithString
+{
+    return [[self class] morseStringWithString:self];
+}
+
+- (NSArray *)morseArrayWithString
+{
+    return [[self class] morseArrayWithString:self];
 }
 
 #pragma mark - private
@@ -64,7 +98,7 @@
 + (NSDictionary *)codeMap
 {
     return @{
-             @" ": @" ",
+             @" ": @"  ",
              @"A": @".-",
              @"B": @"-...",
              @"C": @"-.-.",
