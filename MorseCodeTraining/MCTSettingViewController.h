@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MCTSettingViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface MCTSettingViewController : UITableViewController
 
 @end

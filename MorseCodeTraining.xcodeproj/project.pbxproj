@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481258DE1897FE1700CE1A99 /* config@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258DD1897FE1700CE1A99 /* config@2x.png */; };
+		481258E01898004700CE1A99 /* config_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258DF1898004700CE1A99 /* config_filled@2x.png */; };
+		481258E318993AD000CE1A99 /* Receive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481258E218993AD000CE1A99 /* Receive.storyboard */; };
+		481258E818993D4B00CE1A99 /* MCTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 481258E718993D4B00CE1A99 /* MCTTabBarController.m */; };
+		481258EA18993D9F00CE1A99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481258E918993D9F00CE1A99 /* Main.storyboard */; };
 		48A5CCC61882CEE3000D5841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC51882CEE3000D5841 /* Foundation.framework */; };
 		48A5CCC81882CEE3000D5841 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */; };
 		48A5CCCA1882CEE3000D5841 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC91882CEE3000D5841 /* UIKit.framework */; };
 		48A5CCD01882CEE3000D5841 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCCE1882CEE3000D5841 /* InfoPlist.strings */; };
 		48A5CCD21882CEE3000D5841 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCD11882CEE3000D5841 /* main.m */; };
 		48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */; };
-		48A5CCD91882CEE3000D5841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCD71882CEE3000D5841 /* Main.storyboard */; };
-		48A5CCDC1882CEE3000D5841 /* MCTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTViewController.m */; };
+		48A5CCD91882CEE3000D5841 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCD71882CEE3000D5841 /* Setting.storyboard */; };
+		48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */; };
 		48A5CCDE1882CEE3000D5841 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCDD1882CEE3000D5841 /* Images.xcassets */; };
 		48A5CCE51882CEE4000D5841 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCE41882CEE4000D5841 /* XCTest.framework */; };
 		48A5CCE61882CEE4000D5841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC51882CEE3000D5841 /* Foundation.framework */; };
@@ -26,7 +31,7 @@
 		48A5CD09188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */; };
 		48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */; };
 		48A5CD10188BC297000D5841 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CD0F188BC297000D5841 /* AVFoundation.framework */; };
-		48A5CD17188C2B96000D5841 /* MCTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTViewController.m */; };
+		48A5CD17188C2B96000D5841 /* MCTReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */; };
 		48A5CD1A188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
 		48A5CD1B188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
 /* End PBXBuildFile section */
@@ -42,6 +47,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		481258DD1897FE1700CE1A99 /* config@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "config@2x.png"; sourceTree = "<group>"; };
+		481258DF1898004700CE1A99 /* config_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "config_filled@2x.png"; sourceTree = "<group>"; };
+		481258E218993AD000CE1A99 /* Receive.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Receive.storyboard; sourceTree = SOURCE_ROOT; };
+		481258E618993D4B00CE1A99 /* MCTTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTTabBarController.h; sourceTree = "<group>"; };
+		481258E718993D4B00CE1A99 /* MCTTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTTabBarController.m; sourceTree = "<group>"; };
+		481258E918993D9F00CE1A99 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		48A5CCC21882CEE3000D5841 /* MorseCodeTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorseCodeTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A5CCC51882CEE3000D5841 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -52,9 +63,9 @@
 		48A5CCD31882CEE3000D5841 /* MorseCodeTraining-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MorseCodeTraining-Prefix.pch"; sourceTree = "<group>"; };
 		48A5CCD41882CEE3000D5841 /* MCTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTAppDelegate.h; sourceTree = "<group>"; };
 		48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCTAppDelegate.m; sourceTree = "<group>"; };
-		48A5CCD81882CEE3000D5841 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		48A5CCDA1882CEE3000D5841 /* MCTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTViewController.h; sourceTree = "<group>"; };
-		48A5CCDB1882CEE3000D5841 /* MCTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCTViewController.m; sourceTree = "<group>"; };
+		48A5CCD81882CEE3000D5841 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Setting.storyboard; sourceTree = "<group>"; };
+		48A5CCDA1882CEE3000D5841 /* MCTReceiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTReceiveViewController.h; sourceTree = "<group>"; };
+		48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCTReceiveViewController.m; sourceTree = "<group>"; };
 		48A5CCDD1882CEE3000D5841 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		48A5CCE31882CEE4000D5841 /* MorseCodeTrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MorseCodeTrainingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A5CCE41882CEE4000D5841 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -95,6 +106,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		481258E118993A1500CE1A99 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				481258E918993D9F00CE1A99 /* Main.storyboard */,
+				481258E218993AD000CE1A99 /* Receive.storyboard */,
+				48A5CCD71882CEE3000D5841 /* Setting.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		481258E418993D0B00CE1A99 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				481258E618993D4B00CE1A99 /* MCTTabBarController.h */,
+				481258E718993D4B00CE1A99 /* MCTTabBarController.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		488A21151896C6E700775AB2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				481258E118993A1500CE1A99 /* Storyboards */,
+				488A21161896C6FE00775AB2 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		488A21161896C6FE00775AB2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				488A21171896C70500775AB2 /* icons */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		488A21171896C70500775AB2 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				481258DD1897FE1700CE1A99 /* config@2x.png */,
+				481258DF1898004700CE1A99 /* config_filled@2x.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
 		48A5CCB91882CEE3000D5841 = {
 			isa = PBXGroup;
 			children = (
@@ -130,9 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				48A5CCFA188433AD000D5841 /* Classes */,
-				48A5CCD41882CEE3000D5841 /* MCTAppDelegate.h */,
-				48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */,
-				48A5CCD71882CEE3000D5841 /* Main.storyboard */,
+				488A21151896C6E700775AB2 /* Resources */,
 				48A5CCDD1882CEE3000D5841 /* Images.xcassets */,
 				48A5CCCC1882CEE3000D5841 /* Supporting Files */,
 			);
@@ -171,6 +225,9 @@
 		48A5CCFA188433AD000D5841 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				48A5CCD41882CEE3000D5841 /* MCTAppDelegate.h */,
+				48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */,
+				481258E418993D0B00CE1A99 /* Common */,
 				48A5CD11188C2B4C000D5841 /* ViewController */,
 				48A5CD05188A8256000D5841 /* Player */,
 				48A5CCFB188433BC000D5841 /* Extensions */,
@@ -199,8 +256,8 @@
 		48A5CD11188C2B4C000D5841 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				48A5CCDA1882CEE3000D5841 /* MCTViewController.h */,
-				48A5CCDB1882CEE3000D5841 /* MCTViewController.m */,
+				48A5CCDA1882CEE3000D5841 /* MCTReceiveViewController.h */,
+				48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */,
 				48A5CD18188C2F54000D5841 /* MCTSettingViewController.h */,
 				48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */,
 			);
@@ -284,9 +341,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481258EA18993D9F00CE1A99 /* Main.storyboard in Resources */,
 				48A5CCDE1882CEE3000D5841 /* Images.xcassets in Resources */,
+				481258E01898004700CE1A99 /* config_filled@2x.png in Resources */,
 				48A5CCD01882CEE3000D5841 /* InfoPlist.strings in Resources */,
-				48A5CCD91882CEE3000D5841 /* Main.storyboard in Resources */,
+				48A5CCD91882CEE3000D5841 /* Setting.storyboard in Resources */,
+				481258E318993AD000CE1A99 /* Receive.storyboard in Resources */,
+				481258DE1897FE1700CE1A99 /* config@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +368,8 @@
 			files = (
 				48A5CD1A188C2F54000D5841 /* MCTSettingViewController.m in Sources */,
 				48A5CCD21882CEE3000D5841 /* main.m in Sources */,
-				48A5CCDC1882CEE3000D5841 /* MCTViewController.m in Sources */,
+				481258E818993D4B00CE1A99 /* MCTTabBarController.m in Sources */,
+				48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */,
 				48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */,
 				48A5CD08188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */,
 				48A5CCFE188434F7000D5841 /* NSString+MorseCode.m in Sources */,
@@ -320,7 +382,7 @@
 			files = (
 				48A5CD1B188C2F54000D5841 /* MCTSettingViewController.m in Sources */,
 				48A5CCF11882CEE4000D5841 /* MorseCodeTrainingTests.m in Sources */,
-				48A5CD17188C2B96000D5841 /* MCTViewController.m in Sources */,
+				48A5CD17188C2B96000D5841 /* MCTReceiveViewController.m in Sources */,
 				48A5CD09188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */,
 				48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */,
 			);
@@ -345,12 +407,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		48A5CCD71882CEE3000D5841 /* Main.storyboard */ = {
+		48A5CCD71882CEE3000D5841 /* Setting.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				48A5CCD81882CEE3000D5841 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Setting.storyboard;
 			sourceTree = "<group>";
 		};
 		48A5CCED1882CEE4000D5841 /* InfoPlist.strings */ = {
@@ -523,6 +585,7 @@
 				48A5CCF61882CEE4000D5841 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		48A5CCF71882CEE4000D5841 /* Build configuration list for PBXNativeTarget "MorseCodeTrainingTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +594,7 @@
 				48A5CCF91882CEE4000D5841 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

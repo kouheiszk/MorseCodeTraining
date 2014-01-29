@@ -1,26 +1,27 @@
 //
-//  MCTViewController.m
+//  MCTReceiveViewController.m
 //  MorseCodeTraining
 //
 //  Created by Suzuki Kouhei on 2014/01/12.
 //  Copyright (c) 2014年 Suzuki Kouhei. All rights reserved.
 //
 
-#import "MCTViewController.h"
+#import "MCTReceiveViewController.h"
 
 #import "NSString+MorseCode.h"
 #import "MCTMorseCodePlayer.h"
 
-@interface MCTViewController ()
+@interface MCTReceiveViewController ()
 @property (nonatomic) MCTMorseCodePlayer *player;
 @end
 
-@implementation MCTViewController
+@implementation MCTReceiveViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _player = [MCTMorseCodePlayer new];
+
+    _player = [[MCTMorseCodePlayer alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
