@@ -15,9 +15,42 @@
                     <view key="view" contentMode="scaleToFill" id="BLC-Sv-w8F">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ku-zU-EyU" userLabel="Player">
+                                <rect key="frame" x="0.0" y="405" width="320" height="109"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZoG-wX-vJj">
+                                        <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="BfB-km-zvf"/>
+                                            <barButtonItem image="back5s.png" id="HfP-JL-ivz"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="8Ey-P4-Uw5"/>
+                                            <barButtonItem image="back.png" id="4MF-vw-b8B"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="C9o-gi-y6B"/>
+                                            <barButtonItem image="play.png" id="n2g-ck-Drg">
+                                                <connections>
+                                                    <action selector="playButtonTapped:" destination="7df-lA-eVt" id="Lin-Xv-gf1"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="1eZ-mD-Hi8"/>
+                                            <barButtonItem image="next.png" id="OfG-Df-sjk"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="qk7-Fl-P44"/>
+                                            <barButtonItem title="2x" id="EIq-1a-t06"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="olk-kh-hE0"/>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="受信" id="NjW-Ba-E9J"/>
+                    <connections>
+                        <outlet property="playButton" destination="n2g-ck-Drg" id="pxU-9b-pPS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReX-Kf-5jF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -27,7 +60,7 @@
         <scene sceneID="fCI-Ut-rq2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q8i-g0-ICA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="受信" id="CMP-4p-7Du"/>
+                    <tabBarItem key="tabBarItem" title="受信" image="receive.png" id="CMP-4p-7Du"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KNQ-iO-2mE">
@@ -44,6 +77,13 @@
             <point key="canvasLocation" x="539" y="-253"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back.png" width="30" height="30"/>
+        <image name="back5s.png" width="30" height="30"/>
+        <image name="next.png" width="30" height="30"/>
+        <image name="play.png" width="30" height="30"/>
+        <image name="receive.png" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -12,6 +12,8 @@
 #import "MCTMorseCodePlayer.h"
 
 @interface MCTReceiveViewController ()
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *playButton;
 @property (nonatomic) MCTMorseCodePlayer *player;
 @end
 
@@ -30,7 +32,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)play:(id)sender {
+- (IBAction)playButtonTapped:(id)sender {
     [self.player reset];
     NSString *morseString = @"OSO OSO OSO CQ CQ DE JA2UIE";
     [self.player playMorse:[morseString morseStringWithString]];
