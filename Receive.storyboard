@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ku-zU-EyU" userLabel="Player">
-                                <rect key="frame" x="0.0" y="405" width="320" height="109"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ku-zU-EyU" userLabel="Player">
+                                <rect key="frame" x="0.0" y="409" width="320" height="109"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZoG-wX-vJj">
@@ -27,17 +27,17 @@
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="BfB-km-zvf"/>
                                             <barButtonItem image="back5s.png" id="HfP-JL-ivz"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="8Ey-P4-Uw5"/>
-                                            <barButtonItem image="back.png" id="4MF-vw-b8B"/>
+                                            <barButtonItem image="back_fill.png" id="4MF-vw-b8B"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="C9o-gi-y6B"/>
-                                            <barButtonItem image="play.png" id="n2g-ck-Drg">
+                                            <barButtonItem image="play_fill.png" id="n2g-ck-Drg">
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="7df-lA-eVt" id="Lin-Xv-gf1"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="1eZ-mD-Hi8"/>
-                                            <barButtonItem image="next.png" id="OfG-Df-sjk"/>
+                                            <barButtonItem image="next_fill.png" id="OfG-Df-sjk"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="qk7-Fl-P44"/>
-                                            <barButtonItem title="2x" id="EIq-1a-t06"/>
+                                            <barButtonItem image="repeat.png" id="EIq-1a-t06"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="olk-kh-hE0"/>
                                         </items>
                                     </toolbar>
@@ -46,6 +46,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cmo-jS-gwh" firstAttribute="top" secondItem="4Ku-zU-EyU" secondAttribute="bottom" id="zoP-9O-pCM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="受信" id="NjW-Ba-E9J"/>
                     <connections>
@@ -62,6 +65,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q8i-g0-ICA" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="受信" image="receive.png" id="CMP-4p-7Du"/>
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KNQ-iO-2mE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -78,11 +82,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back.png" width="30" height="30"/>
         <image name="back5s.png" width="30" height="30"/>
-        <image name="next.png" width="30" height="30"/>
-        <image name="play.png" width="30" height="30"/>
+        <image name="back_fill.png" width="30" height="30"/>
+        <image name="next_fill.png" width="30" height="30"/>
+        <image name="play_fill.png" width="30" height="30"/>
         <image name="receive.png" width="30" height="30"/>
+        <image name="repeat.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
