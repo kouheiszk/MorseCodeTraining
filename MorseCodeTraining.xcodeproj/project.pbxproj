@@ -1,658 +1,1771 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		481258E318993AD000CE1A99 /* Receive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481258E218993AD000CE1A99 /* Receive.storyboard */; };
-		481258E818993D4B00CE1A99 /* MCTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 481258E718993D4B00CE1A99 /* MCTTabBarController.m */; };
-		481258EA18993D9F00CE1A99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481258E918993D9F00CE1A99 /* Main.storyboard */; };
-		481258ED189ABA6300CE1A99 /* repeat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258EB189ABA6300CE1A99 /* repeat@2x.png */; };
-		481258EE189ABA6300CE1A99 /* repeat_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258EC189ABA6300CE1A99 /* repeat_fill@2x.png */; };
-		481258FB189ABAB100CE1A99 /* config@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258EF189ABAB100CE1A99 /* config@2x.png */; };
-		481258FC189ABAB100CE1A99 /* back5s_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258F0189ABAB100CE1A99 /* back5s_filled@2x.png */; };
-		481258FD189ABAB100CE1A99 /* play_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258F1189ABAB100CE1A99 /* play_fill@2x.png */; };
-		481258FE189ABAB100CE1A99 /* receive_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258F2189ABAB100CE1A99 /* receive_fill@2x.png */; };
-		481258FF189ABAB100CE1A99 /* receive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258F3189ABAB100CE1A99 /* receive@2x.png */; };
-		48125900189ABAB100CE1A99 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258F4189ABAB100CE1A99 /* back@2x.png */; };
-		48125901189ABAB100CE1A99 /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258F5189ABAB100CE1A99 /* next@2x.png */; };
-		48125902189ABAB100CE1A99 /* back_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258F6189ABAB100CE1A99 /* back_fill@2x.png */; };
-		48125903189ABAB100CE1A99 /* config_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258F7189ABAB100CE1A99 /* config_fill@2x.png */; };
-		48125904189ABAB100CE1A99 /* back5s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258F8189ABAB100CE1A99 /* back5s@2x.png */; };
-		48125905189ABAB100CE1A99 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258F9189ABAB100CE1A99 /* play@2x.png */; };
-		48125906189ABAB100CE1A99 /* next_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481258FA189ABAB100CE1A99 /* next_fill@2x.png */; };
-		48125909189C1BA300CE1A99 /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48125907189C1BA300CE1A99 /* pause@2x.png */; };
-		4812590A189C1BA300CE1A99 /* pause_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48125908189C1BA300CE1A99 /* pause_fill@2x.png */; };
-		48A5CCC61882CEE3000D5841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC51882CEE3000D5841 /* Foundation.framework */; };
-		48A5CCC81882CEE3000D5841 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */; };
-		48A5CCCA1882CEE3000D5841 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC91882CEE3000D5841 /* UIKit.framework */; };
-		48A5CCD01882CEE3000D5841 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCCE1882CEE3000D5841 /* InfoPlist.strings */; };
-		48A5CCD21882CEE3000D5841 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCD11882CEE3000D5841 /* main.m */; };
-		48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */; };
-		48A5CCD91882CEE3000D5841 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCD71882CEE3000D5841 /* Setting.storyboard */; };
-		48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */; };
-		48A5CCDE1882CEE3000D5841 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCDD1882CEE3000D5841 /* Images.xcassets */; };
-		48A5CCE51882CEE4000D5841 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCE41882CEE4000D5841 /* XCTest.framework */; };
-		48A5CCE61882CEE4000D5841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC51882CEE3000D5841 /* Foundation.framework */; };
-		48A5CCE71882CEE4000D5841 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC91882CEE3000D5841 /* UIKit.framework */; };
-		48A5CCEF1882CEE4000D5841 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCED1882CEE4000D5841 /* InfoPlist.strings */; };
-		48A5CCF11882CEE4000D5841 /* MorseCodeTrainingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCF01882CEE4000D5841 /* MorseCodeTrainingTests.m */; };
-		48A5CCFE188434F7000D5841 /* NSString+MorseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */; };
-		48A5CD08188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */; };
-		48A5CD09188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */; };
-		48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */; };
-		48A5CD10188BC297000D5841 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CD0F188BC297000D5841 /* AVFoundation.framework */; };
-		48A5CD17188C2B96000D5841 /* MCTReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */; };
-		48A5CD1A188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
-		48A5CD1B188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		48A5CCE81882CEE4000D5841 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 48A5CCBA1882CEE3000D5841 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 48A5CCC11882CEE3000D5841;
-			remoteInfo = MorseCodeTraining;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		481258E218993AD000CE1A99 /* Receive.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Receive.storyboard; sourceTree = SOURCE_ROOT; };
-		481258E618993D4B00CE1A99 /* MCTTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTTabBarController.h; sourceTree = "<group>"; };
-		481258E718993D4B00CE1A99 /* MCTTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTTabBarController.m; sourceTree = "<group>"; };
-		481258E918993D9F00CE1A99 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		481258EB189ABA6300CE1A99 /* repeat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "repeat@2x.png"; sourceTree = "<group>"; };
-		481258EC189ABA6300CE1A99 /* repeat_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "repeat_fill@2x.png"; sourceTree = "<group>"; };
-		481258EF189ABAB100CE1A99 /* config@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "config@2x.png"; sourceTree = "<group>"; };
-		481258F0189ABAB100CE1A99 /* back5s_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back5s_filled@2x.png"; sourceTree = "<group>"; };
-		481258F1189ABAB100CE1A99 /* play_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_fill@2x.png"; sourceTree = "<group>"; };
-		481258F2189ABAB100CE1A99 /* receive_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "receive_fill@2x.png"; sourceTree = "<group>"; };
-		481258F3189ABAB100CE1A99 /* receive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "receive@2x.png"; sourceTree = "<group>"; };
-		481258F4189ABAB100CE1A99 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
-		481258F5189ABAB100CE1A99 /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next@2x.png"; sourceTree = "<group>"; };
-		481258F6189ABAB100CE1A99 /* back_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_fill@2x.png"; sourceTree = "<group>"; };
-		481258F7189ABAB100CE1A99 /* config_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "config_fill@2x.png"; sourceTree = "<group>"; };
-		481258F8189ABAB100CE1A99 /* back5s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back5s@2x.png"; sourceTree = "<group>"; };
-		481258F9189ABAB100CE1A99 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
-		481258FA189ABAB100CE1A99 /* next_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next_fill@2x.png"; sourceTree = "<group>"; };
-		48125907189C1BA300CE1A99 /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = "<group>"; };
-		48125908189C1BA300CE1A99 /* pause_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause_fill@2x.png"; sourceTree = "<group>"; };
-		48A5CCC21882CEE3000D5841 /* MorseCodeTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorseCodeTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		48A5CCC51882CEE3000D5841 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		48A5CCC91882CEE3000D5841 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		48A5CCCD1882CEE3000D5841 /* MorseCodeTraining-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MorseCodeTraining-Info.plist"; sourceTree = "<group>"; };
-		48A5CCCF1882CEE3000D5841 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		48A5CCD11882CEE3000D5841 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		48A5CCD31882CEE3000D5841 /* MorseCodeTraining-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MorseCodeTraining-Prefix.pch"; sourceTree = "<group>"; };
-		48A5CCD41882CEE3000D5841 /* MCTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTAppDelegate.h; sourceTree = "<group>"; };
-		48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCTAppDelegate.m; sourceTree = "<group>"; };
-		48A5CCD81882CEE3000D5841 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Setting.storyboard; sourceTree = "<group>"; };
-		48A5CCDA1882CEE3000D5841 /* MCTReceiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTReceiveViewController.h; sourceTree = "<group>"; };
-		48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCTReceiveViewController.m; sourceTree = "<group>"; };
-		48A5CCDD1882CEE3000D5841 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		48A5CCE31882CEE4000D5841 /* MorseCodeTrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MorseCodeTrainingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		48A5CCE41882CEE4000D5841 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		48A5CCEC1882CEE4000D5841 /* MorseCodeTrainingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MorseCodeTrainingTests-Info.plist"; sourceTree = "<group>"; };
-		48A5CCEE1882CEE4000D5841 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		48A5CCF01882CEE4000D5841 /* MorseCodeTrainingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MorseCodeTrainingTests.m; sourceTree = "<group>"; };
-		48A5CCFC188434F7000D5841 /* NSString+MorseCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MorseCode.h"; sourceTree = "<group>"; };
-		48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MorseCode.m"; sourceTree = "<group>"; };
-		48A5CD06188A828B000D5841 /* MCTMorseCodePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTMorseCodePlayer.h; sourceTree = "<group>"; };
-		48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTMorseCodePlayer.m; sourceTree = "<group>"; };
-		48A5CD0F188BC297000D5841 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		48A5CD18188C2F54000D5841 /* MCTSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTSettingViewController.h; sourceTree = "<group>"; };
-		48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTSettingViewController.m; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		48A5CCBF1882CEE3000D5841 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				48A5CD10188BC297000D5841 /* AVFoundation.framework in Frameworks */,
-				48A5CCC81882CEE3000D5841 /* CoreGraphics.framework in Frameworks */,
-				48A5CCCA1882CEE3000D5841 /* UIKit.framework in Frameworks */,
-				48A5CCC61882CEE3000D5841 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		48A5CCE01882CEE4000D5841 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				48A5CCE51882CEE4000D5841 /* XCTest.framework in Frameworks */,
-				48A5CCE71882CEE4000D5841 /* UIKit.framework in Frameworks */,
-				48A5CCE61882CEE4000D5841 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		481258E118993A1500CE1A99 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				481258E918993D9F00CE1A99 /* Main.storyboard */,
-				481258E218993AD000CE1A99 /* Receive.storyboard */,
-				48A5CCD71882CEE3000D5841 /* Setting.storyboard */,
-			);
-			name = Storyboards;
-			sourceTree = "<group>";
-		};
-		481258E418993D0B00CE1A99 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				481258E618993D4B00CE1A99 /* MCTTabBarController.h */,
-				481258E718993D4B00CE1A99 /* MCTTabBarController.m */,
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
-		488A21151896C6E700775AB2 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				481258E118993A1500CE1A99 /* Storyboards */,
-				488A21161896C6FE00775AB2 /* Images */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		488A21161896C6FE00775AB2 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				488A21171896C70500775AB2 /* icons */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
-		488A21171896C70500775AB2 /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				481258EB189ABA6300CE1A99 /* repeat@2x.png */,
-				481258EC189ABA6300CE1A99 /* repeat_fill@2x.png */,
-				481258EF189ABAB100CE1A99 /* config@2x.png */,
-				481258F7189ABAB100CE1A99 /* config_fill@2x.png */,
-				481258F8189ABAB100CE1A99 /* back5s@2x.png */,
-				481258F0189ABAB100CE1A99 /* back5s_filled@2x.png */,
-				481258F9189ABAB100CE1A99 /* play@2x.png */,
-				481258F1189ABAB100CE1A99 /* play_fill@2x.png */,
-				48125907189C1BA300CE1A99 /* pause@2x.png */,
-				48125908189C1BA300CE1A99 /* pause_fill@2x.png */,
-				481258F3189ABAB100CE1A99 /* receive@2x.png */,
-				481258F2189ABAB100CE1A99 /* receive_fill@2x.png */,
-				481258F4189ABAB100CE1A99 /* back@2x.png */,
-				481258F6189ABAB100CE1A99 /* back_fill@2x.png */,
-				481258F5189ABAB100CE1A99 /* next@2x.png */,
-				481258FA189ABAB100CE1A99 /* next_fill@2x.png */,
-			);
-			name = icons;
-			sourceTree = "<group>";
-		};
-		48A5CCB91882CEE3000D5841 = {
-			isa = PBXGroup;
-			children = (
-				48A5CCCB1882CEE3000D5841 /* MorseCodeTraining */,
-				48A5CCEA1882CEE4000D5841 /* MorseCodeTrainingTests */,
-				48A5CCC41882CEE3000D5841 /* Frameworks */,
-				48A5CCC31882CEE3000D5841 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		48A5CCC31882CEE3000D5841 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				48A5CCC21882CEE3000D5841 /* MorseCodeTraining.app */,
-				48A5CCE31882CEE4000D5841 /* MorseCodeTrainingTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		48A5CCC41882CEE3000D5841 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				48A5CD0F188BC297000D5841 /* AVFoundation.framework */,
-				48A5CCC51882CEE3000D5841 /* Foundation.framework */,
-				48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */,
-				48A5CCC91882CEE3000D5841 /* UIKit.framework */,
-				48A5CCE41882CEE4000D5841 /* XCTest.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		48A5CCCB1882CEE3000D5841 /* MorseCodeTraining */ = {
-			isa = PBXGroup;
-			children = (
-				48A5CCFA188433AD000D5841 /* Classes */,
-				488A21151896C6E700775AB2 /* Resources */,
-				48A5CCDD1882CEE3000D5841 /* Images.xcassets */,
-				48A5CCCC1882CEE3000D5841 /* Supporting Files */,
-			);
-			path = MorseCodeTraining;
-			sourceTree = "<group>";
-		};
-		48A5CCCC1882CEE3000D5841 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				48A5CCCD1882CEE3000D5841 /* MorseCodeTraining-Info.plist */,
-				48A5CCCE1882CEE3000D5841 /* InfoPlist.strings */,
-				48A5CCD11882CEE3000D5841 /* main.m */,
-				48A5CCD31882CEE3000D5841 /* MorseCodeTraining-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		48A5CCEA1882CEE4000D5841 /* MorseCodeTrainingTests */ = {
-			isa = PBXGroup;
-			children = (
-				48A5CCF01882CEE4000D5841 /* MorseCodeTrainingTests.m */,
-				48A5CCEB1882CEE4000D5841 /* Supporting Files */,
-			);
-			path = MorseCodeTrainingTests;
-			sourceTree = "<group>";
-		};
-		48A5CCEB1882CEE4000D5841 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				48A5CCEC1882CEE4000D5841 /* MorseCodeTrainingTests-Info.plist */,
-				48A5CCED1882CEE4000D5841 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		48A5CCFA188433AD000D5841 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				48A5CCD41882CEE3000D5841 /* MCTAppDelegate.h */,
-				48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */,
-				481258E418993D0B00CE1A99 /* Common */,
-				48A5CD11188C2B4C000D5841 /* ViewController */,
-				48A5CD05188A8256000D5841 /* Player */,
-				48A5CCFB188433BC000D5841 /* Extensions */,
-			);
-			name = Classes;
-			sourceTree = "<group>";
-		};
-		48A5CCFB188433BC000D5841 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				48A5CCFC188434F7000D5841 /* NSString+MorseCode.h */,
-				48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		48A5CD05188A8256000D5841 /* Player */ = {
-			isa = PBXGroup;
-			children = (
-				48A5CD06188A828B000D5841 /* MCTMorseCodePlayer.h */,
-				48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */,
-			);
-			name = Player;
-			sourceTree = "<group>";
-		};
-		48A5CD11188C2B4C000D5841 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				48A5CCDA1882CEE3000D5841 /* MCTReceiveViewController.h */,
-				48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */,
-				48A5CD18188C2F54000D5841 /* MCTSettingViewController.h */,
-				48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */,
-			);
-			name = ViewController;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		48A5CCC11882CEE3000D5841 /* MorseCodeTraining */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 48A5CCF41882CEE4000D5841 /* Build configuration list for PBXNativeTarget "MorseCodeTraining" */;
-			buildPhases = (
-				48A5CCBE1882CEE3000D5841 /* Sources */,
-				48A5CCBF1882CEE3000D5841 /* Frameworks */,
-				48A5CCC01882CEE3000D5841 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MorseCodeTraining;
-			productName = MorseCodeTraining;
-			productReference = 48A5CCC21882CEE3000D5841 /* MorseCodeTraining.app */;
-			productType = "com.apple.product-type.application";
-		};
-		48A5CCE21882CEE4000D5841 /* MorseCodeTrainingTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 48A5CCF71882CEE4000D5841 /* Build configuration list for PBXNativeTarget "MorseCodeTrainingTests" */;
-			buildPhases = (
-				48A5CCDF1882CEE4000D5841 /* Sources */,
-				48A5CCE01882CEE4000D5841 /* Frameworks */,
-				48A5CCE11882CEE4000D5841 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				48A5CCE91882CEE4000D5841 /* PBXTargetDependency */,
-			);
-			name = MorseCodeTrainingTests;
-			productName = MorseCodeTrainingTests;
-			productReference = 48A5CCE31882CEE4000D5841 /* MorseCodeTrainingTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		48A5CCBA1882CEE3000D5841 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				CLASSPREFIX = MCT;
-				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = "Suzuki Kouhei";
-				TargetAttributes = {
-					48A5CCE21882CEE4000D5841 = {
-						TestTargetID = 48A5CCC11882CEE3000D5841;
-					};
-				};
-			};
-			buildConfigurationList = 48A5CCBD1882CEE3000D5841 /* Build configuration list for PBXProject "MorseCodeTraining" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 48A5CCB91882CEE3000D5841;
-			productRefGroup = 48A5CCC31882CEE3000D5841 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				48A5CCC11882CEE3000D5841 /* MorseCodeTraining */,
-				48A5CCE21882CEE4000D5841 /* MorseCodeTrainingTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		48A5CCC01882CEE3000D5841 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				481258FB189ABAB100CE1A99 /* config@2x.png in Resources */,
-				481258FD189ABAB100CE1A99 /* play_fill@2x.png in Resources */,
-				48125905189ABAB100CE1A99 /* play@2x.png in Resources */,
-				481258FF189ABAB100CE1A99 /* receive@2x.png in Resources */,
-				48125904189ABAB100CE1A99 /* back5s@2x.png in Resources */,
-				481258FC189ABAB100CE1A99 /* back5s_filled@2x.png in Resources */,
-				48125906189ABAB100CE1A99 /* next_fill@2x.png in Resources */,
-				48125909189C1BA300CE1A99 /* pause@2x.png in Resources */,
-				481258EA18993D9F00CE1A99 /* Main.storyboard in Resources */,
-				48A5CCDE1882CEE3000D5841 /* Images.xcassets in Resources */,
-				48A5CCD01882CEE3000D5841 /* InfoPlist.strings in Resources */,
-				481258ED189ABA6300CE1A99 /* repeat@2x.png in Resources */,
-				48125900189ABAB100CE1A99 /* back@2x.png in Resources */,
-				48125902189ABAB100CE1A99 /* back_fill@2x.png in Resources */,
-				48125901189ABAB100CE1A99 /* next@2x.png in Resources */,
-				48125903189ABAB100CE1A99 /* config_fill@2x.png in Resources */,
-				4812590A189C1BA300CE1A99 /* pause_fill@2x.png in Resources */,
-				48A5CCD91882CEE3000D5841 /* Setting.storyboard in Resources */,
-				481258E318993AD000CE1A99 /* Receive.storyboard in Resources */,
-				481258EE189ABA6300CE1A99 /* repeat_fill@2x.png in Resources */,
-				481258FE189ABAB100CE1A99 /* receive_fill@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		48A5CCE11882CEE4000D5841 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				48A5CCEF1882CEE4000D5841 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		48A5CCBE1882CEE3000D5841 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				48A5CD1A188C2F54000D5841 /* MCTSettingViewController.m in Sources */,
-				48A5CCD21882CEE3000D5841 /* main.m in Sources */,
-				481258E818993D4B00CE1A99 /* MCTTabBarController.m in Sources */,
-				48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */,
-				48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */,
-				48A5CD08188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */,
-				48A5CCFE188434F7000D5841 /* NSString+MorseCode.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		48A5CCDF1882CEE4000D5841 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				48A5CD1B188C2F54000D5841 /* MCTSettingViewController.m in Sources */,
-				48A5CCF11882CEE4000D5841 /* MorseCodeTrainingTests.m in Sources */,
-				48A5CD17188C2B96000D5841 /* MCTReceiveViewController.m in Sources */,
-				48A5CD09188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */,
-				48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		48A5CCE91882CEE4000D5841 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 48A5CCC11882CEE3000D5841 /* MorseCodeTraining */;
-			targetProxy = 48A5CCE81882CEE4000D5841 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		48A5CCCE1882CEE3000D5841 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				48A5CCCF1882CEE3000D5841 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		48A5CCD71882CEE3000D5841 /* Setting.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				48A5CCD81882CEE3000D5841 /* Base */,
-			);
-			name = Setting.storyboard;
-			sourceTree = "<group>";
-		};
-		48A5CCED1882CEE4000D5841 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				48A5CCEE1882CEE4000D5841 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		48A5CCF21882CEE4000D5841 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		48A5CCF31882CEE4000D5841 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		48A5CCF51882CEE4000D5841 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MorseCodeTraining/MorseCodeTraining-Prefix.pch";
-				INFOPLIST_FILE = "MorseCodeTraining/MorseCodeTraining-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		48A5CCF61882CEE4000D5841 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MorseCodeTraining/MorseCodeTraining-Prefix.pch";
-				INFOPLIST_FILE = "MorseCodeTraining/MorseCodeTraining-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		48A5CCF81882CEE4000D5841 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MorseCodeTraining.app/MorseCodeTraining";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MorseCodeTraining/MorseCodeTraining-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MorseCodeTrainingTests/MorseCodeTrainingTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		48A5CCF91882CEE4000D5841 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MorseCodeTraining.app/MorseCodeTraining";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MorseCodeTraining/MorseCodeTraining-Prefix.pch";
-				INFOPLIST_FILE = "MorseCodeTrainingTests/MorseCodeTrainingTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		48A5CCBD1882CEE3000D5841 /* Build configuration list for PBXProject "MorseCodeTraining" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				48A5CCF21882CEE4000D5841 /* Debug */,
-				48A5CCF31882CEE4000D5841 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		48A5CCF41882CEE4000D5841 /* Build configuration list for PBXNativeTarget "MorseCodeTraining" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				48A5CCF51882CEE4000D5841 /* Debug */,
-				48A5CCF61882CEE4000D5841 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		48A5CCF71882CEE4000D5841 /* Build configuration list for PBXNativeTarget "MorseCodeTrainingTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				48A5CCF81882CEE4000D5841 /* Debug */,
-				48A5CCF91882CEE4000D5841 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 48A5CCBA1882CEE3000D5841 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>42632E9AA3834F6D9EFC077C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258E118993A1500CE1A99</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>481258E918993D9F00CE1A99</string>
+				<string>481258E218993AD000CE1A99</string>
+				<string>48A5CCD71882CEE3000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Storyboards</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258E218993AD000CE1A99</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>path</key>
+			<string>Receive.storyboard</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>481258E318993AD000CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258E218993AD000CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>481258E418993D0B00CE1A99</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>481258E618993D4B00CE1A99</string>
+				<string>481258E718993D4B00CE1A99</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Common</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258E618993D4B00CE1A99</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MCTTabBarController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258E718993D4B00CE1A99</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MCTTabBarController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258E818993D4B00CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258E718993D4B00CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>481258E918993D9F00CE1A99</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>path</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258EA18993D9F00CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258E918993D9F00CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>481258EB189ABA6300CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>repeat@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258EC189ABA6300CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>repeat_fill@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258ED189ABA6300CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258EB189ABA6300CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>481258EE189ABA6300CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258EC189ABA6300CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>481258EF189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>config@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258F0189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>back5s_filled@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258F1189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>play_fill@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258F2189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>receive_fill@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258F3189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>receive@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258F4189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>back@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258F5189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>next@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258F6189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>back_fill@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258F7189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>config_fill@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258F8189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>back5s@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258F9189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>play@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258FA189ABAB100CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>next_fill@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>481258FB189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258EF189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>481258FC189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258F0189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>481258FD189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258F1189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>481258FE189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258F2189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>481258FF189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258F3189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48125900189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258F4189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48125901189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258F5189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48125902189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258F6189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48125903189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258F7189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48125904189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258F8189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48125905189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258F9189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48125906189ABAB100CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>481258FA189ABAB100CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48125907189C1BA300CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>pause@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48125908189C1BA300CE1A99</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>pause_fill@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48125909189C1BA300CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48125907189C1BA300CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4812590A189C1BA300CE1A99</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48125908189C1BA300CE1A99</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>488A21151896C6E700775AB2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>481258E118993A1500CE1A99</string>
+				<string>488A21161896C6FE00775AB2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>488A21161896C6FE00775AB2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>488A21171896C70500775AB2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Images</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>488A21171896C70500775AB2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>481258EB189ABA6300CE1A99</string>
+				<string>481258EC189ABA6300CE1A99</string>
+				<string>481258EF189ABAB100CE1A99</string>
+				<string>481258F7189ABAB100CE1A99</string>
+				<string>481258F8189ABAB100CE1A99</string>
+				<string>481258F0189ABAB100CE1A99</string>
+				<string>481258F9189ABAB100CE1A99</string>
+				<string>481258F1189ABAB100CE1A99</string>
+				<string>48125907189C1BA300CE1A99</string>
+				<string>48125908189C1BA300CE1A99</string>
+				<string>481258F3189ABAB100CE1A99</string>
+				<string>481258F2189ABAB100CE1A99</string>
+				<string>481258F4189ABAB100CE1A99</string>
+				<string>481258F6189ABAB100CE1A99</string>
+				<string>481258F5189ABAB100CE1A99</string>
+				<string>481258FA189ABAB100CE1A99</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>icons</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCB91882CEE3000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCCB1882CEE3000D5841</string>
+				<string>48A5CCEA1882CEE4000D5841</string>
+				<string>48A5CCC41882CEE3000D5841</string>
+				<string>48A5CCC31882CEE3000D5841</string>
+				<string>42632E9AA3834F6D9EFC077C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCBA1882CEE3000D5841</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>CLASSPREFIX</key>
+				<string>MCT</string>
+				<key>LastUpgradeCheck</key>
+				<string>0500</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Suzuki Kouhei</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>48A5CCE21882CEE4000D5841</key>
+					<dict>
+						<key>TestTargetID</key>
+						<string>48A5CCC11882CEE3000D5841</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>48A5CCBD1882CEE3000D5841</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>48A5CCB91882CEE3000D5841</string>
+			<key>productRefGroup</key>
+			<string>48A5CCC31882CEE3000D5841</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>48A5CCC11882CEE3000D5841</string>
+				<string>48A5CCE21882CEE4000D5841</string>
+			</array>
+		</dict>
+		<key>48A5CCBD1882CEE3000D5841</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>48A5CCF21882CEE4000D5841</string>
+				<string>48A5CCF31882CEE4000D5841</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>48A5CCBE1882CEE3000D5841</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>48A5CD1A188C2F54000D5841</string>
+				<string>48A5CCD21882CEE3000D5841</string>
+				<string>481258E818993D4B00CE1A99</string>
+				<string>48A5CCDC1882CEE3000D5841</string>
+				<string>48A5CCD61882CEE3000D5841</string>
+				<string>48A5CD08188A828B000D5841</string>
+				<string>48A5CCFE188434F7000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>48A5CCBF1882CEE3000D5841</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>48A5CD10188BC297000D5841</string>
+				<string>48A5CCC81882CEE3000D5841</string>
+				<string>48A5CCCA1882CEE3000D5841</string>
+				<string>48A5CCC61882CEE3000D5841</string>
+				<string>B7550C5ECC7A449ABACE6F2C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>48A5CCC01882CEE3000D5841</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>481258FB189ABAB100CE1A99</string>
+				<string>481258FD189ABAB100CE1A99</string>
+				<string>48125905189ABAB100CE1A99</string>
+				<string>481258FF189ABAB100CE1A99</string>
+				<string>48125904189ABAB100CE1A99</string>
+				<string>481258FC189ABAB100CE1A99</string>
+				<string>48125906189ABAB100CE1A99</string>
+				<string>48125909189C1BA300CE1A99</string>
+				<string>481258EA18993D9F00CE1A99</string>
+				<string>48A5CCDE1882CEE3000D5841</string>
+				<string>48A5CCD01882CEE3000D5841</string>
+				<string>481258ED189ABA6300CE1A99</string>
+				<string>48125900189ABAB100CE1A99</string>
+				<string>48125902189ABAB100CE1A99</string>
+				<string>48125901189ABAB100CE1A99</string>
+				<string>48125903189ABAB100CE1A99</string>
+				<string>4812590A189C1BA300CE1A99</string>
+				<string>48A5CCD91882CEE3000D5841</string>
+				<string>481258E318993AD000CE1A99</string>
+				<string>481258EE189ABA6300CE1A99</string>
+				<string>481258FE189ABAB100CE1A99</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>48A5CCC11882CEE3000D5841</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>48A5CCF41882CEE4000D5841</string>
+			<key>buildPhases</key>
+			<array>
+				<string>A0E95F58259E49C8BB07867B</string>
+				<string>48A5CCBE1882CEE3000D5841</string>
+				<string>48A5CCBF1882CEE3000D5841</string>
+				<string>48A5CCC01882CEE3000D5841</string>
+				<string>803C8B3E268E40C2B1A3AAD1</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>MorseCodeTraining</string>
+			<key>productName</key>
+			<string>MorseCodeTraining</string>
+			<key>productReference</key>
+			<string>48A5CCC21882CEE3000D5841</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>48A5CCC21882CEE3000D5841</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>MorseCodeTraining.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>48A5CCC31882CEE3000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCC21882CEE3000D5841</string>
+				<string>48A5CCE31882CEE4000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCC41882CEE3000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CD0F188BC297000D5841</string>
+				<string>48A5CCC51882CEE3000D5841</string>
+				<string>48A5CCC71882CEE3000D5841</string>
+				<string>48A5CCC91882CEE3000D5841</string>
+				<string>48A5CCE41882CEE4000D5841</string>
+				<string>626328A1DD38415E91FF4408</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCC51882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>48A5CCC61882CEE3000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCC51882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCC71882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreGraphics.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreGraphics.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>48A5CCC81882CEE3000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCC71882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCC91882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>48A5CCCA1882CEE3000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCC91882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCCB1882CEE3000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCFA188433AD000D5841</string>
+				<string>488A21151896C6E700775AB2</string>
+				<string>48A5CCDD1882CEE3000D5841</string>
+				<string>48A5CCCC1882CEE3000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>MorseCodeTraining</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCCC1882CEE3000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCCD1882CEE3000D5841</string>
+				<string>48A5CCCE1882CEE3000D5841</string>
+				<string>48A5CCD11882CEE3000D5841</string>
+				<string>48A5CCD31882CEE3000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCCD1882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>MorseCodeTraining-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCCE1882CEE3000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCCF1882CEE3000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCCF1882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCD01882CEE3000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCCE1882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCD11882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCD21882CEE3000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCD11882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCD31882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MorseCodeTraining-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCD41882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MCTAppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCD51882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MCTAppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCD61882CEE3000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCD51882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCD71882CEE3000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCD81882CEE3000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Setting.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCD81882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Setting.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCD91882CEE3000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCD71882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCDA1882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MCTReceiveViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCDB1882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MCTReceiveViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCDC1882CEE3000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCDB1882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCDD1882CEE3000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCDE1882CEE3000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCDD1882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCDF1882CEE4000D5841</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>48A5CD1B188C2F54000D5841</string>
+				<string>48A5CCF11882CEE4000D5841</string>
+				<string>48A5CD17188C2B96000D5841</string>
+				<string>48A5CD09188A828B000D5841</string>
+				<string>48A5CD0E188A82DB000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>48A5CCE01882CEE4000D5841</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>48A5CCE51882CEE4000D5841</string>
+				<string>48A5CCE71882CEE4000D5841</string>
+				<string>48A5CCE61882CEE4000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>48A5CCE11882CEE4000D5841</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>48A5CCEF1882CEE4000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>48A5CCE21882CEE4000D5841</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>48A5CCF71882CEE4000D5841</string>
+			<key>buildPhases</key>
+			<array>
+				<string>48A5CCDF1882CEE4000D5841</string>
+				<string>48A5CCE01882CEE4000D5841</string>
+				<string>48A5CCE11882CEE4000D5841</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>48A5CCE91882CEE4000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>MorseCodeTrainingTests</string>
+			<key>productName</key>
+			<string>MorseCodeTrainingTests</string>
+			<key>productReference</key>
+			<string>48A5CCE31882CEE4000D5841</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>48A5CCE31882CEE4000D5841</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>MorseCodeTrainingTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>48A5CCE41882CEE4000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>XCTest.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/XCTest.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>48A5CCE51882CEE4000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCE41882CEE4000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCE61882CEE4000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCC51882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCE71882CEE4000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCC91882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCE81882CEE4000D5841</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>48A5CCBA1882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>48A5CCC11882CEE3000D5841</string>
+			<key>remoteInfo</key>
+			<string>MorseCodeTraining</string>
+		</dict>
+		<key>48A5CCE91882CEE4000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>48A5CCC11882CEE3000D5841</string>
+			<key>targetProxy</key>
+			<string>48A5CCE81882CEE4000D5841</string>
+		</dict>
+		<key>48A5CCEA1882CEE4000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCF01882CEE4000D5841</string>
+				<string>48A5CCEB1882CEE4000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>MorseCodeTrainingTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCEB1882CEE4000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCEC1882CEE4000D5841</string>
+				<string>48A5CCED1882CEE4000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCEC1882CEE4000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>MorseCodeTrainingTests-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCED1882CEE4000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCEE1882CEE4000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCEE1882CEE4000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCEF1882CEE4000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCED1882CEE4000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCF01882CEE4000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MorseCodeTrainingTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCF11882CEE4000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCF01882CEE4000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CCF21882CEE4000D5841</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>48A5CCF31882CEE4000D5841</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>48A5CCF41882CEE4000D5841</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>48A5CCF51882CEE4000D5841</string>
+				<string>48A5CCF61882CEE4000D5841</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>48A5CCF51882CEE4000D5841</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>42632E9AA3834F6D9EFC077C</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>MorseCodeTraining/MorseCodeTraining-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>MorseCodeTraining/MorseCodeTraining-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>48A5CCF61882CEE4000D5841</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>42632E9AA3834F6D9EFC077C</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>MorseCodeTraining/MorseCodeTraining-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>MorseCodeTraining/MorseCodeTraining-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>48A5CCF71882CEE4000D5841</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>48A5CCF81882CEE4000D5841</string>
+				<string>48A5CCF91882CEE4000D5841</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>48A5CCF81882CEE4000D5841</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>BUNDLE_LOADER</key>
+				<string>$(BUILT_PRODUCTS_DIR)/MorseCodeTraining.app/MorseCodeTraining</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>MorseCodeTraining/MorseCodeTraining-Prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>MorseCodeTrainingTests/MorseCodeTrainingTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUNDLE_LOADER)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>48A5CCF91882CEE4000D5841</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>BUNDLE_LOADER</key>
+				<string>$(BUILT_PRODUCTS_DIR)/MorseCodeTraining.app/MorseCodeTraining</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>MorseCodeTraining/MorseCodeTraining-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>MorseCodeTrainingTests/MorseCodeTrainingTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUNDLE_LOADER)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>48A5CCFA188433AD000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCD41882CEE3000D5841</string>
+				<string>48A5CCD51882CEE3000D5841</string>
+				<string>481258E418993D0B00CE1A99</string>
+				<string>48A5CD11188C2B4C000D5841</string>
+				<string>48A5CD05188A8256000D5841</string>
+				<string>48A5CCFB188433BC000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Classes</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCFB188433BC000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCFC188434F7000D5841</string>
+				<string>48A5CCFD188434F7000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Extensions</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCFC188434F7000D5841</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NSString+MorseCode.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCFD188434F7000D5841</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NSString+MorseCode.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CCFE188434F7000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCFD188434F7000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CD05188A8256000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CD06188A828B000D5841</string>
+				<string>48A5CD07188A828B000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Player</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CD06188A828B000D5841</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MCTMorseCodePlayer.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CD07188A828B000D5841</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MCTMorseCodePlayer.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CD08188A828B000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CD07188A828B000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CD09188A828B000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CD07188A828B000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CD0E188A82DB000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCFD188434F7000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CD0F188BC297000D5841</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>AVFoundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/AVFoundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>48A5CD10188BC297000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CD0F188BC297000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CD11188C2B4C000D5841</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>48A5CCDA1882CEE3000D5841</string>
+				<string>48A5CCDB1882CEE3000D5841</string>
+				<string>48A5CD18188C2F54000D5841</string>
+				<string>48A5CD19188C2F54000D5841</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>ViewController</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CD17188C2B96000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CCDB1882CEE3000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CD18188C2F54000D5841</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>MCTSettingViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CD19188C2F54000D5841</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>MCTSettingViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>48A5CD1A188C2F54000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CD19188C2F54000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>48A5CD1B188C2F54000D5841</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48A5CD19188C2F54000D5841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>626328A1DD38415E91FF4408</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>803C8B3E268E40C2B1A3AAD1</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>A0E95F58259E49C8BB07867B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>B7550C5ECC7A449ABACE6F2C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>626328A1DD38415E91FF4408</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>48A5CCBA1882CEE3000D5841</string>
+</dict>
+</plist>
