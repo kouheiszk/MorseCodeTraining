@@ -16,28 +16,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ku-zU-EyU" userLabel="Player">
-                                <rect key="frame" x="0.0" y="409" width="320" height="109"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ku-zU-EyU" userLabel="Audio Controller">
+                                <rect key="frame" x="0.0" y="347" width="320" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZoG-wX-vJj">
-                                        <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="127" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <items>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="BfB-km-zvf"/>
                                             <barButtonItem image="back5s.png" id="HfP-JL-ivz"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="8Ey-P4-Uw5"/>
-                                            <barButtonItem image="back_fill.png" id="4MF-vw-b8B"/>
+                                            <barButtonItem image="back.png" id="4MF-vw-b8B">
+                                                <connections>
+                                                    <action selector="backButtonTapped:" destination="7df-lA-eVt" id="Eiv-ie-pff"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="C9o-gi-y6B"/>
-                                            <barButtonItem image="play_fill.png" id="n2g-ck-Drg">
+                                            <barButtonItem image="play.png" id="n2g-ck-Drg">
                                                 <connections>
                                                     <action selector="playButtonTapped:" destination="7df-lA-eVt" id="Lin-Xv-gf1"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="1eZ-mD-Hi8"/>
-                                            <barButtonItem image="next_fill.png" id="OfG-Df-sjk"/>
+                                            <barButtonItem image="next.png" id="OfG-Df-sjk">
+                                                <connections>
+                                                    <action selector="nextButtonTapped:" destination="7df-lA-eVt" id="3Fp-S7-jGF"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="qk7-Fl-P44"/>
-                                            <barButtonItem image="repeat.png" id="EIq-1a-t06"/>
+                                            <barButtonItem image="repeat.png" id="EIq-1a-t06">
+                                                <connections>
+                                                    <action selector="repeatButtonTapped:" destination="7df-lA-eVt" id="To4-zz-bOq"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="olk-kh-hE0"/>
                                         </items>
                                     </toolbar>
@@ -52,7 +64,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="受信" id="NjW-Ba-E9J"/>
                     <connections>
+                        <outlet property="back5sButton" destination="HfP-JL-ivz" id="Ows-1C-URC"/>
+                        <outlet property="backButton" destination="4MF-vw-b8B" id="Bc7-CR-07P"/>
+                        <outlet property="nextButton" destination="OfG-Df-sjk" id="ybb-Zm-jdx"/>
                         <outlet property="playButton" destination="n2g-ck-Drg" id="pxU-9b-pPS"/>
+                        <outlet property="repeatButton" destination="EIq-1a-t06" id="vqj-xY-WnO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReX-Kf-5jF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,10 +98,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back.png" width="30" height="30"/>
         <image name="back5s.png" width="30" height="30"/>
-        <image name="back_fill.png" width="30" height="30"/>
-        <image name="next_fill.png" width="30" height="30"/>
-        <image name="play_fill.png" width="30" height="30"/>
+        <image name="next.png" width="30" height="30"/>
+        <image name="play.png" width="30" height="30"/>
         <image name="receive.png" width="30" height="30"/>
         <image name="repeat.png" width="30" height="30"/>
     </resources>
