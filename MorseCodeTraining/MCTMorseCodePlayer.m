@@ -12,6 +12,7 @@
 #import "MCTMorseCodePlayer.h"
 
 #import <AVFoundation/AVFoundation.h>
+#import "MCTSoundPlayerManager.h"
 
 #define SAMPLE_RATE 44100
 #define FREQ 1020
@@ -82,14 +83,8 @@
     offset += SAMPLE_RATE * END_LENGTH / 1000;
     NSLog(@"frames(%i) offset(%i)",frames,offset);
 
-    NSError *error = nil;
     NSData *soundData = [MCTMorseCodePlayer wavDataFromBuffer:ptr size:frames];
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithData:soundData error:&error];
-    self.audioPlayer.numberOfLoops = 0;
-    if (self.audioPlayer)
-        [self.audioPlayer play];
-    else
-        NSLog(@"AudioPlayer not created: %@", error);
+    [[MCTSoundPlayerManager sharedManager] playSound:soundData];
 }
 
 - (void)reset {

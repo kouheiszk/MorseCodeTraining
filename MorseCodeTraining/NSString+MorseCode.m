@@ -29,7 +29,6 @@
         NSString *morseString = [NSString morseCodeForCharacter:character];
         if (i != 0 && ![character isEqualToString:@" "]) [morseStrings appendString:@" "];
         [morseStrings appendString:morseString];
-        NSLog(@"Converting Character %@ to Code %@", character, morseString);
     }
 
     return morseStrings;
@@ -47,7 +46,6 @@
         range.location = i;
         NSString *character = [morseString substringWithRange:range];
         NSString *morseString = [NSString morseCodeForCharacter:character];
-        NSLog(@"Converting Character %@ to Code %@", character, morseString);
         [morseArray addObject:morseString];
     }
 

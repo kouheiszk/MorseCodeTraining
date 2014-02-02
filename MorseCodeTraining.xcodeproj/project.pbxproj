@@ -27,6 +27,7 @@
 		48129805189C9E1500438DAB /* receive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481297F5189C9E1500438DAB /* receive@2x.png */; };
 		48129806189C9E1500438DAB /* repeat_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481297F6189C9E1500438DAB /* repeat_fill@2x.png */; };
 		48129807189C9E1500438DAB /* repeat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481297F7189C9E1500438DAB /* repeat@2x.png */; };
+		4812980A189D290F00438DAB /* MCTSoundPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48129809189D290F00438DAB /* MCTSoundPlayerManager.m */; };
 		48A5CCC61882CEE3000D5841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC51882CEE3000D5841 /* Foundation.framework */; };
 		48A5CCC81882CEE3000D5841 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */; };
 		48A5CCCA1882CEE3000D5841 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC91882CEE3000D5841 /* UIKit.framework */; };
@@ -84,6 +85,8 @@
 		481297F5189C9E1500438DAB /* receive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "receive@2x.png"; path = "Resources/Images/icons/receive@2x.png"; sourceTree = "<group>"; };
 		481297F6189C9E1500438DAB /* repeat_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "repeat_fill@2x.png"; path = "Resources/Images/icons/repeat_fill@2x.png"; sourceTree = "<group>"; };
 		481297F7189C9E1500438DAB /* repeat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "repeat@2x.png"; path = "Resources/Images/icons/repeat@2x.png"; sourceTree = "<group>"; };
+		48129808189D290F00438DAB /* MCTSoundPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTSoundPlayerManager.h; sourceTree = "<group>"; };
+		48129809189D290F00438DAB /* MCTSoundPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTSoundPlayerManager.m; sourceTree = "<group>"; };
 		48A5CCC21882CEE3000D5841 /* MorseCodeTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorseCodeTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A5CCC51882CEE3000D5841 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -277,7 +280,7 @@
 				48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */,
 				481258E418993D0B00CE1A99 /* Common */,
 				48A5CD11188C2B4C000D5841 /* ViewController */,
-				48A5CD05188A8256000D5841 /* Player */,
+				48A5CD05188A8256000D5841 /* Sound */,
 				48A5CCFB188433BC000D5841 /* Extensions */,
 			);
 			name = Classes;
@@ -292,13 +295,15 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		48A5CD05188A8256000D5841 /* Player */ = {
+		48A5CD05188A8256000D5841 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
 				48A5CD06188A828B000D5841 /* MCTMorseCodePlayer.h */,
 				48A5CD07188A828B000D5841 /* MCTMorseCodePlayer.m */,
+				48129808189D290F00438DAB /* MCTSoundPlayerManager.h */,
+				48129809189D290F00438DAB /* MCTSoundPlayerManager.m */,
 			);
-			name = Player;
+			name = Sound;
 			sourceTree = "<group>";
 		};
 		48A5CD11188C2B4C000D5841 /* ViewController */ = {
@@ -467,6 +472,7 @@
 				48A5CCD21882CEE3000D5841 /* main.m in Sources */,
 				481258E818993D4B00CE1A99 /* MCTTabBarController.m in Sources */,
 				48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */,
+				4812980A189D290F00438DAB /* MCTSoundPlayerManager.m in Sources */,
 				48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */,
 				48A5CD08188A828B000D5841 /* MCTMorseCodePlayer.m in Sources */,
 				48A5CCFE188434F7000D5841 /* NSString+MorseCode.m in Sources */,
