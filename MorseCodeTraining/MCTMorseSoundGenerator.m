@@ -1,5 +1,5 @@
 //
-//  MCTMorseCodePlayer.m
+//  MCTMorseSoundGenerator.m
 //  MorseCodeTraining
 //
 //  参考:
@@ -9,10 +9,7 @@
 //  Copyright (c) 2014年 Suzuki Kouhei. All rights reserved.
 //
 
-#import "MCTMorseCodePlayer.h"
-
-#import <AVFoundation/AVFoundation.h>
-#import "MCTSoundPlayerManager.h"
+#import "MCTMorseSoundGenerator.h"
 
 #define SAMPLE_RATE 44100
 #define FREQ 1020
@@ -21,15 +18,12 @@
 #define SPACE 100
 #define END_LENGTH 600
 
-@interface MCTMorseCodePlayer()
-@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
-@end
-
-@implementation MCTMorseCodePlayer
+@implementation MCTMorseSoundGenerator
 
 #pragma mark - public
 
-- (void)playMorse:(NSString *)morseString {
++ (NSData *)generateMorseSoundData:(NSString *)morseString
+{
     int length = 0;
     NSRange range;
     range.length = 1;
@@ -55,7 +49,7 @@
     float *ptr = malloc(frames * sizeof(float));
     if (ptr == NULL) {
         NSLog(@"Error: Memory buffer could not be allocated.");
-        return;
+        return nil;
     }
 
     for (int i = 0; i < [morseString length]; ++i) {
@@ -83,13 +77,7 @@
     offset += SAMPLE_RATE * END_LENGTH / 1000;
     NSLog(@"frames(%i) offset(%i)",frames,offset);
 
-    NSData *soundData = [MCTMorseCodePlayer wavDataFromBuffer:ptr size:frames];
-    [[MCTSoundPlayerManager sharedManager] playSound:soundData];
-}
-
-- (void)reset {
-    if (self.audioPlayer && [self.audioPlayer isPlaying]) [self.audioPlayer stop];
-    self.audioPlayer = nil;
+    return [MCTMorseSoundGenerator wavDataFromBuffer:ptr size:frames];
 }
 
 #pragma mark - private

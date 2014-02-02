@@ -1,5 +1,5 @@
 //
-//  MCTMorseCodePlayer.h
+//  MCTMorseSoundGenerator.h
 //  MorseCodeTraining
 //
 //  Created by Suzuki Kouhei on 2014/01/18.
@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MCTMorseCodePlayer : NSObject
-- (void)playMorse:(NSString *)morseString;
-- (void)reset;
+@interface MCTMorseSoundGenerator : NSObject
+
++ (NSData *)generateMorseSoundData:(NSString *)morseString;
+
 @end

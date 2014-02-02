@@ -9,17 +9,16 @@
 #import "MCTReceiveViewController.h"
 
 #import "NSString+MorseCode.h"
-#import "MCTMorseCodePlayer.h"
+#import "MCTMorseSoundGenerator.h"
+#import "MCTSoundPlayerManager.h"
 
 @interface MCTReceiveViewController ()
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *playButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *playOrPauseButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *repeatButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *back5sButton;
-
-@property (nonatomic) MCTMorseCodePlayer *player;
 
 @end
 
@@ -28,8 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    _player = [[MCTMorseCodePlayer alloc] init];
+    [MCTSoundPlayerManager sharedManager].allowsBackgroundSound = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,19 +38,39 @@
 
 #pragma mark - IBActions
 
-- (IBAction)playButtonTapped:(id)sender {
-    [self.player reset];
-    NSString *morseString = @"OSO OSO OSO CQ CQ DE JA2UIE";
-    [self.player playMorse:[morseString morseStringWithString]];
+- (IBAction)playOrPauseButtonTapped:(id)sender
+{
+
+    if (![MCTSoundPlayerManager sharedManager].playingSound) {
+        NSString *morseString = @"OSO OSO OSO CQ CQ DE JA2UIE";
+        NSData *morseSoundData = [MCTMorseSoundGenerator generateMorseSoundData:[morseString morseStringWithString]];
+        [[MCTSoundPlayerManager sharedManager] playSound:morseSoundData looping:YES fadeIn:NO];
+        [_playOrPauseButton setImage:[UIImage imageNamed:@"pause"]];
+        return;
+    }
+
+    if([MCTSoundPlayerManager sharedManager].pausingSound) {
+        // 再生していない状態
+        [[MCTSoundPlayerManager sharedManager] playSound];
+        [_playOrPauseButton setImage:[UIImage imageNamed:@"pause"]];
+    }
+    else {
+        // 再生している状態
+        [[MCTSoundPlayerManager sharedManager] pauseSound];
+        [_playOrPauseButton setImage:[UIImage imageNamed:@"play"]];
+    }
 }
 
 - (IBAction)backButtonTapped:(id)sender {
+
 }
 
 - (IBAction)nextButtonTapped:(id)sender {
+
 }
 
 - (IBAction)repeatButtonTapped:(id)sender {
+
 }
 
 @end

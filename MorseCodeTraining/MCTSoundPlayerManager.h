@@ -34,6 +34,7 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
 - (void)fadeIn:(NSTimeInterval)duration;
 - (void)fadeOut:(NSTimeInterval)duration;
 - (void)play;
+- (void)pause;
 - (void)stop;
 
 @end
@@ -42,6 +43,7 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
 @interface MCTSoundPlayerManager : NSObject
 
 @property (nonatomic, readonly, getter = isPlayingSound) BOOL playingSound;
+@property (nonatomic, readonly, getter = isPausingSound) BOOL pausingSound;
 @property (nonatomic, assign) BOOL allowsBackgroundSound;
 @property (nonatomic, assign) float soundVolume;
 @property (nonatomic, assign) NSTimeInterval soundFadeDuration;
@@ -54,7 +56,10 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
 - (void)playSound:(id)soundOrSoundData looping:(BOOL)looping;
 - (void)playSound:(id)soundOrSoundData;
 
-- (void)stopSound:(BOOL)fadeOut;
+- (void)playSound;
+- (void)pauseSound;
+
+- (void)stopSoundWithFadeOutFlag:(BOOL)fadeOut;
 - (void)stopSound;
 
 @end

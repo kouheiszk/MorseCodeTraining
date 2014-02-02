@@ -35,7 +35,7 @@
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="C9o-gi-y6B"/>
                                             <barButtonItem image="play.png" id="n2g-ck-Drg">
                                                 <connections>
-                                                    <action selector="playButtonTapped:" destination="7df-lA-eVt" id="Lin-Xv-gf1"/>
+                                                    <action selector="playOrPauseButtonTapped:" destination="7df-lA-eVt" id="kn3-yt-Sp0"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="1eZ-mD-Hi8"/>
@@ -67,7 +67,7 @@
                         <outlet property="back5sButton" destination="HfP-JL-ivz" id="Ows-1C-URC"/>
                         <outlet property="backButton" destination="4MF-vw-b8B" id="Bc7-CR-07P"/>
                         <outlet property="nextButton" destination="OfG-Df-sjk" id="ybb-Zm-jdx"/>
-                        <outlet property="playButton" destination="n2g-ck-Drg" id="pxU-9b-pPS"/>
+                        <outlet property="playOrPauseButton" destination="n2g-ck-Drg" id="zas-dy-U59"/>
                         <outlet property="repeatButton" destination="EIq-1a-t06" id="vqj-xY-WnO"/>
                     </connections>
                 </viewController>

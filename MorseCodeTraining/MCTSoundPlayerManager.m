@@ -17,8 +17,8 @@ NSString *const MCTSoundDidFinishPlayingNotification = @"MCTSoundDidFinishPlayin
 
 @interface MCTSound() <AVAudioPlayerDelegate>
 
-@property (nonatomic, assign) float startVolume;
-@property (nonatomic, assign) float targetVolume;
+@property (nonatomic, assign) CGFloat startVolume;
+@property (nonatomic, assign) CGFloat targetVolume;
 @property (nonatomic, assign) NSTimeInterval fadeTime;
 @property (nonatomic, assign) NSTimeInterval fadeStart;
 @property (nonatomic, strong) NSTimer *timer;
@@ -137,9 +137,14 @@ NSString *const MCTSoundDidFinishPlayingNotification = @"MCTSoundDidFinishPlayin
     if (!self.playing) {
         self.selfReference = self;
         [_soundPlayer setDelegate:self];
-
-        //play sound
         [_soundPlayer play];
+    }
+}
+
+- (void)pause
+{
+    if (self.playing) {
+        [_soundPlayer pause];
     }
 }
 
@@ -320,7 +325,17 @@ static MCTSoundPlayerManager *sharedInstance = nil;
     [self playSound:soundOrSoundData looping:YES fadeIn:YES];
 }
 
-- (void)stopSound:(BOOL)fadeOut
+- (void)playSound
+{
+    [_currentSound play];
+}
+
+- (void)pauseSound
+{
+    [_currentSound pause];
+}
+
+- (void)stopSoundWithFadeOutFlag:(BOOL)fadeOut
 {
     if (fadeOut) {
         [_currentSound fadeOut:_soundFadeDuration];
@@ -333,12 +348,17 @@ static MCTSoundPlayerManager *sharedInstance = nil;
 
 - (void)stopSound
 {
-    [self stopSound:YES];
+    [self stopSoundWithFadeOutFlag:YES];
 }
 
 - (BOOL)isPlayingSound
 {
     return _currentSound != nil;
+}
+
+- (BOOL)isPausingSound
+{
+    return _currentSound != nil && !_currentSound.playing;
 }
 
 - (void)soundFinished:(NSNotification *)notification
