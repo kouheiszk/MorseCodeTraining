@@ -8,8 +8,7 @@
 
 #import "MCTReceiveViewController.h"
 
-#import "NSString+MorseCode.h"
-#import "MCTMorseSoundGenerator.h"
+#import "MCTMorseSound.h"
 #import "MCTSoundPlayerManager.h"
 
 @interface MCTReceiveViewController ()
@@ -27,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [MCTSoundPlayerManager sharedManager].allowsBackgroundSound = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,15 +34,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)updatePlayerConsole
+{
+    if ([MCTSoundPlayerManager sharedManager].playingSound) {
+        [self.playOrPauseButton setImage:[UIImage imageNamed:@"pause"]];
+    }
+    else {
+        [self.playOrPauseButton setImage:[UIImage imageNamed:@"play"]];
+    }
+}
+
 #pragma mark - IBActions
 
 - (IBAction)playOrPauseButtonTapped:(id)sender
 {
-
     if (![MCTSoundPlayerManager sharedManager].playingSound) {
-        NSString *morseString = @"OSO OSO OSO CQ CQ DE JA2UIE";
-        NSData *morseSoundData = [MCTMorseSoundGenerator generateMorseSoundData:[morseString morseStringWithString]];
-        [[MCTSoundPlayerManager sharedManager] playSound:morseSoundData looping:YES fadeIn:NO];
+        NSString *string = @"OSO OSO OSO CQ CQ DE JA2UIE";
+        NSData *soundData = [[MCTMorseSound sharedSound] soundDataWithString:string];
+        [[MCTSoundPlayerManager sharedManager] playSound:soundData looping:YES];
         [_playOrPauseButton setImage:[UIImage imageNamed:@"pause"]];
         return;
     }
@@ -71,6 +78,23 @@
 
 - (IBAction)repeatButtonTapped:(id)sender {
 
+}
+
+#pragma mark - MCTSoundPlayerManagerDelegate
+
+- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidChanged:(NSData *)soundData past:(NSInteger)past
+{
+    [self updatePlayerConsole];
+}
+
+- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidStarted:(NSData *)soundData
+{
+    [self updatePlayerConsole];
+}
+
+- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidStoped:(NSData *)soundData
+{
+    [self updatePlayerConsole];
 }
 
 @end

@@ -11,6 +11,8 @@
 
 #import "MCTSoundPlayerManager.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+
 NSString *const MCTSoundDidFinishPlayingNotification = @"MCTSoundDidFinishPlayingNotification";
 
 #pragma mark - MCTSound interface
@@ -181,50 +183,6 @@ NSString *const MCTSoundDidFinishPlayingNotification = @"MCTSoundDidFinishPlayin
     [self performSelector:@selector(setSelfReference:) withObject:nil afterDelay:0.0];
 }
 
-- (void)fadeTo:(float)volume duration:(NSTimeInterval)duration
-{
-    _startVolume = [_soundPlayer volume];
-    _targetVolume = volume * _baseVolume;
-    _fadeTime = duration;
-    _fadeStart = [[NSDate date] timeIntervalSinceReferenceDate];
-    if (_timer == nil) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0
-                                                      target:self
-                                                    selector:@selector(tick)
-                                                    userInfo:nil
-                                                     repeats:YES];
-    }
-}
-
-- (void)fadeIn:(NSTimeInterval)duration
-{
-    [_soundPlayer setVolume:0.0f];
-    [self fadeTo:1.0f duration:duration];
-}
-
-- (void)fadeOut:(NSTimeInterval)duration
-{
-    [self fadeTo:0.0f duration:duration];
-}
-
-- (void)tick
-{
-    NSTimeInterval now = [[NSDate date] timeIntervalSinceReferenceDate];
-    float delta = (now - _fadeStart)/_fadeTime * (_targetVolume - _startVolume);
-    [_soundPlayer setVolume:(_startVolume + delta) * _baseVolume];
-    if ((delta > 0.0f && [_soundPlayer volume] >= _targetVolume) ||
-        (delta < 0.0f && [_soundPlayer volume] <= _targetVolume))
-    {
-        [_soundPlayer setVolume:_targetVolume * _baseVolume];
-        [_timer invalidate];
-        self.timer = nil;
-        if ([_soundPlayer volume] == 0.0f)
-        {
-            [self stop];
-        }
-    }
-}
-
 - (void)dealloc
 {
     [_timer invalidate];
@@ -236,6 +194,7 @@ NSString *const MCTSoundDidFinishPlayingNotification = @"MCTSoundDidFinishPlayin
 
 @interface MCTSoundPlayerManager ()
 
+@property (nonatomic, readwrite) BOOL playingSound;
 @property (nonatomic, strong) MCTSound *currentSound;
 
 @end
@@ -243,8 +202,6 @@ NSString *const MCTSoundDidFinishPlayingNotification = @"MCTSoundDidFinishPlayin
 #pragma mark - MCTSoundManager implementation
 
 @implementation MCTSoundPlayerManager
-
-static MCTSoundPlayerManager *sharedInstance = nil;
 
 - (id)init
 {
@@ -257,27 +214,29 @@ static MCTSoundPlayerManager *sharedInstance = nil;
     if (self = [super init]) {
         _soundVolume = 1.0f;
         _soundFadeDuration = 1.0;
+
+        // バックグラウンドでも、再生を続けるために、AVAudioSessionをAVAudioSessionCategoryPlaybackに
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        [session setCategory:AVAudioSessionCategoryPlayback error:NULL];
+        [session setActive:YES error:nil];
+
+        // 電話等で途切れた場合の通知
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self selector:@selector(handleInterruption:) name:AVAudioSessionInterruptionNotification object:nil];
+
+        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     }
     return self;
 }
 
 + (MCTSoundPlayerManager *)sharedManager
 {
-    static MCTSoundPlayerManager* sharedInstance;
+    static MCTSoundPlayerManager *sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[MCTSoundPlayerManager alloc] initSharedInstance];
     });
     return sharedInstance;
-}
-
-- (void)setAllowsBackgroundSound:(BOOL)allow
-{
-    if (_allowsBackgroundSound != allow) {
-        _allowsBackgroundSound = allow;
-        AVAudioSession *session = [AVAudioSession sharedInstance];
-        [session setCategory:allow? AVAudioSessionCategoryAmbient: AVAudioSessionCategorySoloAmbient error:NULL];
-    }
 }
 
 - (void)setSoundVolume:(float)newVolume
@@ -292,13 +251,12 @@ static MCTSoundPlayerManager *sharedInstance = nil;
     [sound prepareToPlay];
 }
 
-- (void)playSound:(id)soundOrSoundData looping:(BOOL)looping fadeIn:(BOOL)fadeIn
+- (void)playSound:(id)soundOrSoundData looping:(BOOL)looping
 {
     MCTSound *sound = [soundOrSoundData isKindOfClass:[MCTSound class]]? soundOrSoundData: [MCTSound soundWithSoundData:soundOrSoundData];
     if (![sound.soundData isEqual:_currentSound.soundData]) {
-        if (_currentSound && _currentSound.playing)
-        {
-            [_currentSound fadeOut:_soundFadeDuration];
+        if (_currentSound && _currentSound.playing) {
+            [self stopSound];
         }
         self.currentSound = sound;
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -306,23 +264,15 @@ static MCTSoundPlayerManager *sharedInstance = nil;
                                                      name:MCTSoundDidFinishPlayingNotification
                                                    object:sound];
         _currentSound.looping = looping;
-        _currentSound.volume = fadeIn? 0.0f: _soundVolume;
+        _currentSound.volume = _soundVolume;
         [_currentSound play];
-        if (fadeIn)
-        {
-            [_currentSound fadeTo:_soundVolume duration:_soundFadeDuration];
-        }
     }
-}
 
-- (void)playSound:(id)soundOrSoundData looping:(BOOL)looping
-{
-    [self playSound:soundOrSoundData looping:looping fadeIn:YES];
 }
 
 - (void)playSound:(id)soundOrSoundData
 {
-    [self playSound:soundOrSoundData looping:YES fadeIn:YES];
+    [self playSound:soundOrSoundData looping:YES];
 }
 
 - (void)playSound
@@ -335,20 +285,20 @@ static MCTSoundPlayerManager *sharedInstance = nil;
     [_currentSound pause];
 }
 
-- (void)stopSoundWithFadeOutFlag:(BOOL)fadeOut
+- (void)playOrPauseSound
 {
-    if (fadeOut) {
-        [_currentSound fadeOut:_soundFadeDuration];
+    if (self.pausingSound) {
+        [self playSound];
     }
     else {
-        [_currentSound stop];
+        [self pauseSound];
     }
-    self.currentSound = nil;
 }
 
 - (void)stopSound
 {
-    [self stopSoundWithFadeOutFlag:YES];
+    [_currentSound stop];
+    self.currentSound = nil;
 }
 
 - (BOOL)isPlayingSound
@@ -375,6 +325,57 @@ static MCTSoundPlayerManager *sharedInstance = nil;
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+}
+
+#pragma mark - Notification of AVAudioSession interruption
+
+- (void)handleInterruption:(NSNotification *)notification
+{
+    NSUInteger reason = [notification.userInfo[AVAudioSessionInterruptionTypeKey] intValue];
+    switch ((AVAudioSessionInterruptionType)reason) {
+        case AVAudioSessionInterruptionTypeBegan:
+            self.playingSound = NO;
+            [self pauseSound];
+            NSLog(@"Interruption began");
+            break;
+        case AVAudioSessionInterruptionTypeEnded:
+            [self playSound];
+            NSLog(@"Interruption ended");
+            break;
+    }
+}
+
+#pragma mark - RemoteControlReceived delegate
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent
+{
+    if (receivedEvent.type == UIEventTypeRemoteControl) {
+        switch ((UIEventSubtype)receivedEvent.subtype) {
+            case UIEventSubtypeRemoteControlPlay:
+            case UIEventSubtypeRemoteControlPause:
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                [self playOrPauseSound];
+                break;
+            case UIEventSubtypeRemoteControlStop:
+                [self stopSound];
+                break;
+            case UIEventSubtypeRemoteControlNextTrack:
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                // TODO 別の曲を流す
+                break;
+            case UIEventSubtypeRemoteControlBeginSeekingBackward:
+            case UIEventSubtypeRemoteControlBeginSeekingForward:
+                // TODO シークバーが触られたときの処理
+            case UIEventSubtypeRemoteControlEndSeekingBackward:
+            case UIEventSubtypeRemoteControlEndSeekingForward:
+                // TODO シークバーが触られたときの処理
+                break;
+            case UIEventSubtypeNone:
+            case UIEventSubtypeMotionShake:
+                break;
+        }
+    }
 }
 
 @end

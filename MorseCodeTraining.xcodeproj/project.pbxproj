@@ -42,8 +42,8 @@
 		48A5CCEF1882CEE4000D5841 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCED1882CEE4000D5841 /* InfoPlist.strings */; };
 		48A5CCF11882CEE4000D5841 /* MorseCodeTrainingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCF01882CEE4000D5841 /* MorseCodeTrainingTests.m */; };
 		48A5CCFE188434F7000D5841 /* NSString+MorseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */; };
-		48A5CD08188A828B000D5841 /* MCTMorseSoundGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD07188A828B000D5841 /* MCTMorseSoundGenerator.m */; };
-		48A5CD09188A828B000D5841 /* MCTMorseSoundGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD07188A828B000D5841 /* MCTMorseSoundGenerator.m */; };
+		48A5CD08188A828B000D5841 /* MCTMorseSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD07188A828B000D5841 /* MCTMorseSound.m */; };
+		48A5CD09188A828B000D5841 /* MCTMorseSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD07188A828B000D5841 /* MCTMorseSound.m */; };
 		48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */; };
 		48A5CD10188BC297000D5841 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CD0F188BC297000D5841 /* AVFoundation.framework */; };
 		48A5CD17188C2B96000D5841 /* MCTReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */; };
@@ -107,8 +107,8 @@
 		48A5CCF01882CEE4000D5841 /* MorseCodeTrainingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MorseCodeTrainingTests.m; sourceTree = "<group>"; };
 		48A5CCFC188434F7000D5841 /* NSString+MorseCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MorseCode.h"; sourceTree = "<group>"; };
 		48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MorseCode.m"; sourceTree = "<group>"; };
-		48A5CD06188A828B000D5841 /* MCTMorseSoundGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTMorseSoundGenerator.h; sourceTree = "<group>"; };
-		48A5CD07188A828B000D5841 /* MCTMorseSoundGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTMorseSoundGenerator.m; sourceTree = "<group>"; };
+		48A5CD06188A828B000D5841 /* MCTMorseSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTMorseSound.h; sourceTree = "<group>"; };
+		48A5CD07188A828B000D5841 /* MCTMorseSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTMorseSound.m; sourceTree = "<group>"; };
 		48A5CD0F188BC297000D5841 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		48A5CD18188C2F54000D5841 /* MCTSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTSettingViewController.h; sourceTree = "<group>"; };
 		48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTSettingViewController.m; sourceTree = "<group>"; };
@@ -298,8 +298,8 @@
 		48A5CD05188A8256000D5841 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				48A5CD06188A828B000D5841 /* MCTMorseSoundGenerator.h */,
-				48A5CD07188A828B000D5841 /* MCTMorseSoundGenerator.m */,
+				48A5CD06188A828B000D5841 /* MCTMorseSound.h */,
+				48A5CD07188A828B000D5841 /* MCTMorseSound.m */,
 				48129808189D290F00438DAB /* MCTSoundPlayerManager.h */,
 				48129809189D290F00438DAB /* MCTSoundPlayerManager.m */,
 			);
@@ -367,6 +367,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Suzuki Kouhei";
 				TargetAttributes = {
+					48A5CCC11882CEE3000D5841 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					48A5CCE21882CEE4000D5841 = {
 						TestTargetID = 48A5CCC11882CEE3000D5841;
 					};
@@ -474,7 +481,7 @@
 				48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */,
 				4812980A189D290F00438DAB /* MCTSoundPlayerManager.m in Sources */,
 				48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */,
-				48A5CD08188A828B000D5841 /* MCTMorseSoundGenerator.m in Sources */,
+				48A5CD08188A828B000D5841 /* MCTMorseSound.m in Sources */,
 				48A5CCFE188434F7000D5841 /* NSString+MorseCode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,7 +493,7 @@
 				48A5CD1B188C2F54000D5841 /* MCTSettingViewController.m in Sources */,
 				48A5CCF11882CEE4000D5841 /* MorseCodeTrainingTests.m in Sources */,
 				48A5CD17188C2B96000D5841 /* MCTReceiveViewController.m in Sources */,
-				48A5CD09188A828B000D5841 /* MCTMorseSoundGenerator.m in Sources */,
+				48A5CD09188A828B000D5841 /* MCTMorseSound.m in Sources */,
 				48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

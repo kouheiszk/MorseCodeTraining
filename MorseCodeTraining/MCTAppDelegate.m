@@ -7,6 +7,7 @@
 //
 
 #import "MCTAppDelegate.h"
+#import "MCTSoundPlayerManager.h"
 
 @implementation MCTAppDelegate
 
@@ -41,6 +42,13 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Remote control event handling
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent
+{
+    [[MCTSoundPlayerManager sharedManager] remoteControlReceivedWithEvent:receivedEvent];
 }
 
 @end

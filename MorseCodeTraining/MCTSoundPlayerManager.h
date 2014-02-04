@@ -30,9 +30,6 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
 @property (nonatomic, assign) float volume;
 @property (nonatomic, assign) float pan;
 
-- (void)fadeTo:(float)volume duration:(NSTimeInterval)duration;
-- (void)fadeIn:(NSTimeInterval)duration;
-- (void)fadeOut:(NSTimeInterval)duration;
 - (void)play;
 - (void)pause;
 - (void)stop;
@@ -40,26 +37,41 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
 @end
 
 
-@interface MCTSoundPlayerManager : NSObject
+#pragma mark - MCTSoundPlayerManager
+
+@interface MCTSoundPlayerManager : NSObject <AVAudioSessionDelegate>
 
 @property (nonatomic, readonly, getter = isPlayingSound) BOOL playingSound;
 @property (nonatomic, readonly, getter = isPausingSound) BOOL pausingSound;
-@property (nonatomic, assign) BOOL allowsBackgroundSound;
 @property (nonatomic, assign) float soundVolume;
 @property (nonatomic, assign) NSTimeInterval soundFadeDuration;
+@property (nonatomic, weak) id delegate;
 
 + (MCTSoundPlayerManager *)sharedManager;
 
 - (void)prepareToPlayWithSound:(id)soundOrSoundData;
 
-- (void)playSound:(id)soundOrSoundData looping:(BOOL)looping fadeIn:(BOOL)fadeIn;
 - (void)playSound:(id)soundOrSoundData looping:(BOOL)looping;
 - (void)playSound:(id)soundOrSoundData;
 
 - (void)playSound;
 - (void)pauseSound;
-
-- (void)stopSoundWithFadeOutFlag:(BOOL)fadeOut;
+- (void)playOrPauseSound;
+- (void)nextSound;
+- (void)prevSound;
 - (void)stopSound;
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent;
+
+@end
+
+
+#pragma mark - FNMusicPlayManagerDelegate
+
+@protocol MCTSoundPlayerManagerDelegate <NSObject>
+
+- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidChanged:(NSData *)soundData past:(NSInteger)past;
+- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidStarted:(NSData *)soundData;
+- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidStoped:(NSData *)soundData;
 
 @end

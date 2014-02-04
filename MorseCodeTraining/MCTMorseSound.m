@@ -1,5 +1,5 @@
 //
-//  MCTMorseSoundGenerator.m
+//  MCTMorseSound.m
 //  MorseCodeTraining
 //
 //  参考:
@@ -9,7 +9,9 @@
 //  Copyright (c) 2014年 Suzuki Kouhei. All rights reserved.
 //
 
-#import "MCTMorseSoundGenerator.h"
+#import "MCTMorseSound.h"
+
+#import "NSString+MorseCode.h"
 
 #define SAMPLE_RATE 44100
 #define FREQ 1020
@@ -18,19 +20,55 @@
 #define SPACE 100
 #define END_LENGTH 600
 
-@implementation MCTMorseSoundGenerator
+@interface MCTMorseSound ()
+
+@property (nonatomic, readwrite) NSString *string;
+@property (nonatomic, readwrite) NSString *morseCodeString;
+@property (nonatomic, readwrite) NSData *soundData;
+
+@end
+
+@implementation MCTMorseSound
+
+- (id)init
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+- (id)initSharedInstance
+{
+    if (self = [super init]) {
+        _string = nil;
+        _morseCodeString = nil;
+        _soundData = nil;
+    }
+    return self;
+}
+
++ (MCTMorseSound *)sharedSound
+{
+    static MCTMorseSound *sharedInstance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[MCTMorseSound alloc] initSharedInstance];
+    });
+    return sharedInstance;
+}
 
 #pragma mark - public
 
-+ (NSData *)generateMorseSoundData:(NSString *)morseString
+- (NSData *)soundDataWithString:(NSString *)string
 {
+    NSString *morseCodeString = [string morseCodeStringWithString];
+
     int length = 0;
     NSRange range;
     range.length = 1;
     range.location = 0;
-    for (int i = 0; i < [morseString length]; ++i) {
+    for (int i = 0; i < [morseCodeString length]; ++i) {
         range.location = i;
-        NSString *nextChar = [morseString substringWithRange:range];
+        NSString *nextChar = [morseCodeString substringWithRange:range];
         if ([nextChar isEqualToString:@"."]) {
             if (i) length += SPACE;
             length += DIT;
@@ -52,9 +90,9 @@
         return nil;
     }
 
-    for (int i = 0; i < [morseString length]; ++i) {
+    for (int i = 0; i < [morseCodeString length]; ++i) {
         range.location = i;
-        NSString *nextChar = [morseString substringWithRange:range];
+        NSString *nextChar = [morseCodeString substringWithRange:range];
         if ([nextChar isEqualToString:@"."]) {
             if (i) offset += SAMPLE_RATE * SPACE / 1000;
             int f_length = SAMPLE_RATE * DIT / 1000;
@@ -77,7 +115,10 @@
     offset += SAMPLE_RATE * END_LENGTH / 1000;
     NSLog(@"frames(%i) offset(%i)",frames,offset);
 
-    return [MCTMorseSoundGenerator wavDataFromBuffer:ptr size:frames];
+    self.string = string;
+    self.morseCodeString = morseCodeString;
+    self.soundData = [MCTMorseSound wavDataFromBuffer:ptr size:frames];
+    return self.soundData;
 }
 
 #pragma mark - private

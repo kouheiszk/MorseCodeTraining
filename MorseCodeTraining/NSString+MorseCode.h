@@ -10,11 +10,11 @@
 
 @interface NSString (MorseCode)
 
-+ (NSString *)morseStringWithString:(NSString *)morseString;
-+ (NSArray *)morseArrayWithString:(NSString *)morseString;
-+ (NSString *)stringWithMorseArray:(NSArray *)morseArray;
++ (NSString *)morseCodeStringWithString:(NSString *)string;
++ (NSArray *)morseCodeArrayWithString:(NSString *)string;
++ (NSString *)stringWithMorseCodeArray:(NSArray *)morseCodeArray;
 
-- (NSString *)morseStringWithString;
-- (NSArray *)morseArrayWithString;
+- (NSString *)morseCodeStringWithString;
+- (NSArray *)morseCodeArrayWithString;
 
 @end

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MCTReceiveViewController : UIViewController
+#import "MCTSoundPlayerManager.h"
+
+@interface MCTReceiveViewController : UIViewController <MCTSoundPlayerManagerDelegate>
+
+
 
 @end
