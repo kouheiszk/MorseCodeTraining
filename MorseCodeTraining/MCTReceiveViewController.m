@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *playOrPauseButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *repeatButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *loopButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *back5sButton;
 
 @end
@@ -26,6 +26,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    MCTSoundPlayerManager *manager = [MCTSoundPlayerManager sharedManager];
+    manager.delegate = self;
+
+    if (!manager.isPlaying) {
+        NSString *string = @"OSO OSO OSO CQ CQ DE JA2UIE";
+        [manager playWithString:string];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,7 +44,7 @@
 
 - (void)updatePlayerConsole
 {
-    if ([MCTSoundPlayerManager sharedManager].playingSound) {
+    if ([MCTSoundPlayerManager sharedManager].isPlaying) {
         [self.playOrPauseButton setImage:[UIImage imageNamed:@"pause"]];
     }
     else {
@@ -48,53 +56,48 @@
 
 - (IBAction)playOrPauseButtonTapped:(id)sender
 {
-    if (![MCTSoundPlayerManager sharedManager].playingSound) {
-        NSString *string = @"OSO OSO OSO CQ CQ DE JA2UIE";
-        NSData *soundData = [[MCTMorseSound sharedSound] soundDataWithString:string];
-        [[MCTSoundPlayerManager sharedManager] playSound:soundData looping:YES];
-        [_playOrPauseButton setImage:[UIImage imageNamed:@"pause"]];
-        return;
-    }
-
-    if([MCTSoundPlayerManager sharedManager].pausingSound) {
-        // 再生していない状態
-        [[MCTSoundPlayerManager sharedManager] playSound];
-        [_playOrPauseButton setImage:[UIImage imageNamed:@"pause"]];
-    }
-    else {
-        // 再生している状態
-        [[MCTSoundPlayerManager sharedManager] pauseSound];
-        [_playOrPauseButton setImage:[UIImage imageNamed:@"play"]];
-    }
+    [[MCTSoundPlayerManager sharedManager] playOrPause];
 }
 
-- (IBAction)backButtonTapped:(id)sender {
-
+- (IBAction)backButtonTapped:(id)sender
+{
+    [[MCTSoundPlayerManager sharedManager] prev];
 }
 
-- (IBAction)nextButtonTapped:(id)sender {
-
+- (IBAction)nextButtonTapped:(id)sender
+{
+    [[MCTSoundPlayerManager sharedManager] next];
 }
 
-- (IBAction)repeatButtonTapped:(id)sender {
-
+- (IBAction)loopButtonTapped:(id)sender
+{
+    BOOL shouldLooping = ![MCTSoundPlayerManager sharedManager].isLooping;
+    [MCTSoundPlayerManager sharedManager].looping = shouldLooping;
+    [self updatePlayerConsole];
 }
 
 #pragma mark - MCTSoundPlayerManagerDelegate
 
-- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidChanged:(NSData *)soundData past:(NSInteger)past
+- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundShouldChange:(NSString *)pastString
+{
+    [soundPlayerManeger playWithString:@"ABCD"];
+    [self updatePlayerConsole];
+}
+
+- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidChanged:(NSString *)string pastString:(NSString *)pastString
 {
     [self updatePlayerConsole];
 }
 
-- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidStarted:(NSData *)soundData
+- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidStarted:(BOOL)isPlayingSound
 {
     [self updatePlayerConsole];
 }
 
-- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidStoped:(NSData *)soundData
+- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidStoped:(BOOL)isPlayingSound
 {
     [self updatePlayerConsole];
 }
+
 
 @end

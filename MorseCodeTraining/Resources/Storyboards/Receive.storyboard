@@ -47,7 +47,7 @@
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="qk7-Fl-P44"/>
                                             <barButtonItem image="repeat.png" id="EIq-1a-t06">
                                                 <connections>
-                                                    <action selector="repeatButtonTapped:" destination="7df-lA-eVt" id="To4-zz-bOq"/>
+                                                    <action selector="loopButtonTapped:" destination="7df-lA-eVt" id="hWI-Ed-oHM"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="olk-kh-hE0"/>
@@ -66,9 +66,9 @@
                     <connections>
                         <outlet property="back5sButton" destination="HfP-JL-ivz" id="Ows-1C-URC"/>
                         <outlet property="backButton" destination="4MF-vw-b8B" id="Bc7-CR-07P"/>
+                        <outlet property="loopButton" destination="EIq-1a-t06" id="FtO-sR-Tpt"/>
                         <outlet property="nextButton" destination="OfG-Df-sjk" id="ybb-Zm-jdx"/>
                         <outlet property="playOrPauseButton" destination="n2g-ck-Drg" id="zas-dy-U59"/>
-                        <outlet property="repeatButton" destination="EIq-1a-t06" id="vqj-xY-WnO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReX-Kf-5jF" userLabel="First Responder" sceneMemberID="firstResponder"/>
