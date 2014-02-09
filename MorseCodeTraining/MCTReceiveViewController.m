@@ -9,7 +9,7 @@
 #import "MCTReceiveViewController.h"
 
 #import "MCTMorseSound.h"
-#import "MCTSoundPlayerManager.h"
+#import "MCTSoundManager.h"
 
 @interface MCTReceiveViewController ()
 
@@ -27,13 +27,11 @@
 {
     [super viewDidLoad];
 
-    MCTSoundPlayerManager *manager = [MCTSoundPlayerManager sharedManager];
-    manager.delegate = self;
-
-    if (!manager.isPlaying) {
+    if (![MCTSoundManager sharedManager].playingSound) {
         NSString *string = @"OSO OSO OSO CQ CQ DE JA2UIE";
-        [manager playWithString:string];
+        [[MCTSoundManager sharedManager] playSound:string];
     }
+    [self updatePlayerConsole];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,7 +42,7 @@
 
 - (void)updatePlayerConsole
 {
-    if ([MCTSoundPlayerManager sharedManager].isPlaying) {
+    if ([MCTSoundManager sharedManager].playingSound) {
         [self.playOrPauseButton setImage:[UIImage imageNamed:@"pause"]];
     }
     else {
@@ -56,48 +54,27 @@
 
 - (IBAction)playOrPauseButtonTapped:(id)sender
 {
-    [[MCTSoundPlayerManager sharedManager] playOrPause];
+    NSLog(@"play or pause button");
+    [[MCTSoundManager sharedManager] playOrPauseSound];
+    [self updatePlayerConsole];
 }
 
 - (IBAction)backButtonTapped:(id)sender
 {
-    [[MCTSoundPlayerManager sharedManager] prev];
+    NSLog(@"back button");
+    [self updatePlayerConsole];
 }
 
 - (IBAction)nextButtonTapped:(id)sender
 {
-    [[MCTSoundPlayerManager sharedManager] next];
+    NSLog(@"next button");
+    [self updatePlayerConsole];
 }
 
 - (IBAction)loopButtonTapped:(id)sender
 {
-    BOOL shouldLooping = ![MCTSoundPlayerManager sharedManager].isLooping;
-    [MCTSoundPlayerManager sharedManager].looping = shouldLooping;
+    NSLog(@"loop button");
     [self updatePlayerConsole];
 }
-
-#pragma mark - MCTSoundPlayerManagerDelegate
-
-- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundShouldChange:(NSString *)pastString
-{
-    [soundPlayerManeger playWithString:@"ABCD"];
-    [self updatePlayerConsole];
-}
-
-- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidChanged:(NSString *)string pastString:(NSString *)pastString
-{
-    [self updatePlayerConsole];
-}
-
-- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidStarted:(BOOL)isPlayingSound
-{
-    [self updatePlayerConsole];
-}
-
-- (void)soundPlayerManeger:(MCTSoundPlayerManager *)soundPlayerManeger soundDidStoped:(BOOL)isPlayingSound
-{
-    [self updatePlayerConsole];
-}
-
 
 @end
