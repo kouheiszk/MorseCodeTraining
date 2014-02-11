@@ -28,6 +28,9 @@
 		48129806189C9E1500438DAB /* repeat_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481297F6189C9E1500438DAB /* repeat_fill@2x.png */; };
 		48129807189C9E1500438DAB /* repeat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481297F7189C9E1500438DAB /* repeat@2x.png */; };
 		4812980A189D290F00438DAB /* MCTSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48129809189D290F00438DAB /* MCTSoundManager.m */; };
+		4884443118A77AFA00F8C82B /* MCTSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4884443018A77AFA00F8C82B /* MCTSwitchTableViewCell.m */; };
+		4884443318A77C5500F8C82B /* MCTSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4884443218A77C5500F8C82B /* MCTSwitchTableViewCell.xib */; };
+		4884443A18A7865300F8C82B /* MCTAlphabetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4884443918A7865300F8C82B /* MCTAlphabetViewController.m */; };
 		48A5CCC61882CEE3000D5841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC51882CEE3000D5841 /* Foundation.framework */; };
 		48A5CCC81882CEE3000D5841 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */; };
 		48A5CCCA1882CEE3000D5841 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC91882CEE3000D5841 /* UIKit.framework */; };
@@ -87,6 +90,11 @@
 		481297F7189C9E1500438DAB /* repeat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "repeat@2x.png"; path = "Resources/Images/icons/repeat@2x.png"; sourceTree = "<group>"; };
 		48129808189D290F00438DAB /* MCTSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTSoundManager.h; sourceTree = "<group>"; };
 		48129809189D290F00438DAB /* MCTSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTSoundManager.m; sourceTree = "<group>"; };
+		4884442F18A77AFA00F8C82B /* MCTSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTSwitchTableViewCell.h; sourceTree = "<group>"; };
+		4884443018A77AFA00F8C82B /* MCTSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTSwitchTableViewCell.m; sourceTree = "<group>"; };
+		4884443218A77C5500F8C82B /* MCTSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTSwitchTableViewCell.xib; sourceTree = "<group>"; };
+		4884443818A7865300F8C82B /* MCTAlphabetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTAlphabetViewController.h; sourceTree = "<group>"; };
+		4884443918A7865300F8C82B /* MCTAlphabetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTAlphabetViewController.m; sourceTree = "<group>"; };
 		48A5CCC21882CEE3000D5841 /* MorseCodeTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorseCodeTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A5CCC51882CEE3000D5841 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,6 +166,25 @@
 				481258E718993D4B00CE1A99 /* MCTTabBarController.m */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		4884442E18A77A5600F8C82B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4884442F18A77AFA00F8C82B /* MCTSwitchTableViewCell.h */,
+				4884443018A77AFA00F8C82B /* MCTSwitchTableViewCell.m */,
+				4884443218A77C5500F8C82B /* MCTSwitchTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4884443418A785B600F8C82B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4884443818A7865300F8C82B /* MCTAlphabetViewController.h */,
+				4884443918A7865300F8C82B /* MCTAlphabetViewController.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		488A21151896C6E700775AB2 /* Resources */ = {
@@ -279,8 +306,9 @@
 				48A5CCD41882CEE3000D5841 /* MCTAppDelegate.h */,
 				48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */,
 				481258E418993D0B00CE1A99 /* Common */,
-				48A5CD11188C2B4C000D5841 /* ViewController */,
 				48A5CD05188A8256000D5841 /* Sound */,
+				48A5CD11188C2B4C000D5841 /* ViewController */,
+				4884442E18A77A5600F8C82B /* View */,
 				48A5CCFB188433BC000D5841 /* Extensions */,
 			);
 			name = Classes;
@@ -309,6 +337,7 @@
 		48A5CD11188C2B4C000D5841 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4884443418A785B600F8C82B /* Settings */,
 				48A5CCDA1882CEE3000D5841 /* MCTReceiveViewController.h */,
 				48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */,
 				48A5CD18188C2F54000D5841 /* MCTSettingViewController.h */,
@@ -407,6 +436,7 @@
 				481297FA189C9E1500438DAB /* back5s_filled@2x.png in Resources */,
 				48129800189C9E1500438DAB /* pause_fill@2x.png in Resources */,
 				48129803189C9E1500438DAB /* play@2x.png in Resources */,
+				4884443318A77C5500F8C82B /* MCTSwitchTableViewCell.xib in Resources */,
 				481297E6189C9E0600438DAB /* Receive.storyboard in Resources */,
 				481297FB189C9E1500438DAB /* back5s@2x.png in Resources */,
 				481297E5189C9E0600438DAB /* Main.storyboard in Resources */,
@@ -481,6 +511,8 @@
 				48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */,
 				4812980A189D290F00438DAB /* MCTSoundManager.m in Sources */,
 				48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */,
+				4884443A18A7865300F8C82B /* MCTAlphabetViewController.m in Sources */,
+				4884443118A77AFA00F8C82B /* MCTSwitchTableViewCell.m in Sources */,
 				48A5CD08188A828B000D5841 /* MCTMorseSound.m in Sources */,
 				48A5CCFE188434F7000D5841 /* NSString+MorseCode.m in Sources */,
 			);

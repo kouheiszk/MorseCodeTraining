@@ -4,6 +4,29 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
+        <!--Alphabet View Controller-->
+        <scene sceneID="Lfi-pz-0jI">
+            <objects>
+                <tableViewController id="LgO-M8-jnT" customClass="MCTAlphabetViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rjw-Iw-kIn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="LgO-M8-jnT" id="J6j-Wa-B3U"/>
+                            <outlet property="delegate" destination="LgO-M8-jnT" id="y1I-b7-knu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="0ZG-8m-2yI"/>
+                    <connections>
+                        <outlet property="tableView" destination="rjw-Iw-kIn" id="ys7-F4-xGu"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dsG-hn-d7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1822" y="265"/>
+        </scene>
         <!--Setting View Controller - 設定-->
         <scene sceneID="sbE-w0-NWj">
             <objects>
@@ -32,7 +55,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ZLO-eE-3GR" kind="push" identifier="selectSettingTableCell" id="dmP-LR-eG9"/>
+                                            <segue destination="LgO-M8-jnT" kind="push" id="frl-A0-xCR"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pUv-PZ-yzf" style="IBUITableViewCellStyleDefault" id="icu-nZ-wIP">
@@ -268,25 +291,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t65-ee-yiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1357" y="854"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="rea-0o-vZz">
-            <objects>
-                <viewController id="ZLO-eE-3GR" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wp0-eG-nam"/>
-                        <viewControllerLayoutGuide type="bottom" id="idE-Ky-VhL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="A2Y-lB-y7N">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="wrX-Ak-CGO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cEd-G0-xQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1832" y="854"/>
         </scene>
         <!--Navigation Controller - 設定-->
         <scene sceneID="AFZ-pu-2AE">
