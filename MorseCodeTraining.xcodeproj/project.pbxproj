@@ -52,6 +52,8 @@
 		48A5CD17188C2B96000D5841 /* MCTReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */; };
 		48A5CD1A188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
 		48A5CD1B188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
+		48F5834418E6CE7E00F93E5E /* MCTMorseCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F5834318E6CE7E00F93E5E /* MCTMorseCodeModel.m */; };
+		48F5834618E6D00D00F93E5E /* MCTMorseCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48F5834518E6D00D00F93E5E /* MCTMorseCode.plist */; };
 		B7550C5ECC7A449ABACE6F2C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 626328A1DD38415E91FF4408 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,9 @@
 		48A5CD0F188BC297000D5841 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		48A5CD18188C2F54000D5841 /* MCTSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTSettingViewController.h; sourceTree = "<group>"; };
 		48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTSettingViewController.m; sourceTree = "<group>"; };
+		48F5834218E6CE7E00F93E5E /* MCTMorseCodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTMorseCodeModel.h; sourceTree = "<group>"; };
+		48F5834318E6CE7E00F93E5E /* MCTMorseCodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTMorseCodeModel.m; sourceTree = "<group>"; };
+		48F5834518E6D00D00F93E5E /* MCTMorseCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MCTMorseCode.plist; sourceTree = "<group>"; };
 		626328A1DD38415E91FF4408 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -305,8 +310,9 @@
 			children = (
 				48A5CCD41882CEE3000D5841 /* MCTAppDelegate.h */,
 				48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */,
-				481258E418993D0B00CE1A99 /* Common */,
 				48A5CD05188A8256000D5841 /* Sound */,
+				481258E418993D0B00CE1A99 /* Common */,
+				48F5834118E6CD5E00F93E5E /* Model */,
 				48A5CD11188C2B4C000D5841 /* ViewController */,
 				4884442E18A77A5600F8C82B /* View */,
 				48A5CCFB188433BC000D5841 /* Extensions */,
@@ -344,6 +350,16 @@
 				48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		48F5834118E6CD5E00F93E5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48F5834218E6CE7E00F93E5E /* MCTMorseCodeModel.h */,
+				48F5834318E6CE7E00F93E5E /* MCTMorseCodeModel.m */,
+				48F5834518E6D00D00F93E5E /* MCTMorseCode.plist */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,6 +456,7 @@
 				481297E6189C9E0600438DAB /* Receive.storyboard in Resources */,
 				481297FB189C9E1500438DAB /* back5s@2x.png in Resources */,
 				481297E5189C9E0600438DAB /* Main.storyboard in Resources */,
+				48F5834618E6D00D00F93E5E /* MCTMorseCode.plist in Resources */,
 				481297F9189C9E1500438DAB /* back@2x.png in Resources */,
 				48129801189C9E1500438DAB /* pause@2x.png in Resources */,
 				48129807189C9E1500438DAB /* repeat@2x.png in Resources */,
@@ -511,6 +528,7 @@
 				48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */,
 				4812980A189D290F00438DAB /* MCTSoundManager.m in Sources */,
 				48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */,
+				48F5834418E6CE7E00F93E5E /* MCTMorseCodeModel.m in Sources */,
 				4884443A18A7865300F8C82B /* MCTAlphabetViewController.m in Sources */,
 				4884443118A77AFA00F8C82B /* MCTSwitchTableViewCell.m in Sources */,
 				48A5CD08188A828B000D5841 /* MCTMorseSound.m in Sources */,

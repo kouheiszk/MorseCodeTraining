@@ -11,6 +11,8 @@
 
 #import "NSString+MorseCode.h"
 
+#import "MCTMorseCodeModel.h"
+
 @implementation NSString (MorseCode)
 
 #pragma mark - public
@@ -56,8 +58,8 @@
 {
     NSMutableString *string = [NSMutableString new];
     for (NSString *code in morseCodeArray) {
-        NSAssert([[[NSString codeMap] allKeysForObject:code] count], @"Code not found, did you make a typo?");
-        NSString *character = [[NSString codeMap] allKeysForObject:code][0];
+        NSAssert([[[MCTMorseCodeModel getAllCodeMap] allKeysForObject:code] count], @"Code not found, did you make a typo?");
+        NSString *character = [[MCTMorseCodeModel getAllCodeMap] allKeysForObject:code][0];
         [string appendString:character];
     }
 
@@ -79,7 +81,7 @@
 + (NSString *)morseCodeForCharacter:(NSString *)character
 {
     NSString *keyString = [character uppercaseString];
-    NSString *codeString = [NSString codeMap][keyString];
+    NSString *codeString = [MCTMorseCodeModel getAllCodeMap][keyString];
     NSLog(@"Converting %@ to %@", keyString, codeString);
 
     return codeString;
@@ -88,69 +90,9 @@
 + (NSString *)characterForMorseCode:(NSString *)code
 {
     NSAssert(code.length > 0 && code.length <= 6, @"Length of code must be between 1-6 characters");
-    NSAssert([[[NSString codeMap] allKeysForObject:code] count], @"Code not found, did you make a typo?");
+    NSAssert([[[MCTMorseCodeModel getAllCodeMap] allKeysForObject:code] count], @"Code not found, did you make a typo?");
 
-    return [[NSString codeMap] allKeysForObject:code][0];
-}
-
-+ (NSDictionary *)codeMap
-{
-    return @{
-             @" ": @"  ",
-             @"A": @".-",
-             @"B": @"-...",
-             @"C": @"-.-.",
-             @"D": @"-..",
-             @"E": @".",
-             @"F": @"..-.",
-             @"G": @"--.",
-             @"H": @"....",
-             @"I": @"..",
-             @"J": @".---",
-             @"K": @"-.-",
-             @"L": @".-..",
-             @"M": @"--",
-             @"N": @"-.",
-             @"O": @"---",
-             @"P": @".--.",
-             @"Q": @"--.-",
-             @"R": @".-.",
-             @"S": @"...",
-             @"T": @"-",
-             @"U": @"..-",
-             @"V": @"...-",
-             @"W": @".--",
-             @"X": @"-..-",
-             @"Y": @"-.--",
-             @"Z": @"--..",
-             @"1": @".----",
-             @"2": @"..---",
-             @"3": @"...--",
-             @"4": @"....-",
-             @"5": @".....",
-             @"6": @"-....",
-             @"7": @"--...",
-             @"8": @"---..",
-             @"9": @"----.",
-             @"0": @"-----",
-             @".": @".-.-.-",
-             @",": @"--..--",
-             @":": @"---...",
-             @";": @"-.-.-.",
-             @"?": @"..--..",
-             @"'": @".----.",
-             @"-": @"-....-",
-             @"/": @"-..-.",
-             @"(": @"-.--.-",
-             @")": @"-.--.-",
-             @"\"": @".-..-.",
-             @"@": @".--.-.",
-             @"=": @"-...-",
-             @"!": @"---.",
-             @"[": @"-.--.",
-             @"]": @"-.--.",
-             @"+": @".-.-.",
-             };
+    return [[MCTMorseCodeModel getAllCodeMap] allKeysForObject:code][0];
 }
 
 @end
