@@ -29,7 +29,8 @@
     return (UITableView *)superView;
 }
 
-- (MCTSwitchTableViewCell *)findUITableViewCellFromSuperViewsForView:(id)view {
+- (MCTSwitchTableViewCell *)findUITableViewCellFromSuperViewsForView:(id)view
+{
     if (![view isKindOfClass:[UIView class]]) return nil;
     UIView *superView = view;
     while ([superView isKindOfClass:[MCTSwitchTableViewCell class]] == NO) {

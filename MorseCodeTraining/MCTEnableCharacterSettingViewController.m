@@ -1,22 +1,26 @@
 //
-//  MCTAlphabetViewController.m
+//  MCTEnableCharacterSettingViewController.m
 //  MorseCodeTraining
 //
 //  Created by Suzuki Kouhei on 2014/02/09.
 //  Copyright (c) 2014年 Suzuki Kouhei. All rights reserved.
 //
 
-#import "MCTAlphabetViewController.h"
+#import "MCTEnableCharacterSettingViewController.h"
+
+#import "MCTSwitchTableViewCell.h"
+#import "MCTMorseCodeModel.h"
 
 static NSString *const kCellIdentifier = @"MCTSwitchTableViewCell";
 
-@interface MCTAlphabetViewController ()
+@interface MCTEnableCharacterSettingViewController () <MCTSwitchCellDelegate>
 
+@property (nonatomic) MCTMorseCodeCharacterType type;
 @property (nonatomic) NSArray *array;
 
 @end
 
-@implementation MCTAlphabetViewController
+@implementation MCTEnableCharacterSettingViewController
 
 - (void)viewDidLoad
 {
@@ -28,16 +32,8 @@ static NSString *const kCellIdentifier = @"MCTSwitchTableViewCell";
          forCellReuseIdentifier:kCellIdentifier];
 
     // Table view datasource
-    self.array = @[@"A B C",
-                   @"D E F",
-                   @"G H I",
-                   @"J K L",
-                   @"M N O",
-                   @"P Q R",
-                   @"S T U",
-                   @"V W X",
-                   @"W Z",
-                   ];
+    self.type = [MCTMorseCodeModel typeWithTypeString:self.settingTarget];
+    self.array = [MCTMorseCodeModel charactersWithType:self.type];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,7 +52,18 @@ static NSString *const kCellIdentifier = @"MCTSwitchTableViewCell";
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"アルファベット";
+    switch (self.type) {
+        case MCTMorseCodeCharacterTypeAlphabet:
+            return @"アルファベット";
+        case MCTMorseCodeCharacterTypeNumber:
+            return @"数字";
+        case MCTMorseCodeCharacterTypeSymbol:
+            return @"記号";
+        case MCTMorseCodeCharacterTypeAll:
+            return @"すべて";
+    }
+
+    return nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -80,7 +87,7 @@ static NSString *const kCellIdentifier = @"MCTSwitchTableViewCell";
 
 - (void)tableView:(UITableView *)tableView changeSwitchValue:(BOOL)on indexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Change switch %ld: %@", indexPath.row, on ? @"ON" : @"OFF");
+    NSLog(@"Change switch %@: %@", self.array[indexPath.row], on ? @"ON" : @"OFF");
 }
 
 @end

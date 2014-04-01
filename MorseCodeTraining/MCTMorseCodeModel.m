@@ -8,41 +8,55 @@
 
 #import "MCTMorseCodeModel.h"
 
-static NSString *const kTypeAlphabet = @"alphabet";
-static NSString *const kTypeNumber = @"number";
-static NSString *const kTypeSymbol = @"symbol";
-
 @implementation MCTMorseCodeModel
 
 #pragma mark - Public methods
 
-+ (NSDictionary *)getAllCodeMap
++ (NSDictionary *)morseCodeMapWithType:(MCTMorseCodeCharacterType)type
 {
-    NSDictionary *morseCodeMap = [self morseCodeMapFromPlist];
+    NSDictionary *morseCodeMaps = [self morseCodeMapFromPlist];
+    NSString *typeString = [self typeStringWithType:type];
+
+    if (typeString) return morseCodeMaps[typeString];
+
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    for (NSDictionary *typeDic in morseCodeMap) {
+    for (NSDictionary *typeDic in morseCodeMaps) {
         [dic addEntriesFromDictionary:typeDic];
     }
 
     return dic;
 }
 
-+ (NSDictionary *)getAlphabelCodeMap
++ (NSArray *)charactersWithType:(MCTMorseCodeCharacterType)type
 {
-    NSDictionary *morseCodeMap = [self morseCodeMapFromPlist];
-    return morseCodeMap[kTypeAlphabet];
+    NSDictionary *morseCodeMap = [self morseCodeMapWithType:type];
+    NSArray *characters = morseCodeMap.allKeys;
+
+    return [characters sortedArrayUsingComparator:^(NSString *obj1, NSString *obj2) {
+        return [obj1 localizedCaseInsensitiveCompare:obj2];
+    }];
 }
 
-+ (NSDictionary *)getNumberCodeMap
++ (NSString *)typeStringWithType:(MCTMorseCodeCharacterType)type
 {
-    NSDictionary *morseCodeMap = [self morseCodeMapFromPlist];
-    return morseCodeMap[kTypeNumber];
+    switch (type) {
+        case MCTMorseCodeCharacterTypeAll:
+            return nil;
+        case MCTMorseCodeCharacterTypeAlphabet:
+            return @"alphabet";
+        case MCTMorseCodeCharacterTypeNumber:
+            return @"number";
+        case MCTMorseCodeCharacterTypeSymbol:
+            return @"symbol";
+    }
 }
 
-+ (NSDictionary *)getSymbolCodeMap
++ (MCTMorseCodeCharacterType)typeWithTypeString:(NSString *)typeString
 {
-    NSDictionary *morseCodeMap = [self morseCodeMapFromPlist];
-    return morseCodeMap[kTypeSymbol];
+    if ([typeString isEqualToString:@"alphabet"]) return MCTMorseCodeCharacterTypeAlphabet;
+    if ([typeString isEqualToString:@"number"]) return MCTMorseCodeCharacterTypeNumber;
+    if ([typeString isEqualToString:@"symbol"]) return MCTMorseCodeCharacterTypeSymbol;
+    return MCTMorseCodeCharacterTypeAll;
 }
 
 #pragma mark - Private methods
@@ -52,6 +66,10 @@ static NSString *const kTypeSymbol = @"symbol";
     NSString *path = [[NSBundle mainBundle] pathForResource:@"MCTMorseCode" ofType:@"plist"];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     return dictionary;
+}
+
++ (NSComparisonResult)compareCaracter:(NSString *)string {
+    return [string localizedCaseInsensitiveCompare:string];
 }
 
 @end

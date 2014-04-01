@@ -8,11 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, MCTMorseCodeCharacterType) {
+    MCTMorseCodeCharacterTypeAll,
+    MCTMorseCodeCharacterTypeAlphabet,
+    MCTMorseCodeCharacterTypeNumber,
+    MCTMorseCodeCharacterTypeSymbol,
+};
+
 @interface MCTMorseCodeModel : NSObject
 
-+ (NSDictionary *)getAllCodeMap;
-+ (NSDictionary *)getAlphabelCodeMap;
-+ (NSDictionary *)getNumberCodeMap;
-+ (NSDictionary *)getSymbolCodeMap;
++ (NSDictionary *)morseCodeMapWithType:(MCTMorseCodeCharacterType)type;
++ (NSArray *)charactersWithType:(MCTMorseCodeCharacterType)type;
+
++ (NSString *)typeStringWithType:(MCTMorseCodeCharacterType)type;
++ (MCTMorseCodeCharacterType)typeWithTypeString:(NSString *)typeString;
 
 @end

@@ -19,6 +19,6 @@
 @property (weak, nonatomic) UIViewController<MCTSwitchCellDelegate> *delegate;
 
 @property (weak, nonatomic) IBOutlet UISwitch *valueSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic, readonly) IBOutlet UILabel *textLabel;
 
 @end

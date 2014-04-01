@@ -8,6 +8,8 @@
 
 #import "MCTSettingViewController.h"
 
+#import "MCTSettingViewControllerProtocol.h"
+
 @interface MCTSettingViewController ()
 
 @end
@@ -18,7 +20,7 @@
 {
     [super viewDidLoad];
 
-    self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,8 +32,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    UIViewController<MCTSettingViewControllerProtocol> *newViewController = [segue destinationViewController];
+    newViewController.settingTarget = segue.identifier;
 }
 
 @end
