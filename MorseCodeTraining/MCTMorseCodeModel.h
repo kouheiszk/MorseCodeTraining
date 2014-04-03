@@ -23,4 +23,8 @@ typedef NS_ENUM(NSInteger, MCTMorseCodeCharacterType) {
 + (NSString *)typeStringWithType:(MCTMorseCodeCharacterType)type;
 + (MCTMorseCodeCharacterType)typeWithTypeString:(NSString *)typeString;
 
++ (NSArray *)enableCharacters;
++ (BOOL)isEnableCharacter:(NSString *)character;
++ (void)character:(NSString *)character enable:(BOOL)enable;
+
 @end

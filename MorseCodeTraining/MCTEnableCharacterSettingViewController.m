@@ -44,7 +44,7 @@ static NSString *const kCellIdentifier = @"MCTSwitchTableViewCell";
 - (void)updateCell:(MCTSwitchTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     cell.textLabel.text = self.array[indexPath.row];
-    cell.valueSwitch.on = NO;
+    cell.valueSwitch.on = [MCTMorseCodeModel isEnableCharacter:self.array[indexPath.row]];
     cell.delegate = self;
 }
 
@@ -87,7 +87,8 @@ static NSString *const kCellIdentifier = @"MCTSwitchTableViewCell";
 
 - (void)tableView:(UITableView *)tableView changeSwitchValue:(BOOL)on indexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Change switch %@: %@", self.array[indexPath.row], on ? @"ON" : @"OFF");
+     NSLog(@"Change switch %@: %@", self.array[indexPath.row], on ? @"ON" : @"OFF");
+    [MCTMorseCodeModel character:self.array[indexPath.row] enable:on];
 }
 
 @end

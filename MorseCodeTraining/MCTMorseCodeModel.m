@@ -8,6 +8,8 @@
 
 #import "MCTMorseCodeModel.h"
 
+#import "NSUserDefaults+MCTAdditions.h"
+
 @implementation MCTMorseCodeModel
 
 #pragma mark - Public methods
@@ -59,6 +61,34 @@
     return MCTMorseCodeCharacterTypeAll;
 }
 
++ (NSArray *)enableCharacters
+{
+    NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
+    return (d.storedEnableCharacters != nil) ? d.storedEnableCharacters : [NSArray array];
+}
+
++ (BOOL)isEnableCharacter:(NSString *)character
+{
+    NSArray *storedEnableCharacters = [self enableCharacters];
+    return [storedEnableCharacters containsObject:character];
+}
+
++ (void)character:(NSString *)character enable:(BOOL)enable
+{
+    // 登録状態と指定が同じであれば何もしない
+    if ([self isEnableCharacter:character] == enable) return;
+
+    NSMutableArray *enableCharacters = [self enableCharacters].mutableCopy;
+    if (enable) {
+        [enableCharacters addObject:character];
+    } else {
+        [enableCharacters removeObject:character];
+    }
+
+    NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
+    d.storedEnableCharacters = [enableCharacters copy];
+}
+
 #pragma mark - Private methods
 
 + (NSDictionary *)morseCodeMapFromPlist
@@ -68,7 +98,8 @@
     return dictionary;
 }
 
-+ (NSComparisonResult)compareCaracter:(NSString *)string {
++ (NSComparisonResult)compareCaracter:(NSString *)string
+{
     return [string localizedCaseInsensitiveCompare:string];
 }
 
