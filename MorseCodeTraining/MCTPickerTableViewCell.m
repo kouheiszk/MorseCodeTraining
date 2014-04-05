@@ -10,18 +10,68 @@
 
 NSString *const MCTPickerTableViewCellIdentifier = @"MCTPickerTableViewCell";
 
+@interface MCTPickerTableViewCell () <UIPickerViewDelegate, UIPickerViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
+
+@end
+
 @implementation MCTPickerTableViewCell
 
 - (void)awakeFromNib
 {
-    // Initialization code
+    self.picker.delegate = self;
+    self.picker.dataSource = self;
+    self.picker.showsSelectionIndicator = YES;
+    self.unit = nil;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
+#pragma mark - UIPickerView
 
-    // Configure the view for the selected state
+- (void)selectRow:(NSInteger)row inComponent:(NSInteger)component animated:(BOOL)animated
+{
+
+}
+
+#pragma mark - UIPickerViewDataSource
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.options.count;
+}
+
+#pragma mark - Getter / Setter
+
+- (CGFloat)height
+{
+    return 212.f;
+}
+
+- (void)setDefaultOption:(NSInteger)defaultOption
+{
+    _defaultOption = defaultOption;
+    NSInteger key = [self.options indexOfObject:@(defaultOption)];
+    [self.picker selectRow:key inComponent:0 animated:NO];
+}
+
+#pragma mark - UIPickerViewDelegate
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    NSString *unit = self.unit ? self.unit : @"";
+    return [NSString stringWithFormat:@"%@ %@", self.options[row], unit];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    if ([self.delegate respondsToSelector:@selector(pickerView:didSelectRow:inComponent:)]) {
+        [self.delegate pickerView:pickerView didSelectRow:row inComponent:component];
+    }
 }
 
 @end

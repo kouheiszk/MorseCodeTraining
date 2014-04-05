@@ -9,6 +9,7 @@
 #import "NSUserDefaults+MCTAdditions.h"
 
 static NSString *const kStoredEnableCharactersKey = @"enableCharacters";
+static NSString *const kStoredSettingsKey = @"storedSettings";
 
 @implementation NSUserDefaults (MCTAdditions)
 
@@ -20,6 +21,17 @@ static NSString *const kStoredEnableCharactersKey = @"enableCharacters";
 - (void)setStoredEnableCharacters:(NSArray *)enableCharacters
 {
     [self setObject:enableCharacters forKey:kStoredEnableCharactersKey];
+    [self synchronize];
+}
+
+- (NSDictionary *)storedSettings
+{
+    return [self dictionaryForKey:kStoredSettingsKey];
+}
+
+- (void)setStoredSettings:(NSDictionary *)settings
+{
+    [self setObject:settings forKey:kStoredSettingsKey];
     [self synchronize];
 }
 

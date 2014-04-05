@@ -48,7 +48,17 @@ typedef NS_ENUM(NSInteger, MCTPickSettingViewSection) {
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - Table view data source
+#pragma mark - Private method
+
+- (void)updatePickCell:(MCTPickerTableViewCell *)cell atIndexPath:(__attribute__((unused)) NSIndexPath *)indexPath
+{
+    NSInteger defalutOption = [MCTMorseCodeSettingModel settingedValueWithType:self.type];
+    cell.options = self.options;
+    cell.defaultOption = defalutOption;
+    cell.delegate = self;
+}
+
+#pragma mark - UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -96,6 +106,16 @@ typedef NS_ENUM(NSInteger, MCTPickSettingViewSection) {
     return nil;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == MCTPickSettingViewSectionPicker) {
+        MCTPickerTableViewCell *cell = (MCTPickerTableViewCell *)[self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+        return cell.height;
+    }
+
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -105,13 +125,12 @@ typedef NS_ENUM(NSInteger, MCTPickSettingViewSection) {
     }
 }
 
-#pragma mark - Private method
+#pragma mark - MCTPickerTableViewCellDelegate
 
-- (void)updatePickCell:(MCTPickerTableViewCell *)cell atIndexPath:(__attribute__((unused)) NSIndexPath *)indexPath
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    cell.delegate = self;
+    NSLog(@"Change picker %@: %@", self.settingTarget, self.options[row]);
+    [MCTMorseCodeSettingModel type:self.type settingValue:[self.options[row] integerValue]];
 }
-
-
 
 @end

@@ -10,6 +10,8 @@
 
 extern NSString *const MCTPickerDecideTableViewCellIdentifier;
 
+@protocol MCTPickerDecideTableViewCellDelegate;
+
 @interface MCTPickerDecideTableViewCell : UITableViewCell
 
 @end

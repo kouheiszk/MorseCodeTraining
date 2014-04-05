@@ -15,10 +15,15 @@ extern NSString *const MCTPickerTableViewCellIdentifier;
 @interface MCTPickerTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) UIViewController<MCTPickerTableViewCellDelegate> *delegate;
-
+@property (nonatomic, readonly) CGFloat height;
+@property (nonatomic) NSArray *options;
+@property (nonatomic) NSInteger defaultOption;
+@property (nonatomic) NSString *unit;
 @end
 
 
 @protocol MCTPickerTableViewCellDelegate
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
 
 @end
