@@ -11,7 +11,7 @@
 
 #import "NSString+MorseCode.h"
 
-#import "MCTMorseCodeModel.h"
+#import "MCTMorseCodeCharacterModel.h"
 
 @implementation NSString (MorseCode)
 
@@ -58,8 +58,8 @@
 {
     NSMutableString *string = [NSMutableString new];
     for (NSString *code in morseCodeArray) {
-        NSAssert([[[MCTMorseCodeModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code] count], @"Code not found, did you make a typo?");
-        NSString *character = [[MCTMorseCodeModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code][0];
+        NSAssert([[[MCTMorseCodeCharacterModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code] count], @"Code not found, did you make a typo?");
+        NSString *character = [[MCTMorseCodeCharacterModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code][0];
         [string appendString:character];
     }
 
@@ -81,7 +81,7 @@
 + (NSString *)morseCodeForCharacter:(NSString *)character
 {
     NSString *keyString = [character uppercaseString];
-    NSString *codeString = [MCTMorseCodeModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll][keyString];
+    NSString *codeString = [MCTMorseCodeCharacterModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll][keyString];
     NSLog(@"Converting %@ to %@", keyString, codeString);
 
     return codeString;
@@ -90,9 +90,9 @@
 + (NSString *)characterForMorseCode:(NSString *)code
 {
     NSAssert(code.length > 0 && code.length <= 6, @"Length of code must be between 1-6 characters");
-    NSAssert([[[MCTMorseCodeModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code] count], @"Code not found, did you make a typo?");
+    NSAssert([[[MCTMorseCodeCharacterModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code] count], @"Code not found, did you make a typo?");
 
-    return [[MCTMorseCodeModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code][0];
+    return [[MCTMorseCodeCharacterModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code][0];
 }
 
 @end

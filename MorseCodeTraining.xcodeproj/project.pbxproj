@@ -52,9 +52,15 @@
 		48A5CD17188C2B96000D5841 /* MCTReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */; };
 		48A5CD1A188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
 		48A5CD1B188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
-		48F5834418E6CE7E00F93E5E /* MCTMorseCodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F5834318E6CE7E00F93E5E /* MCTMorseCodeModel.m */; };
+		48F5834418E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F5834318E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.m */; };
 		48F5834618E6D00D00F93E5E /* MCTMorseCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48F5834518E6D00D00F93E5E /* MCTMorseCode.plist */; };
 		48F5834E18EC587800F93E5E /* NSUserDefaults+MCTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F5834D18EC587800F93E5E /* NSUserDefaults+MCTAdditions.m */; };
+		48F5835118EDA98600F93E5E /* MCTPickSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F5835018EDA98600F93E5E /* MCTPickSettingViewController.m */; };
+		48F5835418EF9DEC00F93E5E /* MCTMorseCodeSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F5835318EF9DEC00F93E5E /* MCTMorseCodeSettingModel.m */; };
+		48F5835818EFC7B300F93E5E /* MCTPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F5835618EFC7B300F93E5E /* MCTPickerTableViewCell.m */; };
+		48F5835918EFC7B300F93E5E /* MCTPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48F5835718EFC7B300F93E5E /* MCTPickerTableViewCell.xib */; };
+		48F5835D18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F5835B18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.m */; };
+		48F5835E18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48F5835C18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.xib */; };
 		B7550C5ECC7A449ABACE6F2C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 626328A1DD38415E91FF4408 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -123,12 +129,22 @@
 		48A5CD0F188BC297000D5841 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		48A5CD18188C2F54000D5841 /* MCTSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTSettingViewController.h; sourceTree = "<group>"; };
 		48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTSettingViewController.m; sourceTree = "<group>"; };
-		48F5834218E6CE7E00F93E5E /* MCTMorseCodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTMorseCodeModel.h; sourceTree = "<group>"; };
-		48F5834318E6CE7E00F93E5E /* MCTMorseCodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTMorseCodeModel.m; sourceTree = "<group>"; };
+		48F5834218E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTMorseCodeCharacterModel.h; sourceTree = "<group>"; };
+		48F5834318E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTMorseCodeCharacterModel.m; sourceTree = "<group>"; };
 		48F5834518E6D00D00F93E5E /* MCTMorseCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MCTMorseCode.plist; sourceTree = "<group>"; };
 		48F5834718E79F4E00F93E5E /* MCTSettingViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTSettingViewControllerProtocol.h; sourceTree = "<group>"; };
 		48F5834C18EC587800F93E5E /* NSUserDefaults+MCTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+MCTAdditions.h"; sourceTree = "<group>"; };
 		48F5834D18EC587800F93E5E /* NSUserDefaults+MCTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+MCTAdditions.m"; sourceTree = "<group>"; };
+		48F5834F18EDA98600F93E5E /* MCTPickSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTPickSettingViewController.h; sourceTree = "<group>"; };
+		48F5835018EDA98600F93E5E /* MCTPickSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTPickSettingViewController.m; sourceTree = "<group>"; };
+		48F5835218EF9DEC00F93E5E /* MCTMorseCodeSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTMorseCodeSettingModel.h; sourceTree = "<group>"; };
+		48F5835318EF9DEC00F93E5E /* MCTMorseCodeSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTMorseCodeSettingModel.m; sourceTree = "<group>"; };
+		48F5835518EFC7B300F93E5E /* MCTPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTPickerTableViewCell.h; sourceTree = "<group>"; };
+		48F5835618EFC7B300F93E5E /* MCTPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTPickerTableViewCell.m; sourceTree = "<group>"; };
+		48F5835718EFC7B300F93E5E /* MCTPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTPickerTableViewCell.xib; sourceTree = "<group>"; };
+		48F5835A18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTPickerDecideTableViewCell.h; sourceTree = "<group>"; };
+		48F5835B18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTPickerDecideTableViewCell.m; sourceTree = "<group>"; };
+		48F5835C18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTPickerDecideTableViewCell.xib; sourceTree = "<group>"; };
 		626328A1DD38415E91FF4408 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -180,9 +196,7 @@
 		4884442E18A77A5600F8C82B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4884442F18A77AFA00F8C82B /* MCTSwitchTableViewCell.h */,
-				4884443018A77AFA00F8C82B /* MCTSwitchTableViewCell.m */,
-				4884443218A77C5500F8C82B /* MCTSwitchTableViewCell.xib */,
+				48F5835F18EFFA7200F93E5E /* TableViewCell */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -190,9 +204,11 @@
 		4884443418A785B600F8C82B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				48F5834718E79F4E00F93E5E /* MCTSettingViewControllerProtocol.h */,
 				4884443818A7865300F8C82B /* MCTEnableCharacterSettingViewController.h */,
 				4884443918A7865300F8C82B /* MCTEnableCharacterSettingViewController.m */,
-				48F5834718E79F4E00F93E5E /* MCTSettingViewControllerProtocol.h */,
+				48F5834F18EDA98600F93E5E /* MCTPickSettingViewController.h */,
+				48F5835018EDA98600F93E5E /* MCTPickSettingViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -362,11 +378,29 @@
 		48F5834118E6CD5E00F93E5E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				48F5834218E6CE7E00F93E5E /* MCTMorseCodeModel.h */,
-				48F5834318E6CE7E00F93E5E /* MCTMorseCodeModel.m */,
 				48F5834518E6D00D00F93E5E /* MCTMorseCode.plist */,
+				48F5834218E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.h */,
+				48F5834318E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.m */,
+				48F5835218EF9DEC00F93E5E /* MCTMorseCodeSettingModel.h */,
+				48F5835318EF9DEC00F93E5E /* MCTMorseCodeSettingModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		48F5835F18EFFA7200F93E5E /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4884442F18A77AFA00F8C82B /* MCTSwitchTableViewCell.h */,
+				4884443018A77AFA00F8C82B /* MCTSwitchTableViewCell.m */,
+				4884443218A77C5500F8C82B /* MCTSwitchTableViewCell.xib */,
+				48F5835518EFC7B300F93E5E /* MCTPickerTableViewCell.h */,
+				48F5835618EFC7B300F93E5E /* MCTPickerTableViewCell.m */,
+				48F5835718EFC7B300F93E5E /* MCTPickerTableViewCell.xib */,
+				48F5835A18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.h */,
+				48F5835B18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.m */,
+				48F5835C18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.xib */,
+			);
+			name = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,6 +505,8 @@
 				48129806189C9E1500438DAB /* repeat_fill@2x.png in Resources */,
 				48129802189C9E1500438DAB /* play_fill@2x.png in Resources */,
 				481297E7189C9E0600438DAB /* Setting.storyboard in Resources */,
+				48F5835918EFC7B300F93E5E /* MCTPickerTableViewCell.xib in Resources */,
+				48F5835E18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.xib in Resources */,
 				48A5CCDE1882CEE3000D5841 /* Images.xcassets in Resources */,
 				481297FF189C9E1500438DAB /* next@2x.png in Resources */,
 				48A5CCD01882CEE3000D5841 /* InfoPlist.strings in Resources */,
@@ -530,15 +566,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				48A5CD1A188C2F54000D5841 /* MCTSettingViewController.m in Sources */,
+				48F5835418EF9DEC00F93E5E /* MCTMorseCodeSettingModel.m in Sources */,
+				48F5835818EFC7B300F93E5E /* MCTPickerTableViewCell.m in Sources */,
 				48A5CCD21882CEE3000D5841 /* main.m in Sources */,
 				481258E818993D4B00CE1A99 /* MCTTabBarController.m in Sources */,
 				48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */,
 				4812980A189D290F00438DAB /* MCTSoundManager.m in Sources */,
 				48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */,
 				48F5834E18EC587800F93E5E /* NSUserDefaults+MCTAdditions.m in Sources */,
-				48F5834418E6CE7E00F93E5E /* MCTMorseCodeModel.m in Sources */,
+				48F5834418E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.m in Sources */,
 				4884443A18A7865300F8C82B /* MCTEnableCharacterSettingViewController.m in Sources */,
 				4884443118A77AFA00F8C82B /* MCTSwitchTableViewCell.m in Sources */,
+				48F5835D18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.m in Sources */,
+				48F5835118EDA98600F93E5E /* MCTPickSettingViewController.m in Sources */,
 				48A5CD08188A828B000D5841 /* MCTMorseSound.m in Sources */,
 				48A5CCFE188434F7000D5841 /* NSString+MorseCode.m in Sources */,
 			);

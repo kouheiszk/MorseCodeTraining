@@ -9,11 +9,9 @@
 #import "MCTEnableCharacterSettingViewController.h"
 
 #import "MCTSwitchTableViewCell.h"
-#import "MCTMorseCodeModel.h"
+#import "MCTMorseCodeCharacterModel.h"
 
-static NSString *const kCellIdentifier = @"MCTSwitchTableViewCell";
-
-@interface MCTEnableCharacterSettingViewController () <MCTSwitchCellDelegate>
+@interface MCTEnableCharacterSettingViewController () <MCTSwitchTableViewCellDelegate>
 
 @property (nonatomic) MCTMorseCodeCharacterType type;
 @property (nonatomic) NSArray *array;
@@ -29,23 +27,16 @@ static NSString *const kCellIdentifier = @"MCTSwitchTableViewCell";
     // Table view settings
     self.clearsSelectionOnViewWillAppear = NO;
     [self.tableView registerNib:[UINib nibWithNibName:@"MCTSwitchTableViewCell" bundle:nil]
-         forCellReuseIdentifier:kCellIdentifier];
+         forCellReuseIdentifier:MCTSwitchTableViewCellIdentifier];
 
     // Table view datasource
-    self.type = [MCTMorseCodeModel typeWithTypeString:self.settingTarget];
-    self.array = [MCTMorseCodeModel charactersWithType:self.type];
+    self.type = [MCTMorseCodeCharacterModel typeWithTypeString:self.settingTarget];
+    self.array = [MCTMorseCodeCharacterModel charactersWithType:self.type];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
-- (void)updateCell:(MCTSwitchTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    cell.textLabel.text = self.array[indexPath.row];
-    cell.valueSwitch.on = [MCTMorseCodeModel isEnableCharacter:self.array[indexPath.row]];
-    cell.delegate = self;
 }
 
 #pragma mark - Table view data source
@@ -73,7 +64,7 @@ static NSString *const kCellIdentifier = @"MCTSwitchTableViewCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MCTSwitchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    MCTSwitchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MCTSwitchTableViewCellIdentifier];
     [self updateCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -83,12 +74,21 @@ static NSString *const kCellIdentifier = @"MCTSwitchTableViewCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark - MCTSwitchCellDelegate
+#pragma mark - Private method
+
+- (void)updateCell:(MCTSwitchTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    cell.textLabel.text = self.array[indexPath.row];
+    cell.valueSwitch.on = [MCTMorseCodeCharacterModel isEnableCharacter:self.array[indexPath.row]];
+    cell.delegate = self;
+}
+
+#pragma mark - MCTSwitchTableViewCellDelegate
 
 - (void)tableView:(UITableView *)tableView changeSwitchValue:(BOOL)on indexPath:(NSIndexPath *)indexPath
 {
      NSLog(@"Change switch %@: %@", self.array[indexPath.row], on ? @"ON" : @"OFF");
-    [MCTMorseCodeModel character:self.array[indexPath.row] enable:on];
+    [MCTMorseCodeCharacterModel character:self.array[indexPath.row] enable:on];
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import "MCTSwitchTableViewCell.h"
 
+NSString *const MCTSwitchTableViewCellIdentifier = @"MCTSwitchTableViewCell";
+
 @implementation MCTSwitchTableViewCell
 
 - (IBAction)changedSwithValue:(id)sender

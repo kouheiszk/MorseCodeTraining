@@ -8,17 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MCTSwitchCellDelegate
+extern NSString *const MCTSwitchTableViewCellIdentifier;
 
-- (void)tableView:(UITableView *)tableView changeSwitchValue:(BOOL)on indexPath:(NSIndexPath *)indexPath;
-
-@end
+@protocol MCTSwitchTableViewCellDelegate;
 
 @interface MCTSwitchTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) UIViewController<MCTSwitchCellDelegate> *delegate;
+@property (weak, nonatomic) UIViewController<MCTSwitchTableViewCellDelegate> *delegate;
 
 @property (weak, nonatomic) IBOutlet UISwitch *valueSwitch;
 @property (weak, nonatomic, readonly) IBOutlet UILabel *textLabel;
+
+@end
+
+
+@protocol MCTSwitchTableViewCellDelegate
+
+- (void)tableView:(UITableView *)tableView changeSwitchValue:(BOOL)on indexPath:(NSIndexPath *)indexPath;
 
 @end

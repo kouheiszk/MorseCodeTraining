@@ -6,38 +6,13 @@
 //  Copyright (c) 2014年 Suzuki Kouhei. All rights reserved.
 //
 
-#import "MCTMorseCodeModel.h"
+#import "MCTMorseCodeCharacterModel.h"
 
 #import "NSUserDefaults+MCTAdditions.h"
 
-@implementation MCTMorseCodeModel
+@implementation MCTMorseCodeCharacterModel
 
 #pragma mark - Public methods
-
-+ (NSDictionary *)morseCodeMapWithType:(MCTMorseCodeCharacterType)type
-{
-    NSDictionary *morseCodeMaps = [self morseCodeMapFromPlist];
-    NSString *typeString = [self typeStringWithType:type];
-
-    if (typeString) return morseCodeMaps[typeString];
-
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    for (NSDictionary *typeDic in morseCodeMaps) {
-        [dic addEntriesFromDictionary:typeDic];
-    }
-
-    return dic;
-}
-
-+ (NSArray *)charactersWithType:(MCTMorseCodeCharacterType)type
-{
-    NSDictionary *morseCodeMap = [self morseCodeMapWithType:type];
-    NSArray *characters = morseCodeMap.allKeys;
-
-    return [characters sortedArrayUsingComparator:^(NSString *obj1, NSString *obj2) {
-        return [obj1 localizedCaseInsensitiveCompare:obj2];
-    }];
-}
 
 + (NSString *)typeStringWithType:(MCTMorseCodeCharacterType)type
 {
@@ -59,6 +34,31 @@
     if ([typeString isEqualToString:@"number"]) return MCTMorseCodeCharacterTypeNumber;
     if ([typeString isEqualToString:@"symbol"]) return MCTMorseCodeCharacterTypeSymbol;
     return MCTMorseCodeCharacterTypeAll;
+}
+
++ (NSDictionary *)morseCodeMapWithType:(MCTMorseCodeCharacterType)type
+{
+    NSDictionary *morseCodeCharacters = [self morseCodeCharactersFromPlist];
+    NSString *typeString = [self typeStringWithType:type];
+
+    if (typeString) return morseCodeCharacters[typeString];
+
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    for (NSDictionary *typeDic in morseCodeCharacters) {
+        [dic addEntriesFromDictionary:typeDic];
+    }
+
+    return dic;
+}
+
++ (NSArray *)charactersWithType:(MCTMorseCodeCharacterType)type
+{
+    NSDictionary *morseCodeMap = [self morseCodeMapWithType:type];
+    NSArray *characters = morseCodeMap.allKeys;
+
+    return [characters sortedArrayUsingComparator:^(NSString *obj1, NSString *obj2) {
+        return [obj1 localizedCaseInsensitiveCompare:obj2];
+    }];
 }
 
 + (NSArray *)enableCharacters
@@ -91,11 +91,11 @@
 
 #pragma mark - Private methods
 
-+ (NSDictionary *)morseCodeMapFromPlist
++ (NSDictionary *)morseCodeCharactersFromPlist
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"MCTMorseCode" ofType:@"plist"];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
-    return dictionary;
+    return dictionary[@"characters"];
 }
 
 + (NSComparisonResult)compareCaracter:(NSString *)string
