@@ -9,8 +9,14 @@
 #import "MCTSettingViewController.h"
 
 #import "MCTSettingViewControllerProtocol.h"
+#import "MCTMorseCodeSettingModel.h"
 
 @interface MCTSettingViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *wordLengthValue;
+@property (weak, nonatomic) IBOutlet UILabel *wordCountValue;
+@property (weak, nonatomic) IBOutlet UILabel *wpmValue;
+@property (weak, nonatomic) IBOutlet UILabel *frequencyValue;
 
 @end
 
@@ -26,6 +32,20 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    self.wordLengthValue.text = [NSString stringWithFormat:@"%ld",
+                                 (long)[MCTMorseCodeSettingModel settingedValueWithType:MCTMorseCodeSettingTypeWordLength]];
+    self.wordCountValue.text = [NSString stringWithFormat:@"%ld",
+                                (long)[MCTMorseCodeSettingModel settingedValueWithType:MCTMorseCodeSettingTypeWordCount]];
+    self.wpmValue.text = [NSString stringWithFormat:@"%ldWPM",
+                          (long)[MCTMorseCodeSettingModel settingedValueWithType:MCTMorseCodeSettingTypeWpm]];
+    self.frequencyValue.text = [NSString stringWithFormat:@"%ldHz",
+                                (long)[MCTMorseCodeSettingModel settingedValueWithType:MCTMorseCodeSettingTypeFrequency]];
 }
 
 #pragma mark - Table view

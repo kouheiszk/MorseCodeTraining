@@ -258,6 +258,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="設定" id="gIP-6M-Dua"/>
+                    <connections>
+                        <outlet property="frequencyValue" destination="aav-7E-AMh" id="mSG-g0-4Vv"/>
+                        <outlet property="wordCountValue" destination="pNF-zC-MIg" id="F2i-Sd-UVx"/>
+                        <outlet property="wordLengthValue" destination="ndy-nu-Knw" id="WHX-T1-3ld"/>
+                        <outlet property="wpmValue" destination="vMf-B2-IAl" id="cIU-vM-X3l"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t65-ee-yiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
