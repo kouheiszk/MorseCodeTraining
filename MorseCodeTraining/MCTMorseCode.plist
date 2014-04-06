@@ -79,80 +79,80 @@
 		<key>number</key>
 		<dict>
 			<key>1</key>
-			<string>.____</string>
+			<string>.----</string>
 			<key>2</key>
-			<string>..___</string>
+			<string>..---</string>
 			<key>3</key>
-			<string>...__</string>
+			<string>...--</string>
 			<key>4</key>
-			<string>...._</string>
+			<string>....-</string>
 			<key>5</key>
 			<string>.....</string>
 			<key>6</key>
-			<string>_....</string>
+			<string>-....</string>
 			<key>7</key>
-			<string>__...</string>
+			<string>--...</string>
 			<key>8</key>
-			<string>___..</string>
+			<string>---..</string>
 			<key>9</key>
-			<string>____.</string>
+			<string>----.</string>
 			<key>0</key>
-			<string>_____</string>
+			<string>-----</string>
 		</dict>
 		<key>alphabet</key>
 		<dict>
 			<key>A</key>
-			<string>._</string>
+			<string>.-</string>
 			<key>B</key>
-			<string>_...</string>
+			<string>-...</string>
 			<key>C</key>
-			<string>_._.</string>
+			<string>-.-.</string>
 			<key>D</key>
-			<string>_..</string>
+			<string>-..</string>
 			<key>E</key>
 			<string>.</string>
 			<key>F</key>
-			<string>.._.</string>
+			<string>..-.</string>
 			<key>G</key>
-			<string>__.</string>
+			<string>--.</string>
 			<key>H</key>
 			<string>....</string>
 			<key>I</key>
 			<string>..</string>
 			<key>J</key>
-			<string>.___</string>
+			<string>.---</string>
 			<key>K</key>
-			<string>_.__</string>
+			<string>-.--</string>
 			<key>L</key>
-			<string>._..</string>
+			<string>.-..</string>
 			<key>M</key>
-			<string>__</string>
+			<string>--</string>
 			<key>N</key>
-			<string>._..</string>
+			<string>--.</string>
 			<key>O</key>
-			<string>___</string>
+			<string>---</string>
 			<key>P</key>
-			<string>.__.</string>
+			<string>.--.</string>
 			<key>Q</key>
-			<string>__._</string>
+			<string>--.-</string>
 			<key>R</key>
-			<string>._.</string>
+			<string>.-.</string>
 			<key>S</key>
 			<string>...</string>
 			<key>T</key>
-			<string>_</string>
+			<string>-</string>
 			<key>U</key>
-			<string>.._</string>
+			<string>..-</string>
 			<key>V</key>
-			<string>..._</string>
+			<string>...-</string>
 			<key>W</key>
-			<string>.__</string>
+			<string>.--</string>
 			<key>X</key>
-			<string>_.._</string>
+			<string>-..-</string>
 			<key>Y</key>
-			<string>_.__</string>
+			<string>-.--</string>
 			<key>Z</key>
-			<string>__..</string>
+			<string>--..</string>
 		</dict>
 	</dict>
 </dict>

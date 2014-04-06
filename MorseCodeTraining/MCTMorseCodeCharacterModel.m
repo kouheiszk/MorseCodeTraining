@@ -44,8 +44,8 @@
     if (typeString) return morseCodeCharacters[typeString];
 
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    for (NSDictionary *typeDic in morseCodeCharacters) {
-        [dic addEntriesFromDictionary:typeDic];
+    for (NSString *typeDicKey in morseCodeCharacters) {
+        [dic addEntriesFromDictionary:[morseCodeCharacters objectForKey:typeDicKey]];
     }
 
     return dic;

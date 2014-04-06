@@ -82,6 +82,8 @@
 {
     NSString *keyString = [character uppercaseString];
     NSString *codeString = [MCTMorseCodeCharacterModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll][keyString];
+    if (!codeString) codeString = @"";
+
     NSLog(@"Converting %@ to %@", keyString, codeString);
 
     return codeString;

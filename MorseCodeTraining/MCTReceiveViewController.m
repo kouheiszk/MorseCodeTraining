@@ -27,10 +27,10 @@
 {
     [super viewDidLoad];
 
-//    if (![MCTSoundManager sharedManager].playingSound) {
-//        NSString *string = @"OSO OSO OSO CQ CQ DE JA2UIE";
-//        [[MCTSoundManager sharedManager] playSound:string];
-//    }
+    if (![MCTSoundManager sharedManager].playingSound) {
+        NSString *string = @"OSO OSO OSO CQ CQ DE JA2UIE";
+        [[MCTSoundManager sharedManager] playSound:string];
+    }
     [self updatePlayerConsole];
 }
 
