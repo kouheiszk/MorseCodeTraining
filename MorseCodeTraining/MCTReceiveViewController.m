@@ -28,7 +28,9 @@
     [super viewDidLoad];
 
     if (![MCTSoundManager sharedManager].playingSound) {
-        NSString *string = @"OSO OSO OSO CQ CQ DE JA2UIE";
+        NSString *string = @"PARIS";
+        [[MCTSoundManager sharedManager] setWpm:10];
+        [[MCTSoundManager sharedManager] setFrequency:1000];
         [[MCTSoundManager sharedManager] playSound:string];
     }
     [self updatePlayerConsole];

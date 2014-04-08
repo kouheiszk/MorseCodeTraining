@@ -12,29 +12,6 @@
 
 extern NSString *const MCTSoundDidFinishPlayingNotification;
 
-typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
-
-@interface MCTSound : NSObject
-
-+ (MCTSound *)soundWithString:(NSString *)string;
-- (MCTSound *)initWithString:(NSString *)string;
-+ (MCTSound *)soundWithSoundData:(NSData *)soundData;
-- (MCTSound *)initWithSoundData:(NSData *)soundData;
-
-@property (nonatomic, readonly) NSData *soundData;
-@property (nonatomic, readonly, getter = isPlaying) BOOL playing;
-@property (nonatomic, getter = isLooping) BOOL looping;
-@property (nonatomic, readonly) NSTimeInterval duration;
-@property (nonatomic) NSTimeInterval currentTime;
-@property (nonatomic, copy) MCTSoundCompletionHandler completionHandler;
-
-- (void)play;
-- (void)pause;
-- (void)stop;
-
-@end
-
-
 @interface MCTSoundManager : NSObject
 
 @property (nonatomic, readonly, getter = isPlayingSound) BOOL playingSound;
@@ -48,5 +25,8 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
 - (void)stopSound;
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent;
+
+- (void)setWpm:(NSInteger)wpm;
+- (void)setFrequency:(NSInteger)frequency;
 
 @end

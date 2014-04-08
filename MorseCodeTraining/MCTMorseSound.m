@@ -13,12 +13,9 @@
 
 #import "NSString+MorseCode.h"
 
-static const NSInteger kDefaultSapmleRate = 44100;
+static const NSInteger kSapmleRate = 44100;
 static const NSInteger kDefalutFrequency = 1020;
-static const NSInteger kDefaultDitLength = 100;
-static const NSInteger kDefaultDahLength = 300;
-static const NSInteger kDefaultSpaceLength = 100;
-static const NSInteger kDefaultEndLength = 600;
+static const NSInteger kDefalutWpm = 20;
 
 @interface MCTMorseSound ()
 
@@ -26,12 +23,11 @@ static const NSInteger kDefaultEndLength = 600;
 @property (nonatomic, readwrite) NSString *morseCodeString;
 @property (nonatomic, readwrite) NSData *soundData;
 
-@property (nonatomic) NSInteger morseSoundSampleRate;
-@property (nonatomic) NSInteger morseSoundFrequency;
-@property (nonatomic) NSInteger morseSoundDitLength;
-@property (nonatomic) NSInteger morseSoundDahLength;
-@property (nonatomic) NSInteger morseSoundSpaceLength;
-@property (nonatomic) NSInteger morseSoundEndLength;
+@property (nonatomic) NSInteger morseSoundFrequency; // [Hz]
+@property (nonatomic) NSInteger morseSoundDitLength; // [ms]
+@property (nonatomic) NSInteger morseSoundDahLength; // [ms]
+@property (nonatomic) NSInteger morseSoundSpaceLength; // [ms]
+@property (nonatomic) NSInteger morseSoundEndLength; // [ms]
 
 @end
 
@@ -50,12 +46,8 @@ static const NSInteger kDefaultEndLength = 600;
         _morseCodeString = nil;
         _soundData = nil;
 
-        _morseSoundSampleRate = kDefaultSapmleRate;
         _morseSoundFrequency = kDefalutFrequency;
-        _morseSoundDitLength = kDefaultDitLength;
-        _morseSoundDahLength = kDefaultDahLength;
-        _morseSoundSpaceLength = kDefaultSpaceLength;
-        _morseSoundEndLength = kDefaultEndLength;
+        self.wpm = kDefalutWpm;
     }
     return self;
 }
@@ -68,6 +60,23 @@ static const NSInteger kDefaultEndLength = 600;
         sharedInstance = [[MCTMorseSound alloc] initSharedInstance];
     });
     return sharedInstance;
+}
+
+#pragma mark - Setter
+
+- (void)setWpm:(NSInteger)wpm
+{
+    NSLog(@"wpm : %ld", (long)wpm);
+    // WPM は 1分間に PARIS がいくつ入るかを表す指標
+    // 1WPM = .--.   .-   .-.   ..   ...
+    //      = 11   3 5  3 7   3 3  3 5
+    //      = 43短点分
+    // 60s = 60000ms で43短点なので、
+    // 1短点 = ceil(60000 / 43) ms
+    self.morseSoundDitLength   = ceil(60000.f     / 43 / wpm);
+    self.morseSoundDahLength   = ceil(60000.f * 3 / 43 / wpm);
+    self.morseSoundSpaceLength = ceil(60000.f     / 43 / wpm);
+    self.morseSoundEndLength   = ceil(60000.f * 6 / 43 / wpm);
 }
 
 #pragma mark - public
@@ -96,7 +105,7 @@ static const NSInteger kDefaultEndLength = 600;
     }
     length += self.morseSoundEndLength;
 
-    int frames = self.morseSoundSampleRate * length / 1000.;
+    int frames = kSapmleRate * length / 1000.;
     int offset = 0;
     float *ptr = malloc(frames * sizeof(float));
     if (ptr == NULL) {
@@ -107,26 +116,24 @@ static const NSInteger kDefaultEndLength = 600;
     for (int i = 0; i < [morseCodeString length]; ++i) {
         range.location = i;
         NSString *nextChar = [morseCodeString substringWithRange:range];
+        if (i) offset += kSapmleRate * self.morseSoundSpaceLength / 1000;
         if ([nextChar isEqualToString:@"."]) {
-            if (i) offset += self.morseSoundSampleRate * self.morseSoundSpaceLength / 1000;
-            int f_length = self.morseSoundSampleRate * self.morseSoundDitLength / 1000;
+            int f_length = kSapmleRate * self.morseSoundDitLength / 1000;
             for (int j = 0; j < f_length; ++j) {
-                ptr[offset + j] = sinf((float) j * 2 * M_PI * self.morseSoundFrequency / self.morseSoundSampleRate);
+                ptr[offset + j] = sinf((float) j * 2 * M_PI * self.morseSoundFrequency / kSapmleRate);
             }
             offset += f_length;
         } else if ([nextChar isEqualToString:@"-"]) {
-            if (i) offset += self.morseSoundSampleRate * self.morseSoundSpaceLength / 1000;
-            int f_length = self.morseSoundSampleRate * self.morseSoundDahLength / 1000;
+            int f_length = kSapmleRate * self.morseSoundDahLength / 1000;
             for (int j = 0; j < f_length; ++j) {
-                ptr[offset + j] = sinf((float) j * 2 * M_PI * self.morseSoundFrequency / self.morseSoundSampleRate);
+                ptr[offset + j] = sinf((float) j * 2 * M_PI * self.morseSoundFrequency / kSapmleRate);
             }
             offset += f_length;
         } else if ([nextChar isEqualToString:@" "]) {
-            if (i) offset += self.morseSoundSampleRate * self.morseSoundSpaceLength / 1000;
-            offset += self.morseSoundSampleRate * self.morseSoundSpaceLength / 1000;
+            offset += kSapmleRate * self.morseSoundSpaceLength / 1000;
         }
     }
-    offset += self.morseSoundSampleRate * self.morseSoundEndLength / 1000;
+    offset += kSapmleRate * self.morseSoundEndLength / 1000;
     NSLog(@"frames(%i) offset(%i)",frames,offset);
 
     self.string = string;

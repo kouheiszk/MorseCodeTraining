@@ -14,6 +14,9 @@
 @property (nonatomic, readonly) NSString *morseCodeString;
 @property (nonatomic, readonly) NSData *soundData;
 
+@property (nonatomic) NSInteger frequency;
+@property (nonatomic) NSInteger wpm;
+
 + (MCTMorseSound *)sharedSound;
 - (NSData *)soundDataWithString:(NSString *)string;
 

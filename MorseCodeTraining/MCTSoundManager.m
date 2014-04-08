@@ -17,11 +17,27 @@ NSString *const MCTSoundDidFinishPlayingNotification = @"MCTSoundDidFinishPlayin
 
 #pragma mark - MCTSound
 
-@interface MCTSound() <AVAudioPlayerDelegate>
+typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
 
+@interface MCTSound : NSObject <AVAudioPlayerDelegate>
+
+@property (nonatomic, readonly) NSData *soundData;
+@property (nonatomic, readonly, getter = isPlaying) BOOL playing;
+@property (nonatomic, getter = isLooping) BOOL looping;
+@property (nonatomic, readonly) NSTimeInterval duration;
+@property (nonatomic) NSTimeInterval currentTime;
+@property (nonatomic, copy) MCTSoundCompletionHandler completionHandler;
 @property (nonatomic, strong) MCTSound *selfReference;
 @property (nonatomic, strong) AVAudioPlayer *sound;
 
++ (MCTSound *)soundWithString:(NSString *)string;
+- (MCTSound *)initWithString:(NSString *)string;
++ (MCTSound *)soundWithSoundData:(NSData *)soundData;
+- (MCTSound *)initWithSoundData:(NSData *)soundData;
+
+- (void)play;
+- (void)pause;
+- (void)stop;
 - (void)prepareToPlay;
 
 @end
@@ -294,5 +310,19 @@ NSString *const MCTSoundDidFinishPlayingNotification = @"MCTSoundDidFinishPlayin
         }
     }
 }
+
+#pragma mark - Wpm and Frequency
+
+- (void)setWpm:(NSInteger)wpm
+{
+    [MCTMorseSound sharedSound].wpm = wpm;
+}
+
+- (void)setFrequency:(NSInteger)frequency
+{
+
+    [MCTMorseSound sharedSound].frequency = frequency;
+}
+
 
 @end
