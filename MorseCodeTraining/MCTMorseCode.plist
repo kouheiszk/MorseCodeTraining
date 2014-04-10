@@ -36,11 +36,11 @@
 		<key>frequency</key>
 		<dict>
 			<key>default</key>
-			<integer>440</integer>
+			<integer>1000</integer>
 			<key>min</key>
-			<integer>300</integer>
+			<integer>800</integer>
 			<key>max</key>
-			<integer>550</integer>
+			<integer>1200</integer>
 			<key>stride</key>
 			<integer>10</integer>
 		</dict>

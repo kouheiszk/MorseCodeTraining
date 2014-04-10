@@ -29,7 +29,7 @@
 
     if (![MCTSoundManager sharedManager].playingSound) {
         NSString *string = @"PARIS";
-        [[MCTSoundManager sharedManager] setWpm:10];
+        [[MCTSoundManager sharedManager] setWpm:15];
         [[MCTSoundManager sharedManager] setFrequency:1000];
         [[MCTSoundManager sharedManager] playSound:string];
     }

@@ -69,14 +69,14 @@ static const NSInteger kDefalutWpm = 20;
     NSLog(@"wpm : %ld", (long)wpm);
     // WPM は 1分間に PARIS がいくつ入るかを表す指標
     // 1WPM = .--.   .-   .-.   ..   ...
-    //      = 11   3 5  3 7   3 3  3 5
+    //      = 11   3 5  3 7   3 3  3 5   7
     //      = 43短点分
     // 60s = 60000ms で43短点なので、
-    // 1短点 = ceil(60000 / 43) ms
-    self.morseSoundDitLength   = ceil(60000.f     / 43 / wpm);
-    self.morseSoundDahLength   = ceil(60000.f * 3 / 43 / wpm);
-    self.morseSoundSpaceLength = ceil(60000.f     / 43 / wpm);
-    self.morseSoundEndLength   = ceil(60000.f * 6 / 43 / wpm);
+    // 1短点 = ceil(60000 / 50) ms
+    self.morseSoundDitLength   = ceil(60000.f     / 50 / wpm);
+    self.morseSoundDahLength   = ceil(60000.f * 3 / 50 / wpm);
+    self.morseSoundSpaceLength = ceil(60000.f     / 50 / wpm);
+    self.morseSoundEndLength   = ceil(60000.f * 6 / 50 / wpm);
 }
 
 #pragma mark - public
@@ -85,7 +85,7 @@ static const NSInteger kDefalutWpm = 20;
 {
     NSString *morseCodeString = [string morseCodeStringWithString];
 
-    int length = 0;
+    unsigned int length = 0;
     NSRange range;
     range.length = 1;
     range.location = 0;
@@ -105,9 +105,9 @@ static const NSInteger kDefalutWpm = 20;
     }
     length += self.morseSoundEndLength;
 
-    int frames = kSapmleRate * length / 1000.;
-    int offset = 0;
-    float *ptr = malloc(frames * sizeof(float));
+    unsigned int frames = kSapmleRate * length / 1000.;
+    unsigned int offset = 0;
+    double *ptr = malloc(frames * sizeof(double));
     if (ptr == NULL) {
         NSLog(@"Error: Memory buffer could not be allocated.");
         return nil;
@@ -120,13 +120,13 @@ static const NSInteger kDefalutWpm = 20;
         if ([nextChar isEqualToString:@"."]) {
             int f_length = kSapmleRate * self.morseSoundDitLength / 1000;
             for (int j = 0; j < f_length; ++j) {
-                ptr[offset + j] = sinf((float) j * 2 * M_PI * self.morseSoundFrequency / kSapmleRate);
+                ptr[offset + j] = [self sinfValue:j totalLength:f_length];
             }
             offset += f_length;
         } else if ([nextChar isEqualToString:@"-"]) {
             int f_length = kSapmleRate * self.morseSoundDahLength / 1000;
             for (int j = 0; j < f_length; ++j) {
-                ptr[offset + j] = sinf((float) j * 2 * M_PI * self.morseSoundFrequency / kSapmleRate);
+                ptr[offset + j] = [self sinfValue:j totalLength:f_length];
             }
             offset += f_length;
         } else if ([nextChar isEqualToString:@" "]) {
@@ -138,13 +138,19 @@ static const NSInteger kDefalutWpm = 20;
 
     self.string = string;
     self.morseCodeString = morseCodeString;
-    self.soundData = [MCTMorseSound wavDataFromBuffer:ptr size:frames];
+    self.soundData = [[self class] wavDataFromBuffer:ptr size:frames];
     return self.soundData;
 }
 
 #pragma mark - private
 
-+ (NSData *)wavDataFromBuffer:(float *)buffer size:(int)frames {
+- (double)sinfValue:(int)time totalLength:(int)total
+{
+    // TODO エンベロープのフィルタを組み込む
+    return sinf((double)time * 2 * M_PI * self.morseSoundFrequency / kSapmleRate);
+}
+
++ (NSData *)wavDataFromBuffer:(double *)buffer size:(int)frames {
     // AVAudioPlayer will only play formats it knows. It cannot play raw
     // audio data, so we will convert the raw floating point values into
     // a 16-bit WAV file.
