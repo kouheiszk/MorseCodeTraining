@@ -23,6 +23,8 @@ static const NSInteger kDefalutWpm = 20;
 @property (nonatomic, readwrite) NSString *morseCodeString;
 @property (nonatomic, readwrite) NSData *soundData;
 
+@property (nonatomic) NSArray *riseTable;
+
 @property (nonatomic) NSInteger morseSoundFrequency; // [Hz]
 @property (nonatomic) NSInteger morseSoundDitLength; // [ms]
 @property (nonatomic) NSInteger morseSoundDahLength; // [ms]
@@ -105,7 +107,7 @@ static const NSInteger kDefalutWpm = 20;
     }
     length += self.morseSoundEndLength;
 
-    unsigned int frames = kSapmleRate * length / 1000.;
+    unsigned int frames = kSapmleRate * length / 1000.f;
     unsigned int offset = 0;
     double *ptr = malloc(frames * sizeof(double));
     if (ptr == NULL) {
@@ -144,10 +146,70 @@ static const NSInteger kDefalutWpm = 20;
 
 #pragma mark - private
 
++ (double)blackmanHarrisWindow:(double)x
+{
+	double a0 = 0.35875;
+	double a1 = 0.48829;
+	double a2 = 0.14128;
+	double a3 = 0.01168;
+	double seg1 = a1 * cos(2.0 * M_PI * x);
+	double seg2 = a2 * cos(4.0 * M_PI * x);
+	double seg3 = a3 * cos(6.0 * M_PI * x);
+
+	return a0 - seg1 + seg2 - seg3;
+}
+
+- (NSArray *)riseTable
+{
+    // @ref https://github.com/snakehand/softrockcw/blob/master/Source/CwGen.cpp
+
+    if (_riseTable) return _riseTable;
+
+	double riseTime = 0.005; // 5ms
+	unsigned int riseTableSize = (unsigned int)((double)kSapmleRate * riseTime * 2.7);
+	if (riseTableSize == 0) {
+		riseTableSize = 1;
+	}
+
+    double *tmpRiseTable = malloc(riseTableSize * sizeof(double));
+    if (tmpRiseTable == NULL) {
+        NSLog(@"Error: Memory buffer could not be allocated.");
+        return nil;
+    }
+
+	/* Create impulse response */
+	double f = 1.0 / ((double)riseTableSize - 1.0);
+	for (int i = 0; i < riseTableSize; i++) {
+		tmpRiseTable[i] = [MCTMorseSound blackmanHarrisWindow:f * (double)i];
+	}
+
+	/* integrate to create step response */
+	double sum = 0.0;
+	for (int i = 0; i < riseTableSize; i++) {
+		sum += tmpRiseTable[i];
+		tmpRiseTable[i] = sum;
+	}
+
+	/* normalize step response */
+    NSMutableArray *riseTable = [NSMutableArray array];
+	for (int i = 0; i < riseTableSize; i++) {
+		riseTable[i] = @(tmpRiseTable[i] / sum);
+	}
+    free(tmpRiseTable);
+
+    _riseTable = [riseTable copy];
+    return _riseTable;
+}
+
 - (double)sinfValue:(int)time totalLength:(int)total
 {
-    // TODO エンベロープのフィルタを組み込む
-    return sinf((double)time * 2 * M_PI * self.morseSoundFrequency / kSapmleRate);
+    // envelope
+    int pos = time;
+    if (time >= self.riseTable.count) pos = self.riseTable.count - 1;
+    if (time >= total - self.riseTable.count) pos = total - time - 1;
+    double envelope = [self.riseTable[pos] floatValue];
+
+    return sinf((double)time * 2 * M_PI * self.morseSoundFrequency / kSapmleRate) * envelope;
 }
 
 + (NSData *)wavDataFromBuffer:(double *)buffer size:(int)frames {
