@@ -54,7 +54,7 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
     return [[self alloc] initWithSoundData:soundData];
 }
 
-- (MCTSound *)initWithString:(__unused NSString *)string
+- (MCTSound *)initWithString:(NSString *)string
 {
     NSData *soundData = [[MCTMorseSound sharedSound] soundDataWithString:string];
     return [self initWithSoundData:soundData];

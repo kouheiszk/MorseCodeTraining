@@ -20,7 +20,7 @@
 + (NSString *)morseCodeStringWithString:(NSString *)string
 {
     NSLog(@"Incoming message: %@", string);
-    NSMutableString *morseCodeStrings = [NSMutableString new];
+    NSMutableString *morseCodeStrings = [NSMutableString string];
 
     NSRange range;
     range.length = 1;
@@ -30,9 +30,11 @@
         NSString *character = [string substringWithRange:range];
         NSString *morseString = [NSString morseCodeForCharacter:character];
         if (i != 0 && ![character isEqualToString:@" "]) [morseCodeStrings appendString:@" "];
+        if (i != 0 && [character isEqualToString:@" "]) [morseCodeStrings appendString:@" "];
         [morseCodeStrings appendString:morseString];
     }
 
+    NSLog(@"Output morse: %@", morseCodeStrings);
     return morseCodeStrings;
 }
 
@@ -82,7 +84,8 @@
 {
     NSString *keyString = [character uppercaseString];
     NSString *codeString = [[MCTModel sharedModel].character morseCodeTableWithType:MCTMorseCodeCharacterTypeAll][keyString];
-    if (!codeString) codeString = @" ";
+    if (!codeString) codeString = nil;
+    if (!codeString && [keyString isEqualToString:@" "]) codeString = @" ";
 
     NSLog(@"Converting %@ to %@", keyString, codeString);
 
