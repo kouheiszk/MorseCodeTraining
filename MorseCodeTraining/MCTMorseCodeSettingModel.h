@@ -18,13 +18,13 @@ typedef NS_ENUM(NSInteger, MCTMorseCodeSettingType) {
 
 @interface MCTMorseCodeSettingModel : NSObject
 
-+ (NSString *)typeStringWithType:(MCTMorseCodeSettingType)type;
-+ (MCTMorseCodeSettingType)typeWithTypeString:(NSString *)typeString;
+- (NSString *)typeStringWithType:(MCTMorseCodeSettingType)type;
+- (MCTMorseCodeSettingType)typeWithTypeString:(NSString *)typeString;
 
-+ (NSArray *)optionsWithType:(MCTMorseCodeSettingType)type;
+- (NSArray *)optionsWithType:(MCTMorseCodeSettingType)type;
 
-+ (NSDictionary *)settings;
-+ (NSInteger)settingedValueWithType:(MCTMorseCodeSettingType)type;
-+ (void)type:(MCTMorseCodeSettingType)type settingValue:(NSInteger)value;
+- (NSDictionary *)settings;
+- (NSInteger)settingedValueWithType:(MCTMorseCodeSettingType)type;
+- (void)type:(MCTMorseCodeSettingType)type settingValue:(NSInteger)value;
 
 @end

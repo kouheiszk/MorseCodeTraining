@@ -10,7 +10,7 @@
 
 #import "MCTPickerTableViewCell.h"
 #import "MCTPickerDecideTableViewCell.h"
-#import "MCTMorseCodeSettingModel.h"
+#import "MCTModel.h"
 
 typedef NS_ENUM(NSInteger, MCTPickSettingViewSection) {
     MCTPickSettingViewSectionPicker = 0,
@@ -38,8 +38,8 @@ typedef NS_ENUM(NSInteger, MCTPickSettingViewSection) {
          forCellReuseIdentifier:MCTPickerDecideTableViewCellIdentifier];
 
     // Table view datasource
-    self.type = [MCTMorseCodeSettingModel typeWithTypeString:self.settingTarget];
-    self.options = [MCTMorseCodeSettingModel optionsWithType:self.type];
+    self.type = [[MCTModel sharedModel].setting typeWithTypeString:self.settingTarget];
+    self.options = [[MCTModel sharedModel].setting optionsWithType:self.type];
 }
 
 
@@ -52,7 +52,7 @@ typedef NS_ENUM(NSInteger, MCTPickSettingViewSection) {
 
 - (void)updatePickCell:(MCTPickerTableViewCell *)cell atIndexPath:(__attribute__((unused)) NSIndexPath *)indexPath
 {
-    NSInteger defalutOption = [MCTMorseCodeSettingModel settingedValueWithType:self.type];
+    NSInteger defalutOption = [[MCTModel sharedModel].setting settingedValueWithType:self.type];
     cell.options = self.options;
     cell.defaultOption = defalutOption;
     cell.delegate = self;
@@ -130,7 +130,7 @@ typedef NS_ENUM(NSInteger, MCTPickSettingViewSection) {
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     NSLog(@"Change picker %@: %@", self.settingTarget, self.options[row]);
-    [MCTMorseCodeSettingModel type:self.type settingValue:[self.options[row] integerValue]];
+    [[MCTModel sharedModel].setting type:self.type settingValue:[self.options[row] integerValue]];
 }
 
 @end

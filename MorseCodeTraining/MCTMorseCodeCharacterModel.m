@@ -21,12 +21,6 @@
 
 - (id)init
 {
-    [self doesNotRecognizeSelector:_cmd];
-    return nil;
-}
-
-- (id)initSharedInstance
-{
     if (self = [super init]) {
         _characterTypeMap = @{@(MCTMorseCodeCharacterTypeAlphabet) : @"alphabet",
                               @(MCTMorseCodeCharacterTypeNumber)   : @"number",
@@ -35,16 +29,6 @@
         _morseCodeCharacters = [self morseCodeCharactersFromPlist];
     }
     return self;
-}
-
-+ (MCTMorseCodeCharacterModel *)sharedModel
-{
-    static MCTMorseCodeCharacterModel *sharedInstance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[MCTMorseCodeCharacterModel alloc] initSharedInstance];
-    });
-    return sharedInstance;
 }
 
 #pragma mark - Getter

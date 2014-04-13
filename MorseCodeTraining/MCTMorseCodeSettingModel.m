@@ -12,36 +12,48 @@
 
 static const NSInteger kDefaultStride = 1;
 
+@interface MCTMorseCodeSettingModel ()
+
+@property (nonatomic) NSDictionary *settingTypeMap;
+@property (nonatomic) NSDictionary *morseCodeSettings;
+
+@end
+
 @implementation MCTMorseCodeSettingModel
+
+- (id)init
+{
+    if (self = [super init]) {
+        _settingTypeMap = @{@(MCTMorseCodeSettingTypeWordLength) : @"word_length",
+                            @(MCTMorseCodeSettingTypeWordCount)  : @"word_count",
+                            @(MCTMorseCodeSettingTypeWpm)        : @"wpm",
+                            @(MCTMorseCodeSettingTypeFrequency)  : @"frequency"};
+
+        _morseCodeSettings = [self morseCodeSettingsFromPlist];
+    }
+    return self;
+}
 
 #pragma mark - Public methods
 
-+ (NSString *)typeStringWithType:(MCTMorseCodeSettingType)type
+
+- (NSString *)typeStringWithType:(MCTMorseCodeSettingType)type
 {
-    switch (type) {
-        case MCTMorseCodeSettingTypeWordLength:
-            return @"word_length";
-        case MCTMorseCodeSettingTypeWordCount:
-            return @"word_count";
-        case MCTMorseCodeSettingTypeWpm:
-            return @"wpm";
-        case MCTMorseCodeSettingTypeFrequency:
-            return @"frequency";
-        case MCTMorseCodeSettingTypeNone:
-            return nil;
-    }
+    return self.morseCodeSettings[@(type)];
 }
 
-+ (MCTMorseCodeSettingType)typeWithTypeString:(NSString *)typeString
+- (MCTMorseCodeSettingType)typeWithTypeString:(NSString *)typeString
 {
-    if ([typeString isEqualToString:@"word_length"]) return MCTMorseCodeSettingTypeWordLength;
-    if ([typeString isEqualToString:@"word_count"]) return MCTMorseCodeSettingTypeWordCount;
-    if ([typeString isEqualToString:@"wpm"]) return MCTMorseCodeSettingTypeWpm;
-    if ([typeString isEqualToString:@"frequency"]) return MCTMorseCodeSettingTypeFrequency;
+    for (NSNumber *typeNumber in self.settingTypeMap) {
+        if ([self.settingTypeMap[typeNumber] isEqualToString:typeString]) {
+            return [typeNumber integerValue];
+        }
+    }
+
     return MCTMorseCodeSettingTypeNone;
 }
 
-+ (NSArray *)optionsWithType:(MCTMorseCodeSettingType)type
+- (NSArray *)optionsWithType:(MCTMorseCodeSettingType)type
 {
     NSDictionary *setting = [self settingWithType:type];
     NSUInteger min = [setting[@"min"] unsignedIntegerValue];
@@ -54,13 +66,13 @@ static const NSInteger kDefaultStride = 1;
     return [array copy];
 }
 
-+ (NSDictionary *)settings
+- (NSDictionary *)settings
 {
     NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
     return (d.storedSettings != nil) ? d.storedSettings : [NSDictionary dictionary];
 }
 
-+ (NSInteger)settingedValueWithType:(MCTMorseCodeSettingType)type
+- (NSInteger)settingedValueWithType:(MCTMorseCodeSettingType)type
 {
     NSDictionary *settings = [self settings];
     NSString *typeString = [self typeStringWithType:type];
@@ -74,7 +86,7 @@ static const NSInteger kDefaultStride = 1;
     return [settings[typeString] integerValue];
 }
 
-+ (void)type:(MCTMorseCodeSettingType)type settingValue:(NSInteger)value
+- (void)type:(MCTMorseCodeSettingType)type settingValue:(NSInteger)value
 {
     // 登録状態と指定が同じであれば何もしない
     if ([self settingedValueWithType:type] == value) return;
@@ -89,14 +101,14 @@ static const NSInteger kDefaultStride = 1;
 
 #pragma mark - Private methods
 
-+ (NSDictionary *)morseCodeSettingsFromPlist
+- (NSDictionary *)morseCodeSettingsFromPlist
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"MCTMorseCode" ofType:@"plist"];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     return dictionary[@"settings"];
 }
 
-+ (NSDictionary *)settingWithType:(MCTMorseCodeSettingType)type
+- (NSDictionary *)settingWithType:(MCTMorseCodeSettingType)type
 {
     NSDictionary *settings = [self morseCodeSettingsFromPlist];
     NSMutableDictionary *setting = [settings[[self typeStringWithType:type]] mutableCopy];

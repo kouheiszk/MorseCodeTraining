@@ -31,6 +31,7 @@
 		4884443118A77AFA00F8C82B /* MCTSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4884443018A77AFA00F8C82B /* MCTSwitchTableViewCell.m */; };
 		4884443318A77C5500F8C82B /* MCTSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4884443218A77C5500F8C82B /* MCTSwitchTableViewCell.xib */; };
 		4884443A18A7865300F8C82B /* MCTEnableCharacterSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4884443918A7865300F8C82B /* MCTEnableCharacterSettingViewController.m */; };
+		4884B9D318FA676700CC6292 /* MCTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4884B9D218FA676700CC6292 /* MCTModel.m */; };
 		48A5CCC61882CEE3000D5841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC51882CEE3000D5841 /* Foundation.framework */; };
 		48A5CCC81882CEE3000D5841 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */; };
 		48A5CCCA1882CEE3000D5841 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC91882CEE3000D5841 /* UIKit.framework */; };
@@ -104,6 +105,8 @@
 		4884443218A77C5500F8C82B /* MCTSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTSwitchTableViewCell.xib; sourceTree = "<group>"; };
 		4884443818A7865300F8C82B /* MCTEnableCharacterSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTEnableCharacterSettingViewController.h; sourceTree = "<group>"; };
 		4884443918A7865300F8C82B /* MCTEnableCharacterSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTEnableCharacterSettingViewController.m; sourceTree = "<group>"; };
+		4884B9D118FA676700CC6292 /* MCTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTModel.h; sourceTree = "<group>"; };
+		4884B9D218FA676700CC6292 /* MCTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTModel.m; sourceTree = "<group>"; };
 		48A5CCC21882CEE3000D5841 /* MorseCodeTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorseCodeTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A5CCC51882CEE3000D5841 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48A5CCC71882CEE3000D5841 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -379,6 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				48F5834518E6D00D00F93E5E /* MCTMorseCode.plist */,
+				4884B9D118FA676700CC6292 /* MCTModel.h */,
+				4884B9D218FA676700CC6292 /* MCTModel.m */,
 				48F5834218E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.h */,
 				48F5834318E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.m */,
 				48F5835218EF9DEC00F93E5E /* MCTMorseCodeSettingModel.h */,
@@ -572,6 +577,7 @@
 				481258E818993D4B00CE1A99 /* MCTTabBarController.m in Sources */,
 				48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */,
 				4812980A189D290F00438DAB /* MCTSoundManager.m in Sources */,
+				4884B9D318FA676700CC6292 /* MCTModel.m in Sources */,
 				48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */,
 				48F5834E18EC587800F93E5E /* NSUserDefaults+MCTAdditions.m in Sources */,
 				48F5834418E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.m in Sources */,

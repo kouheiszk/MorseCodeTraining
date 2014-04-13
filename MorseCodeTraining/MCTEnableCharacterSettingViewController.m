@@ -9,7 +9,7 @@
 #import "MCTEnableCharacterSettingViewController.h"
 
 #import "MCTSwitchTableViewCell.h"
-#import "MCTMorseCodeCharacterModel.h"
+#import "MCTModel.h"
 
 @interface MCTEnableCharacterSettingViewController () <MCTSwitchTableViewCellDelegate>
 
@@ -30,8 +30,8 @@
          forCellReuseIdentifier:MCTSwitchTableViewCellIdentifier];
 
     // Table view datasource
-    self.type = [[MCTMorseCodeCharacterModel sharedModel] typeWithTypeString:self.settingTarget];
-    self.array = [[MCTMorseCodeCharacterModel sharedModel] charactersWithType:self.type];
+    self.type = [[MCTModel sharedModel].character typeWithTypeString:self.settingTarget];
+    self.array = [[MCTModel sharedModel].character charactersWithType:self.type];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,7 +79,7 @@
 - (void)updateCell:(MCTSwitchTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     cell.textLabel.text = self.array[indexPath.row];
-    cell.valueSwitch.on = [[MCTMorseCodeCharacterModel sharedModel] isEnableCharacter:self.array[indexPath.row]];
+    cell.valueSwitch.on = [[MCTModel sharedModel].character isEnableCharacter:self.array[indexPath.row]];
     cell.delegate = self;
 }
 
@@ -88,7 +88,7 @@
 - (void)tableView:(UITableView *)tableView changeSwitchValue:(BOOL)on indexPath:(NSIndexPath *)indexPath
 {
      NSLog(@"Change switch %@: %@", self.array[indexPath.row], on ? @"ON" : @"OFF");
-    [[MCTMorseCodeCharacterModel sharedModel] character:self.array[indexPath.row] enable:on];
+    [[MCTModel sharedModel].character character:self.array[indexPath.row] enable:on];
 }
 
 @end

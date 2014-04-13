@@ -19,8 +19,6 @@ typedef NS_ENUM(NSInteger, MCTMorseCodeCharacterType) {
 
 @property (nonatomic, readonly) NSArray *enableCharacters;
 
-+ (MCTMorseCodeCharacterModel *)sharedModel;
-
 - (NSString *)typeStringWithType:(MCTMorseCodeCharacterType)type;
 - (MCTMorseCodeCharacterType)typeWithTypeString:(NSString *)typeString;
 

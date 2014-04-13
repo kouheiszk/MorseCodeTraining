@@ -9,7 +9,7 @@
 #import "MCTSettingViewController.h"
 
 #import "MCTSettingViewControllerProtocol.h"
-#import "MCTMorseCodeSettingModel.h"
+#import "MCTModel.h"
 
 @interface MCTSettingViewController ()
 
@@ -38,14 +38,14 @@
 {
     [super viewWillAppear:animated];
 
-    self.wordLengthValue.text = [NSString stringWithFormat:@"%ld",
-                                 (long)[MCTMorseCodeSettingModel settingedValueWithType:MCTMorseCodeSettingTypeWordLength]];
-    self.wordCountValue.text = [NSString stringWithFormat:@"%ld",
-                                (long)[MCTMorseCodeSettingModel settingedValueWithType:MCTMorseCodeSettingTypeWordCount]];
-    self.wpmValue.text = [NSString stringWithFormat:@"%ldWPM",
-                          (long)[MCTMorseCodeSettingModel settingedValueWithType:MCTMorseCodeSettingTypeWpm]];
-    self.frequencyValue.text = [NSString stringWithFormat:@"%ldHz",
-                                (long)[MCTMorseCodeSettingModel settingedValueWithType:MCTMorseCodeSettingTypeFrequency]];
+    self.wordLengthValue.text =
+    [NSString stringWithFormat:@"%ld", (long)[[MCTModel sharedModel].setting settingedValueWithType:MCTMorseCodeSettingTypeWordLength]];
+    self.wordCountValue.text =
+    [NSString stringWithFormat:@"%ld", (long)[[MCTModel sharedModel].setting settingedValueWithType:MCTMorseCodeSettingTypeWordCount]];
+    self.wpmValue.text =
+    [NSString stringWithFormat:@"%ldWPM", (long)[[MCTModel sharedModel].setting settingedValueWithType:MCTMorseCodeSettingTypeWpm]];
+    self.frequencyValue.text =
+    [NSString stringWithFormat:@"%ldHz", (long)[[MCTModel sharedModel].setting settingedValueWithType:MCTMorseCodeSettingTypeFrequency]];
 }
 
 #pragma mark - Table view
