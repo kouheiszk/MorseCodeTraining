@@ -11,7 +11,7 @@
 
 #import "NSString+MorseCode.h"
 
-#import "MCTMorseCodeCharacterModel.h"
+ #import "MCTMorseCodeCharacterModel.h"
 
 @implementation NSString (MorseCode)
 
@@ -58,8 +58,8 @@
 {
     NSMutableString *string = [NSMutableString new];
     for (NSString *code in morseCodeArray) {
-        NSAssert([[[MCTMorseCodeCharacterModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code] count], @"Code not found, did you make a typo?");
-        NSString *character = [[MCTMorseCodeCharacterModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code][0];
+        NSAssert([[[[MCTMorseCodeCharacterModel sharedModel] morseCodeTableWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code] count], @"Code not found, did you make a typo?");
+        NSString *character = [[[MCTMorseCodeCharacterModel sharedModel] morseCodeTableWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code][0];
         [string appendString:character];
     }
 
@@ -81,7 +81,7 @@
 + (NSString *)morseCodeForCharacter:(NSString *)character
 {
     NSString *keyString = [character uppercaseString];
-    NSString *codeString = [MCTMorseCodeCharacterModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll][keyString];
+    NSString *codeString = [[MCTMorseCodeCharacterModel sharedModel] morseCodeTableWithType:MCTMorseCodeCharacterTypeAll][keyString];
     if (!codeString) codeString = @" ";
 
     NSLog(@"Converting %@ to %@", keyString, codeString);
@@ -92,9 +92,9 @@
 + (NSString *)characterForMorseCode:(NSString *)code
 {
     NSAssert(code.length > 0 && code.length <= 6, @"Length of code must be between 1-6 characters");
-    NSAssert([[[MCTMorseCodeCharacterModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code] count], @"Code not found, did you make a typo?");
+    NSAssert([[[[MCTMorseCodeCharacterModel sharedModel] morseCodeTableWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code] count], @"Code not found, did you make a typo?");
 
-    return [[MCTMorseCodeCharacterModel morseCodeMapWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code][0];
+    return [[[MCTMorseCodeCharacterModel sharedModel] morseCodeTableWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code][0];
 }
 
 @end

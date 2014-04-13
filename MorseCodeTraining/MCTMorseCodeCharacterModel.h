@@ -17,14 +17,17 @@ typedef NS_ENUM(NSInteger, MCTMorseCodeCharacterType) {
 
 @interface MCTMorseCodeCharacterModel : NSObject
 
-+ (NSString *)typeStringWithType:(MCTMorseCodeCharacterType)type;
-+ (MCTMorseCodeCharacterType)typeWithTypeString:(NSString *)typeString;
+@property (nonatomic, readonly) NSArray *enableCharacters;
 
-+ (NSDictionary *)morseCodeMapWithType:(MCTMorseCodeCharacterType)type;
-+ (NSArray *)charactersWithType:(MCTMorseCodeCharacterType)type;
++ (MCTMorseCodeCharacterModel *)sharedModel;
 
-+ (NSArray *)enableCharacters;
-+ (BOOL)isEnableCharacter:(NSString *)character;
-+ (void)character:(NSString *)character enable:(BOOL)enable;
+- (NSString *)typeStringWithType:(MCTMorseCodeCharacterType)type;
+- (MCTMorseCodeCharacterType)typeWithTypeString:(NSString *)typeString;
+
+- (NSDictionary *)morseCodeTableWithType:(MCTMorseCodeCharacterType)type;
+- (NSArray *)charactersWithType:(MCTMorseCodeCharacterType)type;
+
+- (BOOL)isEnableCharacter:(NSString *)character;
+- (void)character:(NSString *)character enable:(BOOL)enable;
 
 @end

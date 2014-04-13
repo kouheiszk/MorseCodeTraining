@@ -10,70 +10,100 @@
 
 #import "NSUserDefaults+MCTAdditions.h"
 
+@interface MCTMorseCodeCharacterModel ()
+
+@property (nonatomic) NSDictionary *characterTypeMap;
+@property (nonatomic) NSDictionary *morseCodeCharacters;
+
+@end
+
 @implementation MCTMorseCodeCharacterModel
+
+- (id)init
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+- (id)initSharedInstance
+{
+    if (self = [super init]) {
+        _characterTypeMap = @{@(MCTMorseCodeCharacterTypeAlphabet) : @"alphabet",
+                              @(MCTMorseCodeCharacterTypeNumber)   : @"number",
+                              @(MCTMorseCodeCharacterTypeSymbol)   : @"symbol"};
+
+        _morseCodeCharacters = [self morseCodeCharactersFromPlist];
+    }
+    return self;
+}
+
++ (MCTMorseCodeCharacterModel *)sharedModel
+{
+    static MCTMorseCodeCharacterModel *sharedInstance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[MCTMorseCodeCharacterModel alloc] initSharedInstance];
+    });
+    return sharedInstance;
+}
+
+#pragma mark - Getter
+
+- (NSArray *)enableCharacters
+{
+    NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
+    return (d.storedEnableCharacters != nil) ? d.storedEnableCharacters : [NSArray array];
+}
 
 #pragma mark - Public methods
 
-+ (NSString *)typeStringWithType:(MCTMorseCodeCharacterType)type
+- (NSString *)typeStringWithType:(MCTMorseCodeCharacterType)type
 {
-    switch (type) {
-        case MCTMorseCodeCharacterTypeAll:
-            return nil;
-        case MCTMorseCodeCharacterTypeAlphabet:
-            return @"alphabet";
-        case MCTMorseCodeCharacterTypeNumber:
-            return @"number";
-        case MCTMorseCodeCharacterTypeSymbol:
-            return @"symbol";
-    }
+    return self.characterTypeMap[@(type)];
 }
 
-+ (MCTMorseCodeCharacterType)typeWithTypeString:(NSString *)typeString
+- (MCTMorseCodeCharacterType)typeWithTypeString:(NSString *)typeString
 {
-    if ([typeString isEqualToString:@"alphabet"]) return MCTMorseCodeCharacterTypeAlphabet;
-    if ([typeString isEqualToString:@"number"]) return MCTMorseCodeCharacterTypeNumber;
-    if ([typeString isEqualToString:@"symbol"]) return MCTMorseCodeCharacterTypeSymbol;
+    for (NSNumber *typeNumber in self.characterTypeMap) {
+        if ([self.characterTypeMap[typeNumber] isEqualToString:typeString]) {
+            return [typeNumber integerValue];
+        }
+    }
+
     return MCTMorseCodeCharacterTypeAll;
 }
 
-+ (NSDictionary *)morseCodeMapWithType:(MCTMorseCodeCharacterType)type
+- (NSDictionary *)morseCodeTableWithType:(MCTMorseCodeCharacterType)type
 {
-    NSDictionary *morseCodeCharacters = [self morseCodeCharactersFromPlist];
     NSString *typeString = [self typeStringWithType:type];
 
-    if (typeString) return morseCodeCharacters[typeString];
+    if (typeString) return self.morseCodeCharacters[typeString];
 
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    for (NSString *typeDicKey in morseCodeCharacters) {
-        [dic addEntriesFromDictionary:[morseCodeCharacters objectForKey:typeDicKey]];
+    for (NSString *typeDicKey in self.morseCodeCharacters) {
+        [dic addEntriesFromDictionary:self.morseCodeCharacters[typeDicKey]];
     }
 
     return dic;
 }
 
-+ (NSArray *)charactersWithType:(MCTMorseCodeCharacterType)type
+- (NSArray *)charactersWithType:(MCTMorseCodeCharacterType)type
 {
-    NSDictionary *morseCodeMap = [self morseCodeMapWithType:type];
-    NSArray *characters = morseCodeMap.allKeys;
+    NSDictionary *morseCodeTable = [self morseCodeTableWithType:type];
+    NSArray *characters = morseCodeTable.allKeys;
 
     return [characters sortedArrayUsingComparator:^(NSString *obj1, NSString *obj2) {
         return [obj1 localizedCaseInsensitiveCompare:obj2];
     }];
 }
 
-+ (NSArray *)enableCharacters
-{
-    NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
-    return (d.storedEnableCharacters != nil) ? d.storedEnableCharacters : [NSArray array];
-}
-
-+ (BOOL)isEnableCharacter:(NSString *)character
+- (BOOL)isEnableCharacter:(NSString *)character
 {
     NSArray *storedEnableCharacters = [self enableCharacters];
     return [storedEnableCharacters containsObject:character];
 }
 
-+ (void)character:(NSString *)character enable:(BOOL)enable
+- (void)character:(NSString *)character enable:(BOOL)enable
 {
     // 登録状態と指定が同じであれば何もしない
     if ([self isEnableCharacter:character] == enable) return;
@@ -91,16 +121,11 @@
 
 #pragma mark - Private methods
 
-+ (NSDictionary *)morseCodeCharactersFromPlist
+- (NSDictionary *)morseCodeCharactersFromPlist
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"MCTMorseCode" ofType:@"plist"];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     return dictionary[@"characters"];
-}
-
-+ (NSComparisonResult)compareCaracter:(NSString *)string
-{
-    return [string localizedCaseInsensitiveCompare:string];
 }
 
 @end
