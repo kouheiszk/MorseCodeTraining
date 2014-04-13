@@ -13,8 +13,12 @@
 
 @interface MCTModel : NSObject
 
-@property (nonatomic) MCTMorseCodeCharacterModel *character;
-@property (nonatomic) MCTMorseCodeSettingModel *setting;
+@property (nonatomic, readonly) MCTMorseCodeCharacterModel *character;
+@property (nonatomic, readonly) MCTMorseCodeSettingModel *setting;
+
+@property (nonatomic, readonly) NSString *strings;
+@property (nonatomic, readonly) NSInteger wpm;
+@property (nonatomic, readonly) NSInteger frequency;
 
 + (MCTModel *)sharedModel;
 

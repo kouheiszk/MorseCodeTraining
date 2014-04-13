@@ -39,7 +39,7 @@ static const NSInteger kDefaultStride = 1;
 
 - (NSString *)typeStringWithType:(MCTMorseCodeSettingType)type
 {
-    return self.morseCodeSettings[@(type)];
+    return self.settingTypeMap[@(type)];
 }
 
 - (MCTMorseCodeSettingType)typeWithTypeString:(NSString *)typeString
@@ -64,12 +64,6 @@ static const NSInteger kDefaultStride = 1;
         [array addObject:@(i)];
     }
     return [array copy];
-}
-
-- (NSDictionary *)settings
-{
-    NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
-    return (d.storedSettings != nil) ? d.storedSettings : [NSDictionary dictionary];
 }
 
 - (NSInteger)settingedValueWithType:(MCTMorseCodeSettingType)type
@@ -100,6 +94,12 @@ static const NSInteger kDefaultStride = 1;
 }
 
 #pragma mark - Private methods
+
+- (NSDictionary *)settings
+{
+    NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
+    return (d.storedSettings != nil) ? d.storedSettings : [NSDictionary dictionary];
+}
 
 - (NSDictionary *)morseCodeSettingsFromPlist
 {

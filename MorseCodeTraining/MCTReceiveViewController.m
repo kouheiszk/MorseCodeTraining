@@ -10,6 +10,7 @@
 
 #import "MCTMorseSound.h"
 #import "MCTSoundManager.h"
+#import "MCTModel.h"
 
 @interface MCTReceiveViewController ()
 
@@ -28,9 +29,9 @@
     [super viewDidLoad];
 
     if (![MCTSoundManager sharedManager].playingSound) {
-        NSString *string = @"PARIS";
-        [[MCTSoundManager sharedManager] setWpm:15];
-        [[MCTSoundManager sharedManager] setFrequency:1000];
+        NSString *string = [MCTModel sharedModel].strings;
+        [[MCTSoundManager sharedManager] setWpm:[MCTModel sharedModel].wpm];
+        [[MCTSoundManager sharedManager] setFrequency:[MCTModel sharedModel].frequency];
         [[MCTSoundManager sharedManager] playSound:string];
     }
     [self updatePlayerConsole];

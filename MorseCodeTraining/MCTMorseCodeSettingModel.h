@@ -23,7 +23,6 @@ typedef NS_ENUM(NSInteger, MCTMorseCodeSettingType) {
 
 - (NSArray *)optionsWithType:(MCTMorseCodeSettingType)type;
 
-- (NSDictionary *)settings;
 - (NSInteger)settingedValueWithType:(MCTMorseCodeSettingType)type;
 - (void)type:(MCTMorseCodeSettingType)type settingValue:(NSInteger)value;
 
