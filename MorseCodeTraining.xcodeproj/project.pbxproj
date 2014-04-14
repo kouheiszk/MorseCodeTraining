@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		481258E818993D4B00CE1A99 /* MCTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 481258E718993D4B00CE1A99 /* MCTTabBarController.m */; };
-		481297E5189C9E0600438DAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481297E2189C9E0600438DAB /* Main.storyboard */; };
-		481297E6189C9E0600438DAB /* Receive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481297E3189C9E0600438DAB /* Receive.storyboard */; };
-		481297E7189C9E0600438DAB /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481297E4189C9E0600438DAB /* Setting.storyboard */; };
+		481297E7189C9E0600438DAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481297E4189C9E0600438DAB /* Main.storyboard */; };
 		481297F8189C9E1500438DAB /* back_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481297E8189C9E1400438DAB /* back_fill@2x.png */; };
 		481297F9189C9E1500438DAB /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481297E9189C9E1400438DAB /* back@2x.png */; };
 		481297FA189C9E1500438DAB /* back5s_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481297EA189C9E1500438DAB /* back5s_filled@2x.png */; };
@@ -38,7 +35,7 @@
 		48A5CCD01882CEE3000D5841 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCCE1882CEE3000D5841 /* InfoPlist.strings */; };
 		48A5CCD21882CEE3000D5841 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCD11882CEE3000D5841 /* main.m */; };
 		48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */; };
-		48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */; };
+		48A5CCDC1882CEE3000D5841 /* MCTPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTPlayViewController.m */; };
 		48A5CCDE1882CEE3000D5841 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A5CCDD1882CEE3000D5841 /* Images.xcassets */; };
 		48A5CCE51882CEE4000D5841 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCE41882CEE4000D5841 /* XCTest.framework */; };
 		48A5CCE61882CEE4000D5841 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CCC51882CEE3000D5841 /* Foundation.framework */; };
@@ -50,7 +47,7 @@
 		48A5CD09188A828B000D5841 /* MCTMorseSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD07188A828B000D5841 /* MCTMorseSound.m */; };
 		48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCFD188434F7000D5841 /* NSString+MorseCode.m */; };
 		48A5CD10188BC297000D5841 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A5CD0F188BC297000D5841 /* AVFoundation.framework */; };
-		48A5CD17188C2B96000D5841 /* MCTReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */; };
+		48A5CD17188C2B96000D5841 /* MCTPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CCDB1882CEE3000D5841 /* MCTPlayViewController.m */; };
 		48A5CD1A188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
 		48A5CD1B188C2F54000D5841 /* MCTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */; };
 		48F5834418E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F5834318E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.m */; };
@@ -77,11 +74,7 @@
 
 /* Begin PBXFileReference section */
 		42632E9AA3834F6D9EFC077C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		481258E618993D4B00CE1A99 /* MCTTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTTabBarController.h; sourceTree = "<group>"; };
-		481258E718993D4B00CE1A99 /* MCTTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTTabBarController.m; sourceTree = "<group>"; };
-		481297E2189C9E0600438DAB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Resources/Storyboards/Main.storyboard; sourceTree = "<group>"; };
-		481297E3189C9E0600438DAB /* Receive.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Receive.storyboard; path = Resources/Storyboards/Receive.storyboard; sourceTree = "<group>"; };
-		481297E4189C9E0600438DAB /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Setting.storyboard; path = Resources/Storyboards/Setting.storyboard; sourceTree = "<group>"; };
+		481297E4189C9E0600438DAB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Resources/Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		481297E8189C9E1400438DAB /* back_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back_fill@2x.png"; path = "Resources/Images/icons/back_fill@2x.png"; sourceTree = "<group>"; };
 		481297E9189C9E1400438DAB /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back@2x.png"; path = "Resources/Images/icons/back@2x.png"; sourceTree = "<group>"; };
 		481297EA189C9E1500438DAB /* back5s_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back5s_filled@2x.png"; path = "Resources/Images/icons/back5s_filled@2x.png"; sourceTree = "<group>"; };
@@ -117,8 +110,8 @@
 		48A5CCD31882CEE3000D5841 /* MorseCodeTraining-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MorseCodeTraining-Prefix.pch"; sourceTree = "<group>"; };
 		48A5CCD41882CEE3000D5841 /* MCTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTAppDelegate.h; sourceTree = "<group>"; };
 		48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCTAppDelegate.m; sourceTree = "<group>"; };
-		48A5CCDA1882CEE3000D5841 /* MCTReceiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTReceiveViewController.h; sourceTree = "<group>"; };
-		48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCTReceiveViewController.m; sourceTree = "<group>"; };
+		48A5CCDA1882CEE3000D5841 /* MCTPlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCTPlayViewController.h; sourceTree = "<group>"; };
+		48A5CCDB1882CEE3000D5841 /* MCTPlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCTPlayViewController.m; sourceTree = "<group>"; };
 		48A5CCDD1882CEE3000D5841 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		48A5CCE31882CEE4000D5841 /* MorseCodeTrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MorseCodeTrainingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A5CCE41882CEE4000D5841 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -180,20 +173,9 @@
 		481258E118993A1500CE1A99 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				481297E2189C9E0600438DAB /* Main.storyboard */,
-				481297E3189C9E0600438DAB /* Receive.storyboard */,
-				481297E4189C9E0600438DAB /* Setting.storyboard */,
+				481297E4189C9E0600438DAB /* Main.storyboard */,
 			);
 			name = Storyboards;
-			sourceTree = "<group>";
-		};
-		481258E418993D0B00CE1A99 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				481258E618993D4B00CE1A99 /* MCTTabBarController.h */,
-				481258E718993D4B00CE1A99 /* MCTTabBarController.m */,
-			);
-			name = Common;
 			sourceTree = "<group>";
 		};
 		4884442E18A77A5600F8C82B /* View */ = {
@@ -335,7 +317,6 @@
 				48A5CCD41882CEE3000D5841 /* MCTAppDelegate.h */,
 				48A5CCD51882CEE3000D5841 /* MCTAppDelegate.m */,
 				48A5CD05188A8256000D5841 /* Sound */,
-				481258E418993D0B00CE1A99 /* Common */,
 				48F5834118E6CD5E00F93E5E /* Model */,
 				48A5CD11188C2B4C000D5841 /* ViewController */,
 				4884442E18A77A5600F8C82B /* View */,
@@ -370,8 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				4884443418A785B600F8C82B /* Settings */,
-				48A5CCDA1882CEE3000D5841 /* MCTReceiveViewController.h */,
-				48A5CCDB1882CEE3000D5841 /* MCTReceiveViewController.m */,
+				48A5CCDA1882CEE3000D5841 /* MCTPlayViewController.h */,
+				48A5CCDB1882CEE3000D5841 /* MCTPlayViewController.m */,
 				48A5CD18188C2F54000D5841 /* MCTSettingViewController.h */,
 				48A5CD19188C2F54000D5841 /* MCTSettingViewController.m */,
 			);
@@ -499,9 +480,7 @@
 				48129800189C9E1500438DAB /* pause_fill@2x.png in Resources */,
 				48129803189C9E1500438DAB /* play@2x.png in Resources */,
 				4884443318A77C5500F8C82B /* MCTSwitchTableViewCell.xib in Resources */,
-				481297E6189C9E0600438DAB /* Receive.storyboard in Resources */,
 				481297FB189C9E1500438DAB /* back5s@2x.png in Resources */,
-				481297E5189C9E0600438DAB /* Main.storyboard in Resources */,
 				48F5834618E6D00D00F93E5E /* MCTMorseCode.plist in Resources */,
 				481297F9189C9E1500438DAB /* back@2x.png in Resources */,
 				48129801189C9E1500438DAB /* pause@2x.png in Resources */,
@@ -509,7 +488,7 @@
 				481297FD189C9E1500438DAB /* config@2x.png in Resources */,
 				48129806189C9E1500438DAB /* repeat_fill@2x.png in Resources */,
 				48129802189C9E1500438DAB /* play_fill@2x.png in Resources */,
-				481297E7189C9E0600438DAB /* Setting.storyboard in Resources */,
+				481297E7189C9E0600438DAB /* Main.storyboard in Resources */,
 				48F5835918EFC7B300F93E5E /* MCTPickerTableViewCell.xib in Resources */,
 				48F5835E18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.xib in Resources */,
 				48A5CCDE1882CEE3000D5841 /* Images.xcassets in Resources */,
@@ -574,8 +553,7 @@
 				48F5835418EF9DEC00F93E5E /* MCTMorseCodeSettingModel.m in Sources */,
 				48F5835818EFC7B300F93E5E /* MCTPickerTableViewCell.m in Sources */,
 				48A5CCD21882CEE3000D5841 /* main.m in Sources */,
-				481258E818993D4B00CE1A99 /* MCTTabBarController.m in Sources */,
-				48A5CCDC1882CEE3000D5841 /* MCTReceiveViewController.m in Sources */,
+				48A5CCDC1882CEE3000D5841 /* MCTPlayViewController.m in Sources */,
 				4812980A189D290F00438DAB /* MCTSoundManager.m in Sources */,
 				4884B9D318FA676700CC6292 /* MCTModel.m in Sources */,
 				48A5CCD61882CEE3000D5841 /* MCTAppDelegate.m in Sources */,
@@ -596,7 +574,7 @@
 			files = (
 				48A5CD1B188C2F54000D5841 /* MCTSettingViewController.m in Sources */,
 				48A5CCF11882CEE4000D5841 /* MorseCodeTrainingTests.m in Sources */,
-				48A5CD17188C2B96000D5841 /* MCTReceiveViewController.m in Sources */,
+				48A5CD17188C2B96000D5841 /* MCTPlayViewController.m in Sources */,
 				48A5CD09188A828B000D5841 /* MCTMorseSound.m in Sources */,
 				48A5CD0E188A82DB000D5841 /* NSString+MorseCode.m in Sources */,
 			);

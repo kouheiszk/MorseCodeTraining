@@ -232,6 +232,18 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
     }
 }
 
+- (void)playSound
+{
+    if (_currentSound.playing) return;
+    [_currentSound play];
+}
+
+- (void)pauseSound
+{
+    if (!_currentSound.playing) return;
+    [_currentSound pause];
+}
+
 - (void)stopSound
 {
     [_currentSound stop];

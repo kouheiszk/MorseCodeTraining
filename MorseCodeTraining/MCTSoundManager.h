@@ -22,6 +22,8 @@ extern NSString *const MCTSoundDidFinishPlayingNotification;
 
 - (void)playSound:(id)soundOrString;
 - (void)playOrPauseSound;
+- (void)playSound;
+- (void)pauseSound;
 - (void)stopSound;
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent;

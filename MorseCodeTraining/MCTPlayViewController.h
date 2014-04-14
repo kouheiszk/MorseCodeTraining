@@ -10,6 +10,6 @@
 
 #import "MCTSoundManager.h"
 
-@interface MCTReceiveViewController : UIViewController
+@interface MCTPlayViewController : UIViewController
 
 @end

@@ -39,6 +39,8 @@
 
 - (NSString *)strings
 {
+    if (self.character.enableCharacters.count == 0) return nil;
+
     int count = [self.setting settingedValueWithType:MCTMorseCodeSettingTypeWordCount];
     NSInteger length = [self.setting settingedValueWithType:MCTMorseCodeSettingTypeWordLength];
 
