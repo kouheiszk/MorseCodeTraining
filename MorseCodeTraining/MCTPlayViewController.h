@@ -12,4 +12,8 @@
 
 @interface MCTPlayViewController : UIViewController
 
+#pragma mark - MCTSoundManagerDelegate
+
+- (void)soundDidFinishPlaying:(NSString *)soundString;
+
 @end

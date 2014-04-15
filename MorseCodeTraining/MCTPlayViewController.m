@@ -13,14 +13,9 @@
 #import "MCTModel.h"
 #import "MCTSettingViewController.h"
 
-@interface MCTPlayViewController ()
+@interface MCTPlayViewController () <MCTSoundManagerDelegate>
 
-//@property (weak, nonatomic) IBOutlet UIBarButtonItem *playOrPauseButton;
-//@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
-//@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
-//@property (weak, nonatomic) IBOutlet UIBarButtonItem *loopButton;
-//@property (weak, nonatomic) IBOutlet UIBarButtonItem *back5sButton;
-@property (weak, nonatomic) IBOutlet UIButton *settingButton;
+@property (weak, nonatomic) IBOutlet UIButton *playOrPauseButton;
 
 @end
 
@@ -29,14 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    if (![MCTSoundManager sharedManager].playingSound) {
-        NSString *string = [MCTModel sharedModel].strings;
-        [[MCTSoundManager sharedManager] setWpm:[MCTModel sharedModel].wpm];
-        [[MCTSoundManager sharedManager] setFrequency:[MCTModel sharedModel].frequency];
-        [[MCTSoundManager sharedManager] playSound:string];
-    }
-//    [self updatePlayerConsole];
+    [MCTSoundManager sharedManager].delegate = self;
+    [self updatePlayerConsole];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,41 +58,45 @@
     [super viewWillDisappear:animated];
 }
 
-//- (void)updatePlayerConsole
-//{
-//    if ([MCTSoundManager sharedManager].playingSound) {
-//        [self.playOrPauseButton setImage:[UIImage imageNamed:@"pause"]];
-//    }
-//    else {
-//        [self.playOrPauseButton setImage:[UIImage imageNamed:@"play"]];
-//    }
-//}
-
 #pragma mark - IBActions
 
-//- (IBAction)playOrPauseButtonTapped:(id)sender
-//{
-//    NSLog(@"play or pause button");
-//    [[MCTSoundManager sharedManager] playOrPauseSound];
-//    [self updatePlayerConsole];
-//}
-//
-//- (IBAction)backButtonTapped:(id)sender
-//{
-//    NSLog(@"back button");
-//    [self updatePlayerConsole];
-//}
-//
-//- (IBAction)nextButtonTapped:(id)sender
-//{
-//    NSLog(@"next button");
-//    [self updatePlayerConsole];
-//}
-//
-//- (IBAction)loopButtonTapped:(id)sender
-//{
-//    NSLog(@"loop button");
-//    [self updatePlayerConsole];
-//}
+- (IBAction)playOrPauseButtonTapped:(id)sender
+{
+    NSLog(@"play or pause button");
+
+    if (![MCTSoundManager sharedManager].settedSound) {
+        NSString *string = [MCTModel sharedModel].strings;
+        [[MCTSoundManager sharedManager] setWpm:[MCTModel sharedModel].wpm];
+        [[MCTSoundManager sharedManager] setFrequency:[MCTModel sharedModel].frequency];
+        [[MCTSoundManager sharedManager] preSetSound:string];
+    }
+
+    [[MCTSoundManager sharedManager] playOrPauseSound];
+    [self updatePlayerConsole];
+}
+
+#pragma mark - Private methods
+
+- (void)updatePlayerConsole
+{
+    if ([MCTSoundManager sharedManager].playingSound) {
+        [self.playOrPauseButton setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+        [self.playOrPauseButton setImage:[UIImage imageNamed:@"pause_fill"] forState:UIControlStateHighlighted];
+        [self.playOrPauseButton setImage:[UIImage imageNamed:@"pause_fill"] forState:UIControlStateSelected];
+    }
+    else {
+        [self.playOrPauseButton setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+        [self.playOrPauseButton setImage:[UIImage imageNamed:@"play_fill"] forState:UIControlStateHighlighted];
+        [self.playOrPauseButton setImage:[UIImage imageNamed:@"play_fill"] forState:UIControlStateSelected];
+    }
+}
+
+#pragma mark - MCTSoundManagerDelegate
+
+- (void)soundDidFinishPlaying:(NSString *)soundString
+{
+    NSLog(@"\"%@\" was played.", soundString);
+    [self updatePlayerConsole];
+}
 
 @end

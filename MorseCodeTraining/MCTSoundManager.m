@@ -13,7 +13,7 @@
 
 #import "MCTMorseSound.h"
 
-NSString *const MCTSoundDidFinishPlayingNotification = @"MCTSoundDidFinishPlayingNotification";
+static NSString *const MCTSoundDidFinishPlayingNotification = @"MCTSoundDidFinishPlayingNotification";
 
 #pragma mark - MCTSound
 
@@ -21,6 +21,7 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
 
 @interface MCTSound : NSObject <AVAudioPlayerDelegate>
 
+@property (nonatomic, readonly) NSString *string;
 @property (nonatomic, readonly) NSData *soundData;
 @property (nonatomic, readonly, getter = isPlaying) BOOL playing;
 @property (nonatomic, getter = isLooping) BOOL looping;
@@ -31,9 +32,6 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
 @property (nonatomic, strong) AVAudioPlayer *sound;
 
 + (MCTSound *)soundWithString:(NSString *)string;
-- (MCTSound *)initWithString:(NSString *)string;
-+ (MCTSound *)soundWithSoundData:(NSData *)soundData;
-- (MCTSound *)initWithSoundData:(NSData *)soundData;
 
 - (void)play;
 - (void)pause;
@@ -49,25 +47,17 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
     return [[self alloc] initWithString:string];
 }
 
-+ (MCTSound *)soundWithSoundData:(NSData *)soundData
-{
-    return [[self alloc] initWithSoundData:soundData];
-}
-
 - (MCTSound *)initWithString:(NSString *)string
 {
-    NSData *soundData = [[MCTMorseSound sharedSound] soundDataWithString:string];
-    return [self initWithSoundData:soundData];
-}
-
-- (MCTSound *)initWithSoundData:(NSData *)soundData
-{
     if ((self = [super init])) {
+        NSData *soundData = [[MCTMorseSound sharedSound] soundDataWithString:string];
         _soundData = soundData;
 
         NSError *error = nil;
         _sound = [[AVAudioPlayer alloc] initWithData:soundData error:&error];
         if (error) NSLog(@"%@", error);
+
+        _string = string;
     }
     return self;
 }
@@ -205,7 +195,7 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
     }
 }
 
-- (void)playSound:(id)soundOrString
+- (void)preSetSound:(id)soundOrString completion:(void (^)(BOOL finished))completion
 {
     MCTSound *sound = [soundOrString isKindOfClass:[MCTSound class]] ? soundOrString : [MCTSound soundWithString:soundOrString];
     [sound prepareToPlay];
@@ -215,12 +205,26 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
         }
         self.currentSound = sound;
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(MCTSoundFinished:)
+                                                 selector:@selector(soundDidFinishPlaying:)
                                                      name:MCTSoundDidFinishPlayingNotification
                                                    object:sound];
         _currentSound.looping = self.loopingSound;
-        [_currentSound play];
+        if (completion) completion(YES);
     }
+    if (completion) completion(NO);
+}
+
+- (void)preSetSound:(id)soundOrString
+{
+    [self preSetSound:soundOrString completion:nil];
+}
+
+- (void)playSound:(id)soundOrString
+{
+    __weak typeof(self) weakSelf = self;
+    [self preSetSound:soundOrString completion:^(BOOL finished) {
+        if (finished) [weakSelf.currentSound play];
+    }];
 }
 
 - (void)playOrPauseSound
@@ -252,10 +256,15 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
 
 - (BOOL)isPlayingSound
 {
-    return _currentSound && _currentSound.playing;
+    return _currentSound != nil && _currentSound.playing;
 }
 
-- (void)MCTSoundFinished:(NSNotification *)notification
+- (BOOL)isSettedSound
+{
+    return self.currentSound != nil;
+}
+
+- (void)soundDidFinishPlaying:(NSNotification *)notification
 {
     MCTSound *sound = [notification object];
     if (sound == _currentSound) {
@@ -263,6 +272,10 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
         [[NSNotificationCenter defaultCenter] removeObserver:self
                                                         name:MCTSoundDidFinishPlayingNotification
                                                       object:sound];
+    }
+
+    if (self.delegate && [self.delegate respondsToSelector:@selector(soundDidFinishPlaying:)]) {
+        [self.delegate soundDidFinishPlaying:sound.string];
     }
 }
 
@@ -332,9 +345,7 @@ typedef void (^MCTSoundCompletionHandler)(BOOL didFinish);
 
 - (void)setFrequency:(NSInteger)frequency
 {
-
     [MCTMorseSound sharedSound].frequency = frequency;
 }
-
 
 @end

@@ -10,16 +10,20 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-extern NSString *const MCTSoundDidFinishPlayingNotification;
+@protocol MCTSoundManagerDelegate;
 
 @interface MCTSoundManager : NSObject
 
 @property (nonatomic, readonly, getter = isPlayingSound) BOOL playingSound;
+@property (nonatomic, readonly, getter = isSettedSound) BOOL settedSound;
 @property (nonatomic) BOOL loopingSound;
 @property (nonatomic) BOOL allowsBackgroundSound;
 
+@property (nonatomic) id delegate;
+
 + (MCTSoundManager *)sharedManager;
 
+- (void)preSetSound:(id)soundOrString;
 - (void)playSound:(id)soundOrString;
 - (void)playOrPauseSound;
 - (void)playSound;
@@ -30,5 +34,12 @@ extern NSString *const MCTSoundDidFinishPlayingNotification;
 
 - (void)setWpm:(NSInteger)wpm;
 - (void)setFrequency:(NSInteger)frequency;
+
+@end
+
+
+@protocol MCTSoundManagerDelegate <NSObject>
+
+- (void)soundDidFinishPlaying:(NSString *)soundString;
 
 @end

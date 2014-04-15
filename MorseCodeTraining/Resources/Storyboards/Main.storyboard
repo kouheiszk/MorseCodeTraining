@@ -301,7 +301,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diA-Bw-nRp">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diA-Bw-nRp" userLabel="Config Button">
                                 <rect key="frame" x="270" y="40" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="config.png"/>
@@ -311,11 +311,31 @@
                                     <segue destination="o0r-1C-ecR" kind="push" id="zeD-Fn-ckL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mox-3U-Vfq" userLabel="Play Button">
+                                <rect key="frame" x="145" y="518" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="play.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="play_fill.png"/>
+                                <state key="highlighted" image="play_fill.png"/>
+                                <connections>
+                                    <action selector="playOrPauseButtonTapped:" destination="rVl-7v-jFo" eventType="touchUpInside" id="2l5-F0-fF7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QGO-Jo-AjL" firstAttribute="top" secondItem="Mox-3U-Vfq" secondAttribute="bottom" constant="20" id="3ai-hF-eHs"/>
+                            <constraint firstAttribute="trailing" secondItem="diA-Bw-nRp" secondAttribute="trailing" constant="20" id="bWu-4a-ilS"/>
+                            <constraint firstItem="diA-Bw-nRp" firstAttribute="top" secondItem="iMK-aR-TmQ" secondAttribute="bottom" constant="20" id="clP-bW-o1K"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2oT-74-Teg"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="playOrPauseButton" destination="Mox-3U-Vfq" id="Vht-eR-zF5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AV0-eK-IqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -343,6 +363,8 @@
     <resources>
         <image name="config.png" width="30" height="30"/>
         <image name="config_fill.png" width="30" height="30"/>
+        <image name="play.png" width="30" height="30"/>
+        <image name="play_fill.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
