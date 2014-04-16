@@ -340,6 +340,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="playOrPauseButton" destination="Mox-3U-Vfq" id="Vht-eR-zF5"/>
+                        <outlet property="tableView" destination="fHm-w7-QDz" id="B6o-Lk-xWT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AV0-eK-IqD" userLabel="First Responder" sceneMemberID="firstResponder"/>

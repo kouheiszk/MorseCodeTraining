@@ -12,6 +12,7 @@
 
 + (NSString *)morseCodeStringWithString:(NSString *)string;
 + (NSArray *)morseCodeArrayWithString:(NSString *)string;
++ (NSString *)stringWithMorseCode:(NSString *)morseCode;
 + (NSString *)stringWithMorseCodeArray:(NSArray *)morseCodeArray;
 
 - (NSString *)morseCodeStringWithString;

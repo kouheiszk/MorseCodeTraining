@@ -8,14 +8,23 @@
 
 #import "MCTPlayViewController.h"
 
+#import "NSString+MorseCode.h"
 #import "MCTMorseSound.h"
 #import "MCTSoundManager.h"
 #import "MCTModel.h"
 #import "MCTSettingViewController.h"
 
-@interface MCTPlayViewController () <MCTSoundManagerDelegate>
+@interface MCTPlayViewController () <
+UITableViewDelegate,
+UITableViewDataSource,
+MCTSoundManagerDelegate
+>
 
 @property (weak, nonatomic) IBOutlet UIButton *playOrPauseButton;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic) NSString *playingStrings;
+@property (nonatomic) NSArray *morseCodeArray;
 
 @end
 
@@ -25,6 +34,8 @@
 {
     [super viewDidLoad];
     [MCTSoundManager sharedManager].delegate = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self updatePlayerConsole];
 }
 
@@ -58,6 +69,24 @@
     [super viewWillDisappear:animated];
 }
 
+#pragma mark - UITableViewDelegate
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.morseCodeArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                   reuseIdentifier:@"Default"];
+    NSString *morseCode = self.morseCodeArray[indexPath.row];
+    NSString *string = [NSString stringWithMorseCode:morseCode];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", string, morseCode];
+    return cell;
+}
+
 #pragma mark - IBActions
 
 - (IBAction)playOrPauseButtonTapped:(id)sender
@@ -65,14 +94,23 @@
     NSLog(@"play or pause button");
 
     if (![MCTSoundManager sharedManager].settedSound) {
-        NSString *string = [MCTModel sharedModel].strings;
+        self.playingStrings = [MCTModel sharedModel].strings;
         [[MCTSoundManager sharedManager] setWpm:[MCTModel sharedModel].wpm];
         [[MCTSoundManager sharedManager] setFrequency:[MCTModel sharedModel].frequency];
-        [[MCTSoundManager sharedManager] preSetSound:string];
+        [[MCTSoundManager sharedManager] preSetSound:self.playingStrings];
+        [self updateTableView];
     }
 
     [[MCTSoundManager sharedManager] playOrPauseSound];
     [self updatePlayerConsole];
+}
+
+#pragma mark - Getter / Setter
+
+- (void)setPlayingStrings:(NSString *)strings
+{
+    _playingStrings = strings;
+    self.morseCodeArray = [strings morseCodeArrayWithString];
 }
 
 #pragma mark - Private methods
@@ -89,6 +127,11 @@
         [self.playOrPauseButton setImage:[UIImage imageNamed:@"play_fill"] forState:UIControlStateHighlighted];
         [self.playOrPauseButton setImage:[UIImage imageNamed:@"play_fill"] forState:UIControlStateSelected];
     }
+}
+
+- (void)updateTableView
+{
+    [self.tableView reloadData];
 }
 
 #pragma mark - MCTSoundManagerDelegate

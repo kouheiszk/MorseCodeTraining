@@ -56,12 +56,20 @@
     return morseCodeArray;
 }
 
++ (NSString *)stringWithMorseCode:(NSString *)morseCode
+{
+    if (!morseCode) return nil;
+    if ([morseCode isEqualToString:@" "]) return @" ";
+
+    NSAssert([[[[MCTModel sharedModel].character morseCodeTableWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:morseCode] count], @"Code not found, did you make a typo?");
+    return [[[MCTModel sharedModel].character morseCodeTableWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:morseCode][0];
+}
+
 + (NSString *)stringWithMorseCodeArray:(NSArray *)morseCodeArray
 {
     NSMutableString *string = [NSMutableString new];
-    for (NSString *code in morseCodeArray) {
-        NSAssert([[[[MCTModel sharedModel].character morseCodeTableWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code] count], @"Code not found, did you make a typo?");
-        NSString *character = [[[MCTModel sharedModel].character morseCodeTableWithType:MCTMorseCodeCharacterTypeAll] allKeysForObject:code][0];
+    for (NSString *morseCode in morseCodeArray) {
+        NSString *character = [[self class] stringWithMorseCode:morseCode];
         [string appendString:character];
     }
 
