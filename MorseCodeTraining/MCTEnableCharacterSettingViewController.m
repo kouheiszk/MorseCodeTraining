@@ -71,6 +71,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MCTSwitchTableViewCell *cell = (MCTSwitchTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [cell.valueSwitch setOn:!cell.valueSwitch.on animated:YES];
+    [self tableView:tableView changeSwitchValue:cell.valueSwitch.on indexPath:indexPath];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
