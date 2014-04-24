@@ -72,8 +72,8 @@ static const NSInteger kDefalutWpm = 20;
     // WPM は 1分間に PARIS がいくつ入るかを表す指標
     // 1WPM = .--.   .-   .-.   ..   ...
     //      = 11   3 5  3 7   3 3  3 5   7
-    //      = 43短点分
-    // 60s = 60000ms で43短点なので、
+    //      = 50短点分
+    // 60s = 60000ms で50短点なので、
     // 1短点 = ceil(60000 / 50) ms
     self.morseSoundDitLength   = ceil(60000.f     / 50 / wpm);
     self.morseSoundDahLength   = ceil(60000.f * 3 / 50 / wpm);
