@@ -8,6 +8,7 @@
 
 #import "MCTPlayViewController.h"
 
+#import <FXBlurView.h>
 #import "NSString+MorseCode.h"
 #import "MCTMorseSound.h"
 #import "MCTSoundManager.h"
@@ -17,6 +18,7 @@
 @interface MCTPlayViewController () <
 UITableViewDelegate,
 UITableViewDataSource,
+UIScrollViewDelegate,
 MCTSoundManagerDelegate
 >
 
@@ -25,6 +27,8 @@ MCTSoundManagerDelegate
 
 @property (nonatomic) NSString *playingStrings;
 @property (nonatomic) NSArray *morseCodeArray;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet FXBlurView *blurView;
 
 @end
 
@@ -34,9 +38,11 @@ MCTSoundManagerDelegate
 {
     [super viewDidLoad];
     [MCTSoundManager sharedManager].delegate = self;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     [self updatePlayerConsole];
+
+    self.blurView.frame = self.view.frame;
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * (3.0f / 2),
+                                             self.view.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,6 +92,15 @@ MCTSoundManagerDelegate
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", string, morseCode];
     return cell;
 }
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat blurViewWidth = MAX(self.view.frame.size.width - scrollView.contentOffset.x, 10.0f);
+    self.blurView.frame = CGRectMake(0, 0, blurViewWidth, self.blurView.frame.size.height);
+}
+
 
 #pragma mark - IBActions
 

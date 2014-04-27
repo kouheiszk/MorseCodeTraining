@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="HTJ-uF-C6o">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="HTJ-uF-C6o">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -301,11 +301,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fHm-w7-QDz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fHm-w7-QDz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="rVl-7v-jFo" id="fAQ-NJ-4tB"/>
+                                    <outlet property="delegate" destination="rVl-7v-jFo" id="DPa-vZ-3Sv"/>
+                                </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cj2-Or-hzj" customClass="FXBlurView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dynamic" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="blurRadius">
+                                        <real key="value" value="12.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rde-qk-BSw" customClass="MCTHorizontalScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rVl-7v-jFo" id="HS0-AA-or5"/>
+                                </connections>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diA-Bw-nRp" userLabel="Config Button">
                                 <rect key="frame" x="270" y="40" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -316,7 +341,7 @@
                                     <segue destination="o0r-1C-ecR" kind="push" id="zeD-Fn-ckL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mox-3U-Vfq" userLabel="Play Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mox-3U-Vfq" userLabel="Play Button">
                                 <rect key="frame" x="145" y="518" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="play.png">
@@ -332,14 +357,29 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QGO-Jo-AjL" firstAttribute="top" secondItem="Mox-3U-Vfq" secondAttribute="bottom" constant="20" id="3ai-hF-eHs"/>
+                            <constraint firstItem="fHm-w7-QDz" firstAttribute="trailing" secondItem="cj2-Or-hzj" secondAttribute="trailing" id="6wg-kQ-S58"/>
+                            <constraint firstItem="fHm-w7-QDz" firstAttribute="bottom" secondItem="Rde-qk-BSw" secondAttribute="bottom" id="8Q1-fR-zRW"/>
+                            <constraint firstItem="fHm-w7-QDz" firstAttribute="top" secondItem="Rde-qk-BSw" secondAttribute="top" id="GIh-7e-tf8"/>
+                            <constraint firstItem="fHm-w7-QDz" firstAttribute="trailing" secondItem="Rde-qk-BSw" secondAttribute="trailing" constant="160" id="KWQ-NF-Vjj"/>
+                            <constraint firstItem="fHm-w7-QDz" firstAttribute="top" secondItem="pMF-je-rEd" secondAttribute="top" id="PjR-dn-vmb"/>
+                            <constraint firstItem="fHm-w7-QDz" firstAttribute="leading" secondItem="Rde-qk-BSw" secondAttribute="leading" id="Qxe-fR-cew"/>
+                            <constraint firstItem="Mox-3U-Vfq" firstAttribute="centerX" secondItem="fHm-w7-QDz" secondAttribute="centerX" id="YPv-Hc-acu"/>
+                            <constraint firstItem="fHm-w7-QDz" firstAttribute="leading" secondItem="cj2-Or-hzj" secondAttribute="leading" id="bBA-Uf-tu4"/>
                             <constraint firstAttribute="trailing" secondItem="diA-Bw-nRp" secondAttribute="trailing" constant="20" id="bWu-4a-ilS"/>
                             <constraint firstItem="diA-Bw-nRp" firstAttribute="top" secondItem="iMK-aR-TmQ" secondAttribute="bottom" constant="20" id="clP-bW-o1K"/>
+                            <constraint firstItem="Mox-3U-Vfq" firstAttribute="centerX" secondItem="pMF-je-rEd" secondAttribute="centerX" id="i1u-Oy-KVf"/>
+                            <constraint firstAttribute="bottom" secondItem="fHm-w7-QDz" secondAttribute="bottom" id="jVT-rH-jfd"/>
+                            <constraint firstItem="fHm-w7-QDz" firstAttribute="top" secondItem="cj2-Or-hzj" secondAttribute="top" id="jbd-IS-Zgw"/>
+                            <constraint firstItem="fHm-w7-QDz" firstAttribute="bottom" secondItem="cj2-Or-hzj" secondAttribute="bottom" id="u4Z-Qv-D7Z"/>
+                            <constraint firstItem="fHm-w7-QDz" firstAttribute="leading" secondItem="pMF-je-rEd" secondAttribute="leading" id="v51-ao-de3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2oT-74-Teg"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="blurView" destination="cj2-Or-hzj" id="ljk-fS-Uin"/>
                         <outlet property="playOrPauseButton" destination="Mox-3U-Vfq" id="Vht-eR-zF5"/>
+                        <outlet property="scrollView" destination="Rde-qk-BSw" id="HV6-gb-DQ3"/>
                         <outlet property="tableView" destination="fHm-w7-QDz" id="B6o-Lk-xWT"/>
                     </connections>
                 </viewController>

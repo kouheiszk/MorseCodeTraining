@@ -25,6 +25,7 @@
 		48129806189C9E1500438DAB /* repeat_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481297F6189C9E1500438DAB /* repeat_fill@2x.png */; };
 		48129807189C9E1500438DAB /* repeat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 481297F7189C9E1500438DAB /* repeat@2x.png */; };
 		4812980A189D290F00438DAB /* MCTSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 48129809189D290F00438DAB /* MCTSoundManager.m */; };
+		4882C0EF190D4FE5009BBE3E /* MCTHorizontalScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4882C0EE190D4FE5009BBE3E /* MCTHorizontalScrollView.m */; };
 		4884443118A77AFA00F8C82B /* MCTSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4884443018A77AFA00F8C82B /* MCTSwitchTableViewCell.m */; };
 		4884443318A77C5500F8C82B /* MCTSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4884443218A77C5500F8C82B /* MCTSwitchTableViewCell.xib */; };
 		4884443A18A7865300F8C82B /* MCTEnableCharacterSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4884443918A7865300F8C82B /* MCTEnableCharacterSettingViewController.m */; };
@@ -93,6 +94,8 @@
 		481297F7189C9E1500438DAB /* repeat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "repeat@2x.png"; path = "Resources/Images/icons/repeat@2x.png"; sourceTree = "<group>"; };
 		48129808189D290F00438DAB /* MCTSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTSoundManager.h; sourceTree = "<group>"; };
 		48129809189D290F00438DAB /* MCTSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTSoundManager.m; sourceTree = "<group>"; };
+		4882C0ED190D4FE5009BBE3E /* MCTHorizontalScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTHorizontalScrollView.h; sourceTree = "<group>"; };
+		4882C0EE190D4FE5009BBE3E /* MCTHorizontalScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTHorizontalScrollView.m; sourceTree = "<group>"; };
 		4884442F18A77AFA00F8C82B /* MCTSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTSwitchTableViewCell.h; sourceTree = "<group>"; };
 		4884443018A77AFA00F8C82B /* MCTSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTSwitchTableViewCell.m; sourceTree = "<group>"; };
 		4884443218A77C5500F8C82B /* MCTSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTSwitchTableViewCell.xib; sourceTree = "<group>"; };
@@ -178,9 +181,19 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		4882C0F0190D58E4009BBE3E /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				4882C0ED190D4FE5009BBE3E /* MCTHorizontalScrollView.h */,
+				4882C0EE190D4FE5009BBE3E /* MCTHorizontalScrollView.m */,
+			);
+			name = ScrollView;
+			sourceTree = "<group>";
+		};
 		4884442E18A77A5600F8C82B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4882C0F0190D58E4009BBE3E /* ScrollView */,
 				48F5835F18EFFA7200F93E5E /* TableViewCell */,
 			);
 			name = View;
@@ -560,6 +573,7 @@
 				48F5834E18EC587800F93E5E /* NSUserDefaults+MCTAdditions.m in Sources */,
 				48F5834418E6CE7E00F93E5E /* MCTMorseCodeCharacterModel.m in Sources */,
 				4884443A18A7865300F8C82B /* MCTEnableCharacterSettingViewController.m in Sources */,
+				4882C0EF190D4FE5009BBE3E /* MCTHorizontalScrollView.m in Sources */,
 				4884443118A77AFA00F8C82B /* MCTSwitchTableViewCell.m in Sources */,
 				48F5835D18EFFA6400F93E5E /* MCTPickerDecideTableViewCell.m in Sources */,
 				48F5835118EDA98600F93E5E /* MCTPickSettingViewController.m in Sources */,
